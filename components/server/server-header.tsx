@@ -20,21 +20,21 @@ import { useRouter } from 'next/navigation';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
-  user: User;
+  // user: User;
 }
 
 export const ServerHeader: React.FC<ServerHeaderProps> = ({
   currentUser,
-  user,
+  // user,
 }) => {
   const { onOpen } = useModal();
 
   const router = useRouter();
 
-  const onAction = (e: React.MouseEvent, action: ModalType) => {
-    e.stopPropagation();
-    onOpen(action, { user });
-  };
+  // const onAction = (e: React.MouseEvent, action: ModalType) => {
+  //   e.stopPropagation();
+  //   onOpen(action, { user });
+  // };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
@@ -67,7 +67,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               // onClick={() => onOpen('editUser')}
-              onClick={(e) => onAction(e, 'editUser')}
+              onClick={() => 'editUser'}
             >
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
@@ -92,7 +92,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={(e) => onAction(e, 'editUser')}
+              onClick={() => 'editUser'}
             >
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>

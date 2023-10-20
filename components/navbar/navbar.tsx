@@ -11,8 +11,8 @@ import { ModeToggle } from '@/components/mode-toggle';
 import NavbarMenuItem from '@/components/navbar/navbar-menuitem';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '../ui/separator';
-// import UserMenu from './navbar-usermenu';
 import { ServerHeader } from '../server/server-header';
+// import UserMenu from './navbar-usermenu';
 
 const TOP_OFFSET = 66;
 
