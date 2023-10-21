@@ -1,0 +1,27 @@
+import { NextResponse } from 'next/server';
+
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import prisma from '@/lib/prismadb';
+
+export async function POST(req: Request) {
+  try {
+    const { name } = await req.json();
+    const profile = await getCurrentUser();
+
+    if (!profile) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
+
+    const server = await prisma.server.create({
+      data: {
+        userId: profile.id,
+        name,
+      },
+    });
+
+    return NextResponse.json(server);
+  } catch (error) {
+    console.log('[SERVERS_POST]', error);
+    return new NextResponse('Internal Error', { status: 500 });
+  }
+}

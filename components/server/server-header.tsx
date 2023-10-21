@@ -8,33 +8,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ModalType, useModal } from '@/hooks/use-modal-store';
+import { useModal } from '@/hooks/use-modal-store';
 import { SafeUser } from '@/app/types';
 import { UserAvatar } from '../user-avatar';
 import { Separator } from '../ui/separator';
 import { signOut } from 'next-auth/react';
 import { GiSkills } from 'react-icons/gi';
 import { AiOutlineProfile } from 'react-icons/ai';
-import { User } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
-  // user: User;
 }
 
-export const ServerHeader: React.FC<ServerHeaderProps> = ({
-  currentUser,
-  // user,
-}) => {
+export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
   const { onOpen } = useModal();
 
   const router = useRouter();
-
-  // const onAction = (e: React.MouseEvent, action: ModalType) => {
-  //   e.stopPropagation();
-  //   onOpen(action, { user });
-  // };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
@@ -92,7 +82,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => 'editUser'}
+              onClick={() => onOpen('editUser')}
             >
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
