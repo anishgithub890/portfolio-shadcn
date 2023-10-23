@@ -1,7 +1,12 @@
 'use client';
 
-import { LayoutDashboard, LogIn, LogOut, PlusCircle } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import {
+  LayoutDashboard,
+  LogIn,
+  LogOut,
+  PlusCircle,
+  Store,
+} from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,11 +34,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
   const router = useRouter();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  // const [isOpen, setIsOpen] = useState(true);
-
-  // const toggleOpen = useCallback(() => {
-  //   setIsOpen((value) => !value);
-  // }, []);
 
   return (
     <DropdownMenu>
@@ -94,8 +94,8 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => onOpen('createStore')}
             >
-              <AiOutlineProfile className="mr-2 h-4 w-4" />
-              <span>Profile</span>
+              <Store className="mr-2 h-4 w-4" />
+              <span>Store</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"

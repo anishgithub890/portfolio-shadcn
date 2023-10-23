@@ -51,12 +51,26 @@ model Account {
 model Store {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   name String
-
+  userId String @db.ObjectId
+  billboards Billboard[] @relation("StoreToBillboard")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
-  userId String @db.ObjectId
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
 
-  @@index([userId])
+
+model Billboard {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  label       String
+  imageUrl    String
+  storeId     String @db.ObjectId
+  store       Store @relation("StoreToBillboard", fields: [storeId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // userId String @db.ObjectId
+  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([storeId])
 }

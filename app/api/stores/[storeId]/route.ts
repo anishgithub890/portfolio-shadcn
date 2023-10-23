@@ -8,16 +8,16 @@ export async function DELETE(
   { params }: { params: { serverId: string } }
 ) {
   try {
-    const profile = await getCurrentUser();
+    const currentUser = await getCurrentUser();
 
-    if (!profile) {
+    if (!currentUser) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
     const store = await prisma.store.deleteMany({
       where: {
         id: params.serverId,
-        userId: profile.id,
+        userId: currentUser.id,
       },
     });
 
@@ -33,17 +33,17 @@ export async function PATCH(
   { params }: { params: { serverId: string } }
 ) {
   try {
-    const profile = await getCurrentUser();
+    const currentUser = await getCurrentUser();
     const { name } = await req.json();
 
-    if (!profile) {
+    if (!currentUser) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
     const store = await prisma.store.updateMany({
       where: {
         id: params.serverId,
-        userId: profile.id,
+        userId: currentUser.id,
       },
       data: {
         name,

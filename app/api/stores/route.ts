@@ -6,15 +6,15 @@ import prisma from '@/lib/prismadb';
 export async function POST(req: Request) {
   try {
     const { name } = await req.json();
-    const profile = await getCurrentUser();
+    const currentUser = await getCurrentUser();
 
-    if (!profile) {
+    if (!currentUser) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
     const store = await prisma.store.create({
       data: {
-        userId: profile.id,
+        userId: currentUser.id,
         name,
       },
     });

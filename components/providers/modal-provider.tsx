@@ -7,6 +7,7 @@ import { EditProfileModal } from '../modals/edit-register-modal';
 import { CreateStoreModal } from '../modals/create-store-modal';
 import LoginModal from '../modals/login-modal';
 import RegisterModal from '../modals/register-modal';
+import { StoreModal } from '../modals/store-modal';
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -27,6 +28,7 @@ export const ModalProvider = () => {
       <EditProfileModal />
       <LoginModal />
       <RegisterModal />
+      <StoreModal />
     </>
   );
 };
