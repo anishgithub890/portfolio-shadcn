@@ -20,11 +20,12 @@ model User {
   emailVerified   DateTime?
   hashedPassword  String
   role            String  @default("user") // user, admin
+  
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
   accounts Account[]
-  servers Server[]
+  stores Store[]
   
 }
 
@@ -47,16 +48,15 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Server {
+model Store {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   name String
 
-  userId String @db.ObjectId
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
