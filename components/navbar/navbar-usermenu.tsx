@@ -46,7 +46,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           transition
         "
         >
-          <UserAvatar src={currentUser?.image} />
+          <UserAvatar src={currentUser?.imageUrl} />
         </div>
       </div>
       {!isOpen && (

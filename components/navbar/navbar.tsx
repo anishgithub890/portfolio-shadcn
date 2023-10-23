@@ -12,6 +12,7 @@ import NavbarMenuItem from '@/components/navbar/navbar-menuitem';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '../ui/separator';
 import { ServerHeader } from '../server/server-header';
+import UserMenu from './navbar-usermenu';
 // import UserMenu from './navbar-usermenu';
 
 const TOP_OFFSET = 66;

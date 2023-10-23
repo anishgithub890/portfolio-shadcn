@@ -1,11 +1,13 @@
-import { User } from '@prisma/client';
+import { User, Server } from '@prisma/client';
 import { create } from 'zustand';
 
 export type ModalType =
   | 'createUser'
   | 'createSkill'
+  | 'createServer'
   | 'login'
   | 'editUser'
+  | 'editServer'
   | 'editSkill'
   | 'deleteUser'
   | 'deleteSkill'
@@ -13,6 +15,7 @@ export type ModalType =
   | 'deleteMessage';
 
 interface ModalData {
+  server?: Server;
   user?: User;
   apiUrl?: string;
   query?: Record<string, any>;

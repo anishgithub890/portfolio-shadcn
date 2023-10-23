@@ -1,7 +1,7 @@
 'use client';
 
 import { LayoutDashboard, LogIn, LogOut, PlusCircle } from 'lucide-react';
-
+import { useCallback, useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +16,8 @@ import { signOut } from 'next-auth/react';
 import { GiSkills } from 'react-icons/gi';
 import { AiOutlineProfile } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
+import useRegisterModal from '@/hooks/useRegisterModal';
+import useLoginModal from '@/hooks/useLoginModal';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
@@ -25,6 +27,14 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
   const { onOpen } = useModal();
 
   const router = useRouter();
+  const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
+  // const [isOpen, setIsOpen] = useState(true);
+
+  // const toggleOpen = useCallback(() => {
+  //   setIsOpen((value) => !value);
+  // }, []);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
@@ -82,10 +92,17 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => onOpen('editUser')}
+              onClick={() => onOpen('createServer')}
             >
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => onOpen('editServer')}
+            >
+              <AiOutlineProfile className="mr-2 h-4 w-4" />
+              <span>Edit Server</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
@@ -106,14 +123,14 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
         ) : (
           <>
             <DropdownMenuItem
-              onClick={() => onOpen('login')}
+              onClick={loginModal.onOpen}
               className="px-3 py-2 text-sm cursor-pointer"
             >
               Log in
               <LogIn className="h-4 w-4 ml-auto" />
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={() => onOpen('createUser')}
+              onClick={registerModal.onOpen}
               className="px-3 py-2 text-sm cursor-pointer"
             >
               Sign Up
