@@ -25,7 +25,7 @@ model User {
   updatedAt       DateTime @updatedAt
 
   accounts Account[]
-  stores Store[]
+  billboards Billboard[]
   
 }
 
@@ -48,29 +48,15 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Store {
+model Billboard {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+  label String
+  imageUrl String
+
   userId String @db.ObjectId
-  billboards Billboard[] @relation("StoreToBillboard")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-
-model Billboard {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  label       String
-  imageUrl    String
-  storeId     String @db.ObjectId
-  store       Store @relation("StoreToBillboard", fields: [storeId], references: [id])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  // userId String @db.ObjectId
-  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([storeId])
 }

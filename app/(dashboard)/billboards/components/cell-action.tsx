@@ -31,7 +31,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params?.storeId}/billboards/${data.id}`);
+      await axios.delete(`/api/billboards/${data.id}`);
       toast.success('Billboard deleted.');
       router.refresh();
     } catch (error) {
@@ -70,9 +70,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() =>
-              router.push(`/${params?.storeId}/billboards/${data.id}`)
-            }
+            onClick={() => router.push(`/billboards/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

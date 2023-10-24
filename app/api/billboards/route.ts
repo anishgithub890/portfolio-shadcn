@@ -3,10 +3,7 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 
 import prisma from '@/lib/prismadb';
 
-export async function POST(
-  req: Request,
-  { params }: { params: { storeId: string } }
-) {
+export async function POST(req: Request) {
   try {
     const currentUser = await getCurrentUser();
 
@@ -26,26 +23,11 @@ export async function POST(
       return new NextResponse('Image URL is required', { status: 400 });
     }
 
-    if (!params.storeId) {
-      return new NextResponse('Store id is required', { status: 400 });
-    }
-
-    const storeByUserId = await prisma.store.findFirst({
-      where: {
-        userId: currentUser.id,
-        // id: params.storeId,
-      },
-    });
-
-    if (!storeByUserId) {
-      return new NextResponse('Unauthorized', { status: 405 });
-    }
-
     const billboard = await prisma.billboard.create({
       data: {
+        userId: currentUser.id,
         label,
         imageUrl,
-        storeId: params.storeId,
       },
     });
 
@@ -58,16 +40,16 @@ export async function POST(
 
 export async function GET(
   req: Request,
-  { params }: { params: { storeId: string } }
+  { params }: { params: { userId: string } }
 ) {
   try {
-    if (!params.storeId) {
+    if (!params.userId) {
       return new NextResponse('Store id is required', { status: 400 });
     }
 
     const billboards = await prisma.billboard.findMany({
       where: {
-        storeId: params.storeId,
+        userId: params.userId,
       },
     });
 
