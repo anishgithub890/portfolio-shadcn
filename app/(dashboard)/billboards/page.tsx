@@ -1,15 +1,12 @@
 import { format } from 'date-fns';
 
-import prismadb from '@/lib/prismadb';
+import prisma from '@/lib/prismadb';
 
 import { BillboardColumn } from './components/columns';
 import { BillboardClient } from './components/client';
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
-  const billboards = await prismadb.billboard.findMany({
-    where: {
-      storeId: params.storeId,
-    },
+  const billboards = await prisma.billboard.findMany({
     orderBy: {
       createdAt: 'desc',
     },

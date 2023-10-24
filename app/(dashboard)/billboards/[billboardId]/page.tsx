@@ -5,11 +5,12 @@ import { BillboardForm } from './components/billboard-form';
 const BillboardPage = async ({
   params,
 }: {
-  params: { billboardId?: string; storeId?: string; userId?: string };
+  params: { billboardId: string; storeId?: string; userId?: string };
 }) => {
   const billboard = await prisma.billboard.findFirst({
     where: {
       id: params.billboardId,
+      // id: params.userId,
       // id: params.storeId,
     },
   });

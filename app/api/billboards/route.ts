@@ -25,9 +25,9 @@ export async function POST(req: Request) {
 
     const billboard = await prisma.billboard.create({
       data: {
-        userId: currentUser.id,
         label,
         imageUrl,
+        userId: currentUser.id,
       },
     });
 
@@ -38,24 +38,24 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(
-  req: Request,
-  { params }: { params: { userId: string } }
-) {
-  try {
-    if (!params.userId) {
-      return new NextResponse('Store id is required', { status: 400 });
-    }
+// export async function GET(
+//   req: Request,
+//   { params }: { params: { userId: string } }
+// ) {
+//   try {
+//     if (!params.userId) {
+//       return new NextResponse('Store id is required', { status: 400 });
+//     }
 
-    const billboards = await prisma.billboard.findMany({
-      where: {
-        userId: params.userId,
-      },
-    });
+//     const billboards = await prisma.billboard.findMany({
+//       where: {
+//         userId: params.userId,
+//       },
+//     });
 
-    return NextResponse.json(billboards);
-  } catch (error) {
-    console.log('[BILLBOARDS_GET]', error);
-    return new NextResponse('Internal error', { status: 500 });
-  }
-}
+//     return NextResponse.json(billboards);
+//   } catch (error) {
+//     console.log('[BILLBOARDS_GET]', error);
+//     return new NextResponse('Internal error', { status: 500 });
+//   }
+// }
