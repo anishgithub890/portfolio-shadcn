@@ -10,7 +10,7 @@ const Logo = () => {
     <div className="flex-row cursor-pointer">
       <MotionLink
         href="/"
-        className="w-10 h-10 pl-[6px] bg-black text-white flex items-center rounded-full text-base font-bold"
+        className="w-10 h-10 pl-[7px] bg-black text-white flex items-center rounded-full text-base font-bold"
         whileHover={{
           scale: 1.1,
           backgroundColor: [
