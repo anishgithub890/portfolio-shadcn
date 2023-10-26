@@ -10,6 +10,7 @@ const BillboardPage = async ({
   const billboard = await prisma.billboard.findFirst({
     where: {
       id: params.billboardId,
+      // userId: params.userId,
       // id: params.userId,
       // id: params.storeId,
     },

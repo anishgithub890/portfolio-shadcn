@@ -104,7 +104,7 @@ const RegisterModal = () => {
           font-light
         "
       >
-        <p className="dark:text-white">
+        <p className="dark:text-zinc-800">
           Already have an account?
           <span
             onClick={onToggle}
@@ -112,7 +112,7 @@ const RegisterModal = () => {
               text-neutral-800
               cursor-pointer
               hover:underline
-              dark:text-white
+              dark:text-zinc-800
             "
           >
             Log in

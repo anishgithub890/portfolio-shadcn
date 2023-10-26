@@ -95,7 +95,7 @@ const LoginModal = () => {
         className="
       text-neutral-500 text-center mt-4 font-light"
       >
-        <p className="dark:text-white">
+        <p className="dark:text-zinc-800">
           First time using portfolio?
           <span
             onClick={onToggle}
@@ -103,7 +103,7 @@ const LoginModal = () => {
               text-neutral-800
               cursor-pointer
               hover:underline
-              dark:text-white
+              dark:text-zinc-800
             "
           >
             {' '}
