@@ -1,6 +1,7 @@
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import HomePage from '@/app/(client)/(routes)/home/page';
+
 import Navbar from '@/components/navbar/navbar';
-import HomePage from './(client)/(routes)/home/page';
-import getCurrentUser from './actions/getCurrentUser';
 import ClientOnly from '@/components/client-only';
 
 export default async function Home({

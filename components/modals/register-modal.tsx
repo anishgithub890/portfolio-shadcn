@@ -10,11 +10,11 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useLoginModal from '@/hooks/useLoginModal';
 import useRegisterModal from '@/hooks/useRegisterModal';
 
+import { Separator } from '@/components/ui/separator';
 import Modal from '@/components/modals/modals-modal';
 import Heading from '@/components/heading';
 import Input from '@/components/inputs/input';
-import { Separator } from '@/components/ui/separator';
-import CustomeButton from '../custome-button';
+import CustomeButton from '@/components/custome-button';
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();

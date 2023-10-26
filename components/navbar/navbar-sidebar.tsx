@@ -1,14 +1,14 @@
 'use client';
 
-import { ImageIcon, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { AiFillProject } from 'react-icons/ai';
 import { GiSkills } from 'react-icons/gi';
 import Link from 'next/link';
+
 import { Montserrat } from 'next/font/google';
-
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 
+import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });

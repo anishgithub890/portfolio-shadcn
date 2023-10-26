@@ -1,8 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
-import CustomeButton from '../custome-button';
+import { useCallback, useEffect, useState } from 'react';
+
+import CustomeButton from '@/components/custome-button';
 
 interface ModalProps {
   isOpen?: boolean;

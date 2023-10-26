@@ -3,8 +3,11 @@
 import qs from 'query-string';
 import axios from 'axios';
 import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
+import { useParams, useRouter } from 'next/navigation';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import {
   Dialog,
@@ -23,12 +26,9 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useParams, useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
-import { Separator } from '../ui/separator';
-import CustomeButton from '../custome-button';
+import { Separator } from '@/components/ui/separator';
 import { useModal } from '@/hooks/use-modal-store';
-import { useEffect } from 'react';
+import CustomeButton from '@/components/custome-button';
 
 const formSchema = z.object({
   name: z.string().min(1, {

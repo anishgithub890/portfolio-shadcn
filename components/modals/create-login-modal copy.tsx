@@ -6,10 +6,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { useParams, useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal-store';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams, useRouter } from 'next/navigation';
 
 import {
   Dialog,
@@ -28,7 +28,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Separator } from '../ui/separator';
+import { Separator } from '@/components/ui/separator';
 import CustomeButton from '@/components/custome-button';
 
 const formSchema = z.object({

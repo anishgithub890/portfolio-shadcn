@@ -1,5 +1,10 @@
 'use client';
 
+import { GiSkills } from 'react-icons/gi';
+import { AiOutlineProfile } from 'react-icons/ai';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { SafeUser } from '@/app/types';
 import {
   LayoutDashboard,
   LogIn,
@@ -13,14 +18,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { UserAvatar } from '@/components/user-avatar';
+import { Separator } from '@/components/ui/separator';
+
 import { useModal } from '@/hooks/use-modal-store';
-import { SafeUser } from '@/app/types';
-import { UserAvatar } from '../user-avatar';
-import { Separator } from '../ui/separator';
-import { signOut } from 'next-auth/react';
-import { GiSkills } from 'react-icons/gi';
-import { AiOutlineProfile } from 'react-icons/ai';
-import { useRouter } from 'next/navigation';
 import useRegisterModal from '@/hooks/useRegisterModal';
 import useLoginModal from '@/hooks/useLoginModal';
 

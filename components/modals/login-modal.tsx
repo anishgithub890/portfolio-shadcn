@@ -10,11 +10,11 @@ import { useRouter } from 'next/navigation';
 import useRegisterModal from '@/hooks/useRegisterModal';
 import useLoginModal from '@/hooks/useLoginModal';
 
+import { Separator } from '@/components/ui/separator';
 import Modal from '@/components/modals/modals-modal';
 import Heading from '@/components/heading';
 import Input from '@/components/inputs/input';
-import { Separator } from '@/components/ui/separator';
-import CustomeButton from '../custome-button';
+import CustomeButton from '@/components/custome-button';
 
 const LoginModal = () => {
   const router = useRouter();

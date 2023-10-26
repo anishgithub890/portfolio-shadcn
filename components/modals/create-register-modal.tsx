@@ -7,6 +7,8 @@ import { FcGoogle } from 'react-icons/fc';
 import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useParams, useRouter } from 'next/navigation';
 
 import {
   Dialog,
@@ -25,11 +27,9 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useParams, useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
-import { Separator } from '../ui/separator';
-import CustomeButton from '../custome-button';
+import { Separator } from '@/components/ui/separator';
 import { useModal } from '@/hooks/use-modal-store';
+import CustomeButton from '@/components/custome-button';
 
 const formSchema = z.object({
   name: z.string().min(1, {
