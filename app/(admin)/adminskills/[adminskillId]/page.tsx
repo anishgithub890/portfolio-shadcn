@@ -1,9 +1,9 @@
 import prisma from '@/lib/prismadb';
 
-import { SkillForm } from './components/billboard-form';
+import { SkillForm } from './components/skill-form';
 import Container from '@/components/container';
 
-const BillboardPage = async ({
+const AdminSkillPage = async ({
   params,
 }: {
   params: { adminskillId: string };
@@ -25,4 +25,4 @@ const BillboardPage = async ({
   );
 };
 
-export default BillboardPage;
+export default AdminSkillPage;
