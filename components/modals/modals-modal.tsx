@@ -150,7 +150,10 @@ const Modal: React.FC<ModalProps> = ({
                   "
                   onClick={handleClose}
                 >
-                  <IoMdClose size={18} className="dark:text-zinc-800" />
+                  <IoMdClose
+                    size={18}
+                    className="dark:text-zinc-800 hover:rotate-90 transition"
+                  />
                 </button>
                 <div className="text-lg font-semibold">{title}</div>
               </div>
