@@ -1,4 +1,5 @@
-import { Copy, Server } from 'lucide-react';
+import { useState } from 'react';
+import { Server } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -26,26 +27,43 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
   description,
   variant = 'public',
 }) => {
-  const onCopy = (description: string) => {
+  const initialIcon = (
+    <p className="h-6 w-6 text-zinc-900 font-semibold">copy</p>
+  );
+  const [buttonIcon, setButtonIcon] = useState(initialIcon);
+
+  const onCopy = () => {
+    setButtonIcon(<p className="h-6 w-6 text-zinc-900 font-bold">copied!</p>);
+    setTimeout(() => {
+      setButtonIcon(initialIcon);
+    }, 1000); // 👈 change icon back after 1 second
+
     navigator.clipboard.writeText(description);
-    toast.success('API Route copied to clipboard.');
+    toast.success('API Route copied to the clipboard');
   };
 
   return (
-    <Alert>
-      <Server className="h-4 w-4" />
-      <AlertTitle className="flex items-center gap-x-2">
-        {title}
-        <Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
-      </AlertTitle>
-      <AlertDescription className="mt-4 flex items-center justify-between">
-        <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-          {description}
-        </code>
-        <Button variant="outline" size="sm" onClick={() => onCopy(description)}>
-          <Copy className="h-4 w-4" />
-        </Button>
-      </AlertDescription>
-    </Alert>
+    <>
+      <Alert>
+        <Server className="h-4 w-4" />
+        <AlertTitle className="flex items-center gap-x-2">
+          {title}
+          <Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
+        </AlertTitle>
+        <AlertDescription className="mt-4 flex items-center justify-between">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+            {description}
+          </code>
+          <Button
+            className="flex pl-2"
+            variant="outline"
+            size="lg"
+            onClick={onCopy}
+          >
+            {buttonIcon}
+          </Button>
+        </AlertDescription>
+      </Alert>
+    </>
   );
 };
