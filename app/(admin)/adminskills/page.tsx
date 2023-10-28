@@ -4,8 +4,9 @@ import prisma from '@/lib/prismadb';
 
 import { SkillColumn } from './components/columns';
 import { SkillClient } from './components/client';
+import Container from '@/components/container';
 
-const AdminSkillsPage = async ({ params }: { params: { storeId: string } }) => {
+const AdminSkillsPage = async () => {
   const skills = await prisma.skill.findMany({
     orderBy: {
       createdAt: 'desc',
@@ -20,9 +21,11 @@ const AdminSkillsPage = async ({ params }: { params: { storeId: string } }) => {
 
   return (
     <div className="flex-col pt-14">
-      <div className="flex-1 space-y-4 p-8 pt-6">
-        <SkillClient data={formattedSkills} />
-      </div>
+      <Container>
+        <div className="flex-1 space-y-4 p-8 pt-6">
+          <SkillClient data={formattedSkills} />
+        </div>
+      </Container>
     </div>
   );
 };

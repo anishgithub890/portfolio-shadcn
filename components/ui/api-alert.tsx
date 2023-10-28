@@ -28,12 +28,14 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
   variant = 'public',
 }) => {
   const initialIcon = (
-    <p className="h-6 w-6 text-zinc-900 font-semibold">copy</p>
+    <p className="h-6 w-6 text-zinc-900 font-semibold transition">copy</p>
   );
   const [buttonIcon, setButtonIcon] = useState(initialIcon);
 
   const onCopy = () => {
-    setButtonIcon(<p className="h-6 w-6 text-zinc-900 font-bold">copied!</p>);
+    setButtonIcon(
+      <p className="h-6 w-6 text-zinc-900 font-bold transition">copied!</p>
+    );
     setTimeout(() => {
       setButtonIcon(initialIcon);
     }, 1000); // 👈 change icon back after 1 second
@@ -54,12 +56,7 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
             {description}
           </code>
-          <Button
-            className="flex pl-2"
-            variant="outline"
-            size="lg"
-            onClick={onCopy}
-          >
+          <Button className="pl-2" variant="outline" size="lg" onClick={onCopy}>
             {buttonIcon}
           </Button>
         </AlertDescription>
