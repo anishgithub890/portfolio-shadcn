@@ -34,7 +34,7 @@ const AdminSkillsPage = async () => {
           <div>
             <RoleState
               title="OOOPS! ACCESS DENIED"
-              description="Your role has to be admin.!"
+              description="This page not for users....!"
             />
           </div>
         ) : currentUser?.role == 'admin' ? (

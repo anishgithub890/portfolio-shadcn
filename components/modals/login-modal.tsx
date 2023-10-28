@@ -11,8 +11,8 @@ import useRegisterModal from '@/hooks/useRegisterModal';
 import useLoginModal from '@/hooks/useLoginModal';
 
 import { Separator } from '@/components/ui/separator';
+import { Heading } from '@/components/ui/heading';
 import Modal from '@/components/modals/modals-modal';
-import Heading from '@/components/heading';
 import Input from '@/components/inputs/input';
 import CustomeButton from '@/components/custome-button';
 
@@ -61,7 +61,7 @@ const LoginModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome back" subtitle="Login to your account!" />
+      <Heading title="Welcome back" description="Login to your account!" />
       <Input
         id="email"
         label="Email"
