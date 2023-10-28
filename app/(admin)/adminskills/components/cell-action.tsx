@@ -16,10 +16,10 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { AlertModal } from '@/components/modals/alert-modal';
 
-import { BillboardColumn } from './columns';
+import { SkillColumn } from './columns';
 
 interface CellActionProps {
-  data: BillboardColumn;
+  data: SkillColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -31,13 +31,11 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/billboards/${data.id}`);
-      toast.success('Billboard deleted.');
+      await axios.delete(`/api/skills/${data.id}`);
+      toast.success('Skill deleted.');
       router.refresh();
     } catch (error) {
-      toast.error(
-        'Make sure you removed all categories using this billboard first.'
-      );
+      toast.error('Make sure you removed all skills.');
     } finally {
       setOpen(false);
       setLoading(false);
@@ -46,7 +44,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Billboard ID copied to clipboard.');
+    toast.success('Skill ID copied to clipboard.');
   };
 
   return (
@@ -70,7 +68,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/billboards/${data.id}`)}
+            onClick={() => router.push(`/adminskills/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

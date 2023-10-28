@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       return new NextResponse('Image URL is required', { status: 400 });
     }
 
-    const billboard = await prisma.billboard.create({
+    const skill = await prisma.skill.create({
       data: {
         label,
         imageUrl,
@@ -31,31 +31,9 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(billboard);
+    return NextResponse.json(skill);
   } catch (error) {
-    console.log('[BILLBOARDS_POST]', error);
+    console.log('[SKILLS_POST]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 }
-
-// export async function GET(
-//   req: Request,
-//   { params }: { params: { userId: string } }
-// ) {
-//   try {
-//     if (!params.userId) {
-//       return new NextResponse('Store id is required', { status: 400 });
-//     }
-
-//     const billboards = await prisma.billboard.findMany({
-//       where: {
-//         userId: params.userId,
-//       },
-//     });
-
-//     return NextResponse.json(billboards);
-//   } catch (error) {
-//     console.log('[BILLBOARDS_GET]', error);
-//     return new NextResponse('Internal error', { status: 500 });
-//   }
-// }

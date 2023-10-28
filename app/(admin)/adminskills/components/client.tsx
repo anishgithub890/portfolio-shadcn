@@ -9,13 +9,13 @@ import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
-import { columns, BillboardColumn } from './columns';
+import { columns, SkillColumn } from './columns';
 
-interface BillboardClientProps {
-  data: BillboardColumn[];
+interface SkillClientProps {
+  data: SkillColumn[];
 }
 
-export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
+export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
   const params = useParams();
   const router = useRouter();
 
@@ -23,18 +23,18 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Billboards (${data.length})`}
-          description="Manage billboards for your store"
+          title={`Skills (${data.length})`}
+          description="Manage skills for your portfolio"
         />
-        <Button onClick={() => router.push(`/billboards/new`)}>
+        <Button onClick={() => router.push(`/adminskills/new`)}>
           <Plus className="mr-2 h-4 w-4" /> Add New
         </Button>
       </div>
       <Separator />
       <DataTable searchKey="label" columns={columns} data={data} />
-      <Heading title="API" description="API Calls for Billboards" />
+      <Heading title="API" description="API Calls for Skills" />
       <Separator />
-      <ApiList entityName="billboards" entityIdName="billboardId" />
+      <ApiList entityName="skills" entityIdName="skillId" />
     </>
   );
 };

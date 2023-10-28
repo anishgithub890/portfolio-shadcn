@@ -107,7 +107,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => router.push('/billboards')}
+              onClick={() => router.push('/adminskills')}
             >
               <GiSkills className="mr-2 h-4 w-4" />
               <span>Create Skill</span>

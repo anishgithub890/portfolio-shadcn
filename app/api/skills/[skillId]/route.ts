@@ -5,29 +5,29 @@ import prismadb from '@/lib/prismadb';
 
 export async function GET(
   req: Request,
-  { params }: { params: { billboardId: string } }
+  { params }: { params: { skillId: string } }
 ) {
   try {
-    if (!params.billboardId) {
-      return new NextResponse('Billboard id is required', { status: 400 });
+    if (!params.skillId) {
+      return new NextResponse('Skill id is required', { status: 400 });
     }
 
-    const billboard = await prismadb.billboard.findUnique({
+    const skill = await prismadb.skill.findUnique({
       where: {
-        id: params.billboardId,
+        id: params.skillId,
       },
     });
 
-    return NextResponse.json(billboard);
+    return NextResponse.json(skill);
   } catch (error) {
-    console.log('[BILLBOARD_GET]', error);
+    console.log('[SKILL_GET]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 }
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { billboardId: string; storeId: string } }
+  { params }: { params: { skillId: string } }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -36,26 +36,26 @@ export async function DELETE(
       return new NextResponse('Unauthenticated', { status: 403 });
     }
 
-    if (!params.billboardId) {
-      return new NextResponse('Billboard id is required', { status: 400 });
+    if (!params.skillId) {
+      return new NextResponse('Skill id is required', { status: 400 });
     }
 
-    const billboard = await prismadb.billboard.delete({
+    const skill = await prismadb.skill.delete({
       where: {
-        id: params.billboardId,
+        id: params.skillId,
       },
     });
 
-    return NextResponse.json(billboard);
+    return NextResponse.json(skill);
   } catch (error) {
-    console.log('[BILLBOARD_DELETE]', error);
+    console.log('[SKILL_DELETE]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 }
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { billboardId: string; storeId: string } }
+  { params }: { params: { skillId: string } }
 ) {
   try {
     const currentUser = await getCurrentUser();
@@ -76,24 +76,13 @@ export async function PATCH(
       return new NextResponse('Image URL is required', { status: 400 });
     }
 
-    if (!params.billboardId) {
-      return new NextResponse('Billboard id is required', { status: 400 });
+    if (!params.skillId) {
+      return new NextResponse('Skill id is required', { status: 400 });
     }
 
-    // const storeByUserId = await prismadb.store.findFirst({
-    //   where: {
-    //     // id: params.storeId,
-    //     userId: currentUser.id,
-    //   },
-    // });
-
-    // if (!storeByUserId) {
-    //   return new NextResponse('Unauthorized', { status: 405 });
-    // }
-
-    const billboard = await prismadb.billboard.update({
+    const skill = await prismadb.skill.update({
       where: {
-        id: params.billboardId,
+        id: params.skillId,
       },
       data: {
         label,
@@ -101,9 +90,9 @@ export async function PATCH(
       },
     });
 
-    return NextResponse.json(billboard);
+    return NextResponse.json(skill);
   } catch (error) {
-    console.log('[BILLBOARD_PATCH]', error);
+    console.log('[SKILL_PATCH]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 }

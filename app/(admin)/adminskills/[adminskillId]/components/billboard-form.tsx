@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Trash } from 'lucide-react';
-import { Billboard } from '@prisma/client';
+import { Skill } from '@prisma/client';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Input } from '@/components/ui/input';
@@ -30,29 +30,25 @@ const formSchema = z.object({
   imageUrl: z.string().min(1),
 });
 
-type BillboardFormValues = z.infer<typeof formSchema>;
+type SkillFormValues = z.infer<typeof formSchema>;
 
-interface BillboardFormProps {
-  initialData?: Billboard | null;
+interface SkillFormProps {
+  initialData?: Skill | null;
 }
 
-export const BillboardForm: React.FC<BillboardFormProps> = ({
-  initialData,
-}) => {
+export const SkillForm: React.FC<SkillFormProps> = ({ initialData }) => {
   const params = useParams();
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit billboard' : 'Create billboard';
-  const description = initialData ? 'Edit a billboard.' : 'Add a new billboard';
-  const toastMessage = initialData
-    ? 'Billboard updated.'
-    : 'Billboard created.';
+  const title = initialData ? 'Edit skill' : 'Create skill';
+  const description = initialData ? 'Edit a skill.' : 'Add a new skill';
+  const toastMessage = initialData ? 'Skill updated.' : 'Skill created.';
   const action = initialData ? 'Save changes' : 'Create';
 
-  const form = useForm<BillboardFormValues>({
+  const form = useForm<SkillFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       label: '',
@@ -60,16 +56,16 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     },
   });
 
-  const onSubmit = async (data: BillboardFormValues) => {
+  const onSubmit = async (data: SkillFormValues) => {
     try {
       setLoading(true);
       if (initialData) {
-        await axios.patch(`/api/billboards/${params?.billboardId}`, data);
+        await axios.patch(`/api/skills/${params?.adminskillId}`, data);
       } else {
-        await axios.post(`/api/billboards`, data);
+        await axios.post(`/api/skills`, data);
       }
       router.refresh();
-      router.push(`/billboards`);
+      router.push(`/adminskills`);
       toast.success(toastMessage);
     } catch (error: any) {
       toast.error('Something went wrong.');
@@ -81,14 +77,12 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/billboards/${params?.billboardId}`);
+      await axios.delete(`/api/skills/${params?.adminskillId}`);
       router.refresh();
-      router.push(`/billboards`);
-      toast.success('Billboard deleted.');
+      router.push(`/adminskills`);
+      toast.success('Skill deleted.');
     } catch (error: any) {
-      toast.error(
-        'Make sure you removed all categories using this billboard first.'
-      );
+      toast.error('Make sure you removed all skill.');
     } finally {
       setLoading(false);
       setOpen(false);
@@ -127,7 +121,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Background image</FormLabel>
+                <FormLabel>Skill image</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value ? [field.value] : []}
@@ -146,11 +140,11 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
               name="label"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Label</FormLabel>
+                  <FormLabel>Skill Label</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Billboard label"
+                      placeholder="skill name"
                       {...field}
                     />
                   </FormControl>

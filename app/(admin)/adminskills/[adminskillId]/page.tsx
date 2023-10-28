@@ -1,15 +1,15 @@
 import prisma from '@/lib/prismadb';
 
-import { BillboardForm } from './components/billboard-form';
+import { SkillForm } from './components/billboard-form';
 
 const BillboardPage = async ({
   params,
 }: {
-  params: { billboardId: string; storeId?: string; userId?: string };
+  params: { adminskillId: string; storeId?: string; userId?: string };
 }) => {
-  const billboard = await prisma.billboard.findFirst({
+  const skill = await prisma.skill.findFirst({
     where: {
-      id: params.billboardId,
+      id: params.adminskillId,
       // userId: params.userId,
       // id: params.userId,
       // id: params.storeId,
@@ -19,7 +19,7 @@ const BillboardPage = async ({
   return (
     <div className="flex-col pt-14">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <BillboardForm initialData={billboard} />
+        <SkillForm initialData={skill} />
       </div>
     </div>
   );
