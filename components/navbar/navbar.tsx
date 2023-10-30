@@ -60,10 +60,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             flex-row 
             items-center 
             justify-between
-            gap-3
+            gap-2
             md:gap-0
-            pr-5
-            pl-6
+            pr-3
+            pl-3
           "
           >
             <div className="hidden md:block pt-1">

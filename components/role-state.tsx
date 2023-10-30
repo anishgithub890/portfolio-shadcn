@@ -30,7 +30,12 @@ const RoleState: React.FC<RoleStateProps> = ({
         items-center 
       "
     >
-      <Image src="/images/empty.png" alt="empty" width={200} height={200} />
+      <Image
+        src="/images/unauthorized.png"
+        alt="unauthorized"
+        width={300}
+        height={300}
+      />
       <Heading center title={title} description={description} />
       <div className="w-48 mt-4">
         {showReset && (
