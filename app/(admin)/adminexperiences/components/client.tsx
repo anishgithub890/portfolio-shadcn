@@ -9,13 +9,13 @@ import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
-import { columns, SkillColumn } from './columns';
+import { columns, ExperienceColumn } from './columns';
 
-interface SkillClientProps {
-  data: SkillColumn[];
+interface ExperienceClientProps {
+  data: ExperienceColumn[];
 }
 
-export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
+export const ExperienceClient: React.FC<ExperienceClientProps> = ({ data }) => {
   // const params = useParams();
   const router = useRouter();
 
@@ -23,18 +23,18 @@ export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Skills (${data.length})`}
-          description="Manage skills for your portfolio"
+          title={`Experience (${data.length})`}
+          description="Manage experience for your portfolio"
         />
-        <Button onClick={() => router.push(`/adminskills/new`)}>
+        <Button onClick={() => router.push(`/adminexperiences/new`)}>
           <Plus className="mr-2 h-4 w-4" /> Add New
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="label" columns={columns} data={data} />
-      <Heading title="API" description="API Calls for Skills" />
+      <DataTable searchKey="language" columns={columns} data={data} />
+      <Heading title="API" description="API Calls for Experiences" />
       <Separator />
-      <ApiList entityName="skills" entityIdName="skillId" />
+      <ApiList entityName="experiences" entityIdName="experienceId" />
     </>
   );
 };
