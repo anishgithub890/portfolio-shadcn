@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,10 +24,11 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Heading } from '@/components/ui/heading';
 import { AlertModal } from '@/components/modals/alert-modal';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const formSchema = z.object({
   year: z.string().min(1, {
-    message: 'year name is required',
+    message: 'year is required',
   }),
   language: z.string().min(1, {
     message: 'language name is required',
@@ -34,6 +36,8 @@ const formSchema = z.object({
   description: z.string().min(1, {
     message: 'description name is required',
   }),
+  isFeatured: z.boolean().default(false).optional(),
+  isArchived: z.boolean().default(false).optional(),
 });
 
 type ExperienceFormValues = z.infer<typeof formSchema>;
@@ -51,10 +55,10 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit Experience' : 'Create Experience';
+  const title = initialData ? 'Edit experience' : 'Create experience';
   const description = initialData
-    ? 'Edit a Experience.'
-    : 'Add a new Experience';
+    ? 'Edit a experience.'
+    : 'Add a new experience';
   const toastMessage = initialData
     ? 'Experience updated.'
     : 'Experience created.';
@@ -66,6 +70,8 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
       year: '',
       language: '',
       description: '',
+      isFeatured: false,
+      isArchived: false,
     },
   });
 
@@ -138,15 +144,91 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
               name="year"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Experience Label</FormLabel>
+                  <FormLabel>Experience Year</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Experience name"
+                      placeholder="Experience year"
                       {...field}
                     />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="language"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Languager or Framework</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={loading}
+                      placeholder="Framework or language"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Describe your experience</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={loading}
+                      placeholder="description of exprience"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="isFeatured"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      // @ts-ignore
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Featured</FormLabel>
+                    <FormDescription>
+                      This experience will appear on page
+                    </FormDescription>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="isArchived"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      // @ts-ignore
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Archived</FormLabel>
+                    <FormDescription>
+                      This experience will not appear anywhere in the portfolio
+                    </FormDescription>
+                  </div>
                 </FormItem>
               )}
             />
