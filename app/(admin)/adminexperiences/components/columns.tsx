@@ -7,7 +7,7 @@ export type ExperienceColumn = {
   id: string;
   year: string;
   language: string;
-  description: string;
+  // description: string;
   createdAt: string;
 };
 
@@ -20,10 +20,10 @@ export const columns: ColumnDef<ExperienceColumn>[] = [
     accessorKey: 'language',
     header: 'Language',
   },
-  {
-    accessorKey: 'description',
-    header: 'Description',
-  },
+  // {
+  //   accessorKey: 'description',
+  //   header: 'Description',
+  // },
   {
     accessorKey: 'createdAt',
     header: 'Date',
