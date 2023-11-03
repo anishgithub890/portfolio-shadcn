@@ -44,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div
       className={`fixed w-full bg-white dark:bg-zinc-700 z-10 shadow-sm ${
-        showBackground ? 'bg-zinc-200 bg-opacity-90 transition-all' : ''
+        showBackground ? 'bg-zinc-100 bg-opacity-90 transition-all' : ''
       }`}
     >
       <div

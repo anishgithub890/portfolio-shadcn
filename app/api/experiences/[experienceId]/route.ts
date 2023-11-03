@@ -62,7 +62,7 @@ export async function PATCH(
 
     const body = await req.json();
 
-    const { year, language, description } = body;
+    const { year, language, description, isFeatured, isArchived } = body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -92,6 +92,8 @@ export async function PATCH(
         year,
         language,
         description,
+        isFeatured,
+        isArchived,
       },
     });
 
