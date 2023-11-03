@@ -9,13 +9,11 @@ import { Heading } from './ui/heading';
 interface RoleStateProps {
   title?: string;
   description?: string;
-  showReset?: boolean;
 }
 
 const RoleState: React.FC<RoleStateProps> = ({
   title = "OOOPS! It's Empty",
   description = "Looks like you haven't added any data yet...!!!",
-  showReset,
 }) => {
   const router = useRouter();
 
@@ -27,7 +25,8 @@ const RoleState: React.FC<RoleStateProps> = ({
         flex-col 
         gap-2
         justify-center 
-        items-center 
+        items-center
+        pt-[12rem]
       "
     >
       <Image
@@ -38,13 +37,7 @@ const RoleState: React.FC<RoleStateProps> = ({
       />
       <Heading center title={title} description={description} />
       <div className="w-48 mt-4">
-        {showReset && (
-          <CustomeButton
-            outline
-            label="Remove all filters"
-            onClick={() => router.push('/')}
-          />
-        )}
+        <CustomeButton outline label="Home" onClick={() => router.push('/')} />
       </div>
     </div>
   );
