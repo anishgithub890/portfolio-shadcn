@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/ui/data-table';
-import { Heading } from '@/components/ui/heading';
+import { HeadingTheme } from '@/components/ui/heading-theme';
 import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
@@ -22,7 +22,7 @@ export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading
+        <HeadingTheme
           title={`Skills (${data.length})`}
           description="Manage skills for your portfolio"
         />
@@ -32,7 +32,7 @@ export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
       </div>
       <Separator />
       <DataTable searchKey="label" columns={columns} data={data} />
-      <Heading title="API" description="API Calls for Skills" />
+      <HeadingTheme title="API" description="API Calls for Skills" />
       <Separator />
       <ApiList entityName="skills" entityIdName="skillId" />
     </>

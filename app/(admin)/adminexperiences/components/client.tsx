@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/ui/data-table';
-import { Heading } from '@/components/ui/heading';
+import { HeadingTheme } from '@/components/ui/heading-theme';
 import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
@@ -16,13 +16,12 @@ interface ExperienceClientProps {
 }
 
 export const ExperienceClient: React.FC<ExperienceClientProps> = ({ data }) => {
-  // const params = useParams();
   const router = useRouter();
 
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading
+        <HeadingTheme
           title={`Experience (${data.length})`}
           description="Manage experience for your portfolio"
         />
@@ -32,7 +31,7 @@ export const ExperienceClient: React.FC<ExperienceClientProps> = ({ data }) => {
       </div>
       <Separator />
       <DataTable searchKey="language" columns={columns} data={data} />
-      <Heading title="API" description="API Calls for Experiences" />
+      <HeadingTheme title="API" description="API Calls for Experiences" />
       <Separator />
       <ApiList entityName="experiences" entityIdName="experienceId" />
     </>

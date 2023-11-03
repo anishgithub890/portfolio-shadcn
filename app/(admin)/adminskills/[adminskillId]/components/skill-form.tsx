@@ -21,7 +21,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Separator } from '@/components/ui/separator';
-import { Heading } from '@/components/ui/heading';
+import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
 
@@ -102,7 +102,7 @@ export const SkillForm: React.FC<SkillFormProps> = ({ initialData }) => {
         loading={loading}
       />
       <div className="flex items-center justify-between">
-        <Heading title={title} description={description} />
+        <HeadingTheme title={title} description={description} />
         {initialData && (
           <Button
             disabled={loading}
