@@ -25,6 +25,7 @@ import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
   year: z.string().min(1, {
@@ -180,7 +181,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                 <FormItem>
                   <FormLabel>Describe your experience</FormLabel>
                   <FormControl>
-                    <Input
+                    <Textarea
                       disabled={loading}
                       placeholder="description of exprience"
                       {...field}
@@ -190,48 +191,53 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="isFeatured"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      // @ts-ignore
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Featured</FormLabel>
-                    <FormDescription>
-                      This experience will appear on page
-                    </FormDescription>
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="isArchived"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      // @ts-ignore
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Archived</FormLabel>
-                    <FormDescription>
-                      This experience will not appear anywhere in the portfolio
-                    </FormDescription>
-                  </div>
-                </FormItem>
-              )}
-            />
+            <div className="pt-2">
+              <FormField
+                control={form.control}
+                name="isFeatured"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        // @ts-ignore
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>Featured</FormLabel>
+                      <FormDescription>
+                        This experience will appear on page
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="pt-2">
+              <FormField
+                control={form.control}
+                name="isArchived"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        // @ts-ignore
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>Archived</FormLabel>
+                      <FormDescription>
+                        This experience will not appear anywhere in the
+                        portfolio
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
