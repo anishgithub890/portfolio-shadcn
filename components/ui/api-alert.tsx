@@ -28,13 +28,17 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
   variant = 'public',
 }) => {
   const initialIcon = (
-    <p className="h-6 w-6 text-zinc-900 font-semibold transition">copy</p>
+    <p className="h-6 w-6 text-zinc-900 dark:text-white font-semibold transition">
+      copy
+    </p>
   );
   const [buttonIcon, setButtonIcon] = useState(initialIcon);
 
   const onCopy = () => {
     setButtonIcon(
-      <p className="h-6 w-6 text-zinc-900 font-bold transition">copied!</p>
+      <p className="h-6 w-6 text-zinc-900 dark:text-white font-bold transition">
+        copied!
+      </p>
     );
     setTimeout(() => {
       setButtonIcon(initialIcon);

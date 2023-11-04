@@ -1,4 +1,4 @@
-import { User, Store } from '@prisma/client';
+import { User } from '@prisma/client';
 import { create } from 'zustand';
 
 export type ModalType =
@@ -15,7 +15,6 @@ export type ModalType =
   | 'deleteMessage';
 
 interface ModalData {
-  store?: Store;
   user?: User;
   apiUrl?: string;
   query?: Record<string, any>;

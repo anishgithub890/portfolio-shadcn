@@ -26,7 +26,6 @@ const routes = [
 
 const NavbarMenuItem = () => {
   const pathname = usePathname();
-  // const { user } = useUser();
   return (
     <div className="hidden md:block">
       <div className="flex flex-row items-center gap-2 pt-2">
@@ -44,9 +43,6 @@ const NavbarMenuItem = () => {
             <div className="flex flex-col cursor-pointer">{route.label}</div>
           </Link>
         ))}
-        {/* <div>
-          {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
-        </div> */}
       </div>
     </div>
   );

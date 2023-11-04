@@ -1,18 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-// import { useRouter } from 'next/navigation';
 
 import { SafeUser } from '@/app/types';
 
 import Container from '@/components/container';
 import Logo from '@/components/logo';
-import { ModeToggle } from '@/components/mode-toggle';
 import NavbarMenuItem from '@/components/navbar/navbar-menuitem';
+import { ModeToggle } from '@/components/mode-toggle';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
-import { Separator } from '../ui/separator';
-import { ServerHeader } from '../server/server-header';
-// import UserMenu from './navbar-usermenu';
+import { Separator } from '@/components/ui/separator';
+import { ServerHeader } from '@/components/server/server-header';
 
 const TOP_OFFSET = 66;
 
@@ -21,7 +19,6 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
-  // const router = useRouter();
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
@@ -83,7 +80,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
               </div>
 
               <div className="flex flex-col">
-                {/* <UserMenu currentUser={currentUser} /> */}
                 <ServerHeader currentUser={currentUser} />
               </div>
               <ModeToggle />

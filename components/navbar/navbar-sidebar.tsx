@@ -36,7 +36,6 @@ const routes = [
 
 export const Sidebar = () => {
   const pathname = usePathname();
-  // const { user } = useUser();
 
   return (
     <div className="space-y-2 py-1 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
@@ -71,9 +70,6 @@ export const Sidebar = () => {
               </div>
             </Link>
           ))}
-          {/* <div className="flex pt-1 flex-col dark:text-white text-zinc-900">
-            {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
-          </div> */}
         </div>
       </div>
     </div>

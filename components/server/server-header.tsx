@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   LogIn,
   LogOut,
+  Medal,
   PlusCircle,
   Store,
 } from 'lucide-react';
@@ -100,17 +101,17 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => onOpen('editServer')}
-            >
-              <AiOutlineProfile className="mr-2 h-4 w-4" />
-              <span>Edit Server</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => router.push('/adminskills')}
             >
               <GiSkills className="mr-2 h-4 w-4" />
-              <span>Create Skill</span>
+              <span>Manage Skill</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/adminexperiences')}
+            >
+              <Medal className="mr-2 h-4 w-4" />
+              <span>Manage Experience</span>
             </DropdownMenuItem>
             <Separator />
             <DropdownMenuItem
