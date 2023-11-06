@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Server } from 'lucide-react';
+import { Check, Copy, Server } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -28,17 +28,23 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
   variant = 'public',
 }) => {
   const initialIcon = (
-    <p className="h-6 w-6 text-zinc-900 dark:text-white font-semibold transition">
-      copy
-    </p>
+    <div className="flex flex-row gap-1">
+      <Copy className="w-5 h-5 transition font-semibold pt-1" />
+      <p className="h-6 w-6 text-zinc-900 dark:text-white font-semibold transition">
+        Copy
+      </p>
+    </div>
   );
   const [buttonIcon, setButtonIcon] = useState(initialIcon);
 
   const onCopy = () => {
     setButtonIcon(
-      <p className="h-6 w-6 text-zinc-900 dark:text-white font-bold transition">
-        copied!
-      </p>
+      <div className="flex flex-row gap-1">
+        <Check className="w-5 h-5 transition font-bold pt-1" />
+        <p className="h-6 w-6 text-zinc-900 dark:text-white font-bold transition">
+          copied!
+        </p>
+      </div>
     );
     setTimeout(() => {
       setButtonIcon(initialIcon);
