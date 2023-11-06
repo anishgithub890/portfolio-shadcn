@@ -24,6 +24,7 @@ import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
+import { ChapterDescriptionForm } from './chapter-description-form';
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -168,7 +169,7 @@ export const ChapterForm: React.FC<ChapterFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
@@ -184,7 +185,13 @@ export const ChapterForm: React.FC<ChapterFormProps> = ({ initialData }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
+            <div>
+              <ChapterDescriptionForm
+                initialData={chapter}
+                adminchapterId={params?.adminchapterId}
+              />
+            </div>
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
