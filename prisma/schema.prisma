@@ -27,6 +27,8 @@ model User {
   accounts Account[]
   skills Skill[]
   experiences Experience[]
+  testimonials Testimonial[]
+  chapters Chapter[]
   
 }
 
@@ -76,4 +78,34 @@ model Experience {
 
 
   @@index([userId]) 
+}
+
+model Testimonial {
+  id   String @id @default(uuid()) @map("_id")
+  name String ? @db.String
+  role String ? @db.String
+  comment String ? @db.String
+  isFeatured  Boolean   @default(false)
+  isArchived  Boolean   @default(false)
+  userId   String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  @@index([userId]) 
+}
+
+model Chapter {
+  id   String @id @default(uuid()) @map("_id")
+  title String
+  description String @db.String
+  imageUrl String @db.String
+  userId   String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+   @@index([userId]) 
 }
