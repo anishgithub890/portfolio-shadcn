@@ -169,7 +169,7 @@ export const ChapterForm: React.FC<ChapterFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-            {/* <FormField
+            <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
@@ -185,13 +185,11 @@ export const ChapterForm: React.FC<ChapterFormProps> = ({ initialData }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            /> */}
-            <div>
-              <ChapterDescriptionForm
-                initialData={chapter}
-                adminchapterId={params?.adminchapterId}
+            />
+            {/* <div>
+              <ChapterDescriptionForm 
               />
-            </div>
+            </div> */}
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
