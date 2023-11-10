@@ -11,7 +11,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '@/components/ui/separator';
 import { ServerHeader } from '@/components/server/server-header';
-import { Twitter, X } from 'lucide-react';
+import { RiTwitterXFill } from 'react-icons/ri';
 
 const TOP_OFFSET = 66;
 
@@ -60,19 +60,20 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             justify-between
             gap-1
             md:gap-0
+            pt-1
             pr-3
             pl-3
           "
           >
-            <div className="hidden md:block pt-1">
+            <div className="hidden md:block">
               <Logo />
             </div>
 
-            <div className="pl-2 pt-1">
+            <div className="pl-2">
               <MobileSidebar />
             </div>
 
-            <div className="pb-2 mt-auto flex items-center flex-row gap-2 pr-2 pt-1">
+            <div className="pb-2 mt-auto flex items-center flex-row pr-2">
               <div className="pr-6">
                 <NavbarMenuItem />
               </div>
@@ -90,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                   target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-md hover:bg-muted cursor-pointer dark:bg-zinc-900 border"
                 >
-                  <Twitter className="w-6 h-6 text-sky-400" />
+                  <RiTwitterXFill className="w-5 h-5" />
                 </a>
               </div>
               <ModeToggle />
