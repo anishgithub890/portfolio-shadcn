@@ -25,6 +25,9 @@ import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
 import { ChapterDescriptionForm } from './chapter-description-form';
+import { Preview } from '@/components/preview';
+import { Textarea } from '@/components/ui/textarea';
+import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -176,20 +179,12 @@ export const ChapterForm: React.FC<ChapterFormProps> = ({ initialData }) => {
                 <FormItem>
                   <FormLabel>Chapter Description</FormLabel>
                   <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="chapter description"
-                      {...field}
-                    />
+                    <Editor {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            {/* <div>
-              <ChapterDescriptionForm 
-              />
-            </div> */}
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
