@@ -26,6 +26,7 @@ import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
+import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   year: z.string().min(1, {
@@ -181,11 +182,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                 <FormItem>
                   <FormLabel>Describe your experience</FormLabel>
                   <FormControl>
-                    <Textarea
-                      disabled={loading}
-                      placeholder="description of exprience"
-                      {...field}
-                    />
+                    <Editor {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
