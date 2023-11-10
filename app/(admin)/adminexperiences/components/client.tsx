@@ -33,7 +33,7 @@ export const ExperienceClient: React.FC<ExperienceClientProps> = ({ data }) => {
       <DataTable searchKey="language" columns={columns} data={data} />
       <HeadingTheme title="API" description="API Calls for Experiences" />
       <Separator />
-      <ApiList entityName="experiences" entityIdName="experienceId" />
+      <ApiList entityName="experiences" entityIdName="adminexperienceId" />
     </>
   );
 };

@@ -34,7 +34,7 @@ export const ChapterClient: React.FC<ChapterClientProps> = ({ data }) => {
       <DataTable searchKey="label" columns={columns} data={data} />
       <HeadingTheme title="API" description="API Calls for Chapters" />
       <Separator />
-      <ApiList entityName="chapters" entityIdName="chapterId" />
+      <ApiList entityName="chapters" entityIdName="adminchapterId" />
     </>
   );
 };

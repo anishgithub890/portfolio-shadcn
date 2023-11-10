@@ -34,7 +34,7 @@ export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
       <DataTable searchKey="label" columns={columns} data={data} />
       <HeadingTheme title="API" description="API Calls for Skills" />
       <Separator />
-      <ApiList entityName="skills" entityIdName="skillId" />
+      <ApiList entityName="skills" entityIdName="adminskillId" />
     </>
   );
 };
