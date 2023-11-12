@@ -85,7 +85,7 @@ model Testimonial {
   role      String
   company   String
   comment   String
-  imageUrl  String?
+  imageUrl  String
   userId   String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
