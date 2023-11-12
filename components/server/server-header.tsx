@@ -1,6 +1,8 @@
 'use client';
 
 import { GiSkills } from 'react-icons/gi';
+import { MdReviews } from 'react-icons/md';
+import { GoProjectSymlink } from 'react-icons/go';
 import { AiOutlineProfile } from 'react-icons/ai';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -104,14 +106,28 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               onClick={() => router.push('/adminskills')}
             >
               <GiSkills className="mr-2 h-4 w-4" />
-              <span>Manage Skill</span>
+              <span>Manage Skills</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => router.push('/adminexperiences')}
             >
               <Medal className="mr-2 h-4 w-4" />
-              <span>Manage Experience</span>
+              <span>Manage Experiences</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/admintestimonials')}
+            >
+              <MdReviews className="mr-2 h-4 w-4" />
+              <span>Manage Testimonials</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/admintestimonials')}
+            >
+              <GoProjectSymlink className="mr-2 h-4 w-4" />
+              <span>Manage Projects</span>
             </DropdownMenuItem>
             <Separator />
             <DropdownMenuItem
