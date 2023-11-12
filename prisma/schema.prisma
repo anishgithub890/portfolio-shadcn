@@ -5,13 +5,11 @@
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
   relationMode = "prisma"
 }
-
 model User {
   id              String @id @default(uuid()) @map("_id")
   name            String
@@ -25,12 +23,11 @@ model User {
   updatedAt       DateTime @updatedAt
 
   accounts Account[]
+  projects Project[]
   skills Skill[]
   experiences Experience[]
   testimonials Testimonial[]
-  
 }
-
 model Account {
   id                 String @id @default(uuid()) @map("_id")
   userId             String   
@@ -50,7 +47,20 @@ model Account {
   @@unique([provider, providerAccountId])
   @@index([userId])
 }
+model Project {
+  id   String @id @default(uuid()) @map("_id") 
+  name String
+  explanation String
+  viewUrl String
+  githubUrl String
+  images Image[] // Relation to Image model
+  userId   String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  @@index([userId]) 
+}
 model Skill {
   id   String @id @default(uuid()) @map("_id")
   label String
@@ -59,7 +69,6 @@ model Skill {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 
   @@index([userId]) 
 }
@@ -75,10 +84,8 @@ model Experience {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-
   @@index([userId]) 
 }
-
 model Testimonial {
   id        String @id @default(uuid()) @map("_id")
   name      String
@@ -92,4 +99,15 @@ model Testimonial {
   updatedAt DateTime @updatedAt
 
   @@index([userId]) 
+}
+
+model Image {
+   id        String @id @default(uuid()) @map("_id")
+   projectId String // Foreign Key to product
+   project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+   url       String   // URL of the image
+   createdAt   DateTime @default(now())
+   updatedAt   DateTime @updatedAt
+
+   @@index([projectId])
 }
