@@ -124,7 +124,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => router.push('/admintestimonials')}
+              onClick={() => router.push('/adminprojects')}
             >
               <GoProjectSymlink className="mr-2 h-4 w-4" />
               <span>Manage Projects</span>

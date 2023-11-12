@@ -54,6 +54,8 @@ model Project {
   viewUrl String
   githubUrl String
   images Image[] // Relation to Image model
+  isFeatured  Boolean   @default(false)
+  isArchived  Boolean   @default(false)
   userId   String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
