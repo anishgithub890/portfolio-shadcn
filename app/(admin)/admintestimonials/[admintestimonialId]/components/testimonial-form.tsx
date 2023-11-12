@@ -55,6 +55,8 @@ interface TestimonialFormProps {
   initialData?: Testimonial | null;
 }
 
-export const TestimonialForm = () => {
+export const TestimonialForm: React.FC<TestimonialFormProps> = ({
+  initialData,
+}) => {
   return <>Hello Testimonial</>;
 };
