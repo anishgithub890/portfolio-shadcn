@@ -27,10 +27,10 @@ import ImageUpload from '@/components/ui/image-upload';
 
 const formSchema = z.object({
   label: z.string().min(1, {
-    message: 'skill name is required',
+    message: 'skill name is required.',
   }),
   imageUrl: z.string().min(1, {
-    message: 'Image is required',
+    message: 'Image is required.',
   }),
 });
 

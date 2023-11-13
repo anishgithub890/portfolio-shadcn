@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
-import { Separator } from '../ui/separator';
 
 const poppins = Montserrat({ weight: '700', subsets: ['latin'] });
 
@@ -45,11 +44,11 @@ export const Sidebar = () => {
           <Logo />
           <h1
             className={cn(
-              'text-3xl pl-2 flex font-bold text-zinc-900 dark:text-white',
+              'text-2xl pl-2 flex font-bold text-zinc-900 dark:text-white',
               poppins.className
             )}
           >
-            ANISH
+            A-N-I-S-H
           </h1>
         </div>
 

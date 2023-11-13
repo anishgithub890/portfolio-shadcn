@@ -24,10 +24,7 @@ import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
-import { Preview } from '@/components/preview';
-import { Textarea } from '@/components/ui/textarea';
 import { Editor } from '@/components/editor';
-import { url } from 'inspector';
 
 const formSchema = z.object({
   name: z.string().min(1, {

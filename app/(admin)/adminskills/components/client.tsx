@@ -16,7 +16,6 @@ interface SkillClientProps {
 }
 
 export const SkillClient: React.FC<SkillClientProps> = ({ data }) => {
-  // const params = useParams();
   const router = useRouter();
 
   return (
