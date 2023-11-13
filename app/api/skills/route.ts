@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { label, imageUrl } = body;
+    const { label, imageUrl, isFeatured, isArchived } = body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -27,6 +27,8 @@ export async function POST(req: Request) {
       data: {
         label,
         imageUrl,
+        isFeatured,
+        isArchived,
         userId: currentUser.id,
       },
     });

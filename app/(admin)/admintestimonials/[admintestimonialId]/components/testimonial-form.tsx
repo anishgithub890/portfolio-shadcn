@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -25,6 +26,7 @@ import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
 import { Editor } from '@/components/editor';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -45,6 +47,8 @@ const formSchema = z.object({
       message: 'image is an optional.',
     })
     .optional(),
+  isFeatured: z.boolean().default(false).optional(),
+  isArchived: z.boolean().default(false).optional(),
 });
 
 type TestimonialFormValues = z.infer<typeof formSchema>;
@@ -79,6 +83,8 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
       company: '',
       comment: '',
       imageUrl: '',
+      isFeatured: false,
+      isArchived: false,
     },
   });
 
@@ -230,6 +236,52 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                 </FormItem>
               )}
             />
+            <div className="pt-2">
+              <FormField
+                control={form.control}
+                name="isFeatured"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        // @ts-ignore
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>Featured</FormLabel>
+                      <FormDescription>
+                        This project will appear on page
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="pt-2">
+              <FormField
+                control={form.control}
+                name="isArchived"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        // @ts-ignore
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>Archived</FormLabel>
+                      <FormDescription>
+                        This project will not appear anywhere in the portfolio
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
