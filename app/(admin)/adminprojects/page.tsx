@@ -3,29 +3,27 @@ import { format } from 'date-fns';
 import prisma from '@/lib/prismadb';
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
-import { ExperienceColumn } from './components/columns';
-import { ExperienceClient } from './components/client';
+import { ProjectColumn } from './components/columns';
+import { ProjectClient } from './components/client';
 import Container from '@/components/container';
 import RoleState from '@/components/role-state';
 
-const AdminExperiencesPage = async () => {
+const AdminProjectsPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
     return <RoleState title="Unauthorized" description="Please login" />;
   }
 
-  const experiences = await prisma.experience.findMany({
+  const projects = await prisma.project.findMany({
     orderBy: {
       createdAt: 'desc',
     },
   });
 
-  const formattedExperiences: ExperienceColumn[] = experiences.map((item) => ({
+  const formattedProjects: ProjectColumn[] = projects.map((item) => ({
     id: item.id,
-    year: item.year,
-    language: item.language,
-    description: item.description,
+    name: item.name,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
@@ -42,7 +40,7 @@ const AdminExperiencesPage = async () => {
         ) : currentUser?.role == 'admin' ? (
           <>
             <div className="flex-1 space-y-4 p-8 pt-6">
-              <ExperienceClient data={formattedExperiences} />
+              <ProjectClient data={formattedProjects} />
             </div>
           </>
         ) : (
@@ -53,4 +51,4 @@ const AdminExperiencesPage = async () => {
   );
 };
 
-export default AdminExperiencesPage;
+export default AdminProjectsPage;
