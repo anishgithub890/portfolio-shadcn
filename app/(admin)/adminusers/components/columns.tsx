@@ -3,21 +3,26 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
-export type ExperienceColumn = {
+export type UserColumn = {
   id: string;
-  year: string;
-  language: string;
+  name: string;
+  email: string;
+  role: string;
   createdAt: string;
 };
 
-export const columns: ColumnDef<ExperienceColumn>[] = [
+export const columns: ColumnDef<UserColumn>[] = [
   {
-    accessorKey: 'year',
-    header: 'Year',
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessorKey: 'language',
-    header: 'Language',
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'role',
+    header: 'Role',
   },
   {
     accessorKey: 'createdAt',

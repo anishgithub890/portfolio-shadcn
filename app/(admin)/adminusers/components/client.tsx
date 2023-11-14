@@ -9,31 +9,31 @@ import { HeadingTheme } from '@/components/ui/heading-theme';
 import { Separator } from '@/components/ui/separator';
 import { ApiList } from '@/components/ui/api-list';
 
-import { columns, ExperienceColumn } from './columns';
+import { columns, UserColumn } from './columns';
 
-interface ExperienceClientProps {
-  data: ExperienceColumn[];
+interface UserClientProps {
+  data: UserColumn[];
 }
 
-export const ExperienceClient: React.FC<ExperienceClientProps> = ({ data }) => {
+export const UserClient: React.FC<UserClientProps> = ({ data }) => {
   const router = useRouter();
 
   return (
     <>
       <div className="flex items-center justify-between">
         <HeadingTheme
-          title={`Experience (${data.length})`}
-          description="Manage experience for your portfolio"
+          title={`User (${data.length})`}
+          description="Manage users for your portfolio"
         />
-        <Button onClick={() => router.push(`/adminexperiences/new`)}>
-          <Plus className="mr-2 h-4 w-4" /> Add New
+        <Button onClick={() => router.push(`/adminusers/new`)}>
+          <Plus className="mr-2 h-4 w-4" /> Add User
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="language" columns={columns} data={data} />
-      <HeadingTheme title="API" description="API Calls for Experiences" />
+      <DataTable searchKey="name" columns={columns} data={data} />
+      <HeadingTheme title="API" description="API Calls for Users" />
       <Separator />
-      <ApiList entityName="experiences" entityIdName="adminexperienceId" />
+      <ApiList entityName="users" entityIdName="adminuserId" />
     </>
   );
 };

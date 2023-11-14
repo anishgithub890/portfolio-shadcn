@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { NextResponse } from 'next/server';
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
@@ -62,7 +63,9 @@ export async function PATCH(
 
     const body = await req.json();
 
-    const { name, email, role } = body;
+    const { name, email, role, password } = body;
+
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -79,6 +82,9 @@ export async function PATCH(
     if (!role) {
       return new NextResponse('Role is required', { status: 400 });
     }
+    if (!hashedPassword) {
+      return new NextResponse('Hashed-Password is required', { status: 400 });
+    }
 
     if (!params.registerId) {
       return new NextResponse('Register id is required', { status: 400 });
@@ -92,6 +98,7 @@ export async function PATCH(
         name,
         email,
         role,
+        hashedPassword,
       },
     });
 

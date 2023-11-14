@@ -16,10 +16,10 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { AlertModal } from '@/components/modals/alert-modal';
 
-import { ExperienceColumn } from './columns';
+import { UserColumn } from './columns';
 
 interface CellActionProps {
-  data: ExperienceColumn;
+  data: UserColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -30,11 +30,11 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/experiences/${data.id}`);
-      toast.success('Experience deleted.');
+      await axios.delete(`/api/register/${data.id}`);
+      toast.success('User deleted.');
       router.refresh();
     } catch (error) {
-      toast.error('Make sure you removed all experiences.');
+      toast.error('Make sure you removed all users.');
     } finally {
       setOpen(false);
       setLoading(false);
@@ -43,7 +43,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Experience ID copied to clipboard.');
+    toast.success('User ID copied to clipboard.');
   };
 
   return (
@@ -67,7 +67,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/adminexperiences/${data.id}`)}
+            onClick={() => router.push(`/adminusers/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

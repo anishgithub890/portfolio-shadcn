@@ -15,7 +15,6 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,8 +23,6 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -40,6 +37,9 @@ const formSchema = z.object({
       message: 'role is default-use.',
     })
     .optional(),
+  password: z.string().min(1, {
+    message: 'password is required.',
+  }),
 });
 
 type UserFormValues = z.infer<typeof formSchema>;
@@ -54,6 +54,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [confirmpassword, setConfirmPassword] = useState('');
 
   const title = initialData ? 'Edit user' : 'Create user';
   const description = initialData ? 'Edit a user.' : 'Add a new user';
@@ -66,6 +67,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
       name: '',
       email: '',
       role: '',
+      password: '',
     },
   });
 
@@ -73,9 +75,9 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
     try {
       setLoading(true);
       if (initialData) {
-        await axios.patch(`/api/registers/${params?.adminuserId}`, data);
+        await axios.patch(`/api/register/${params?.adminuserId}`, data);
       } else {
-        await axios.post(`/api/registers`, data);
+        await axios.post(`/api/register`, data);
       }
       router.refresh();
       router.push(`/adminusers`);
@@ -90,7 +92,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/registers/${params?.adminuserId}`);
+      await axios.delete(`/api/register/${params?.adminuserId}`);
       router.refresh();
       router.push(`/adminusers`);
       toast.success('User deleted.');
@@ -174,6 +176,40 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                     <Input
                       disabled={loading}
                       placeholder="user role user/admin"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>User Password Is Bcrypt</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={loading}
+                      placeholder="user password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>User Password Is Bcrypt</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={loading}
+                      placeholder="user password"
                       {...field}
                     />
                   </FormControl>

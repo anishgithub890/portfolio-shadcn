@@ -14,6 +14,7 @@ import {
   Medal,
   PlusCircle,
   Store,
+  Users,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -100,6 +101,13 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             >
               <Store className="mr-2 h-4 w-4" />
               <span>Store</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/adminusers')}
+            >
+              <Users className="mr-2 h-4 w-4" />
+              <span>Manage Users</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
