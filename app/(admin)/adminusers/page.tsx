@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import Head from 'next/head';
 
 import prisma from '@/lib/prismadb';
 import getCurrentUser from '@/app/actions/getCurrentUser';
@@ -31,6 +32,11 @@ const AdminUsersPage = async () => {
 
   return (
     <div className="flex-col pt-14">
+      <Head>
+        <title>ANISH | ADMIN-USER</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Container>
         {currentUser?.role == 'user' ? (
           <div>

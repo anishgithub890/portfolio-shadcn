@@ -54,7 +54,6 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [confirmpassword, setConfirmPassword] = useState('');
 
   const title = initialData ? 'Edit user' : 'Create user';
   const description = initialData ? 'Edit a user.' : 'Add a new user';
@@ -176,23 +175,6 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                     <Input
                       disabled={loading}
                       placeholder="user role user/admin"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>User Password Is Bcrypt</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="user password"
                       {...field}
                     />
                   </FormControl>
