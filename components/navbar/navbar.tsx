@@ -41,13 +41,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
 
   return (
     <div
-      className={`fixed w-full bg-white dark:bg-zinc-700 z-10 shadow-sm ${
-        showBackground ? 'bg-zinc-100 bg-opacity-90 transition-all' : ''
+      className={`fixed @container w-full bg-white dark:bg-zinc-700 top-0 left-0 right-0 z-50 shadow-sm ${
+        showBackground
+          ? 'bg-zinc-100 bg-opacity-50 backdrop-blur-md transition-all'
+          : ''
       }`}
     >
       <div
         className="
-        py-1
+        py-[0.8px]
         border-b-[1px]
         "
       >
@@ -65,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             pl-3
           "
           >
-            <div className="hidden md:block">
+            <div className="hidden md:block pb-1">
               <Logo />
             </div>
 

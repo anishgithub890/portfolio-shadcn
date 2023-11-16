@@ -24,6 +24,7 @@ const AdminProjectsPage = async () => {
   const formattedProjects: ProjectColumn[] = projects.map((item) => ({
     id: item.id,
     name: item.name,
+    explanation: item.explanation,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
