@@ -1,28 +1,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Typography } from '@material-tailwind/react';
+import { Twitter } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const YEAR = new Date().getFullYear();
 
 const SOCIAL_MEDIA = [
   {
-    icon: 'fab fa-twitter',
+    icon: Twitter,
+    color: 'text-sky-500',
     link: 'https://www.twitter.com/creativetim?ref=material-tailwind',
   },
   {
-    icon: 'fab fa-facebook-square',
+    icon: Twitter,
+    color: 'text-sky-500',
     link: 'https://www.facebook.com/creativetim?ref=material-tailwind',
   },
   {
-    icon: 'fab fa-dribbble',
+    icon: Twitter,
+    color: 'text-sky-500',
     link: 'https://www.dribbble.com/creativetim?ref=material-tailwind',
   },
   {
-    icon: 'fab fa-github',
+    icon: Twitter,
+    color: 'text-sky-500',
     link: 'https://www.github.com/creativetimofficial?ref=material-tailwind',
   },
   {
-    icon: 'fab fa-discord',
+    icon: Twitter,
+    color: 'text-sky-500',
     link: 'https://discord.com/invite/gxtg2rJa?ref=material-tailwind',
   },
 ];
@@ -96,34 +104,40 @@ const TECHS = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
   return (
-    <footer className="relative z-50 bg-white px-8 pt-12 pb-6">
+    <footer className="relative z-50 bg-white dark:bg-zinc-900 px-8 pt-12 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-4/12">
             <Typography
               variant="h4"
-              className="mb-2 !font-semibold !text-primary"
+              className="mb-2 !font-semibold !text-primary text-zinc-500 dark:text-white/75"
             >
               Material Tailwind
             </Typography>
-            <Typography className="text-md mt-0 mb-2 font-normal !text-gray-600">
+            <Typography className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">
               Easy to use React components for Tailwind CSS and Material Design.
             </Typography>
             <div className="mt-6">
-              {SOCIAL_MEDIA.map(({ icon, link }, key) => (
-                <a key={key} href={link} target="_blank" rel="noreferrer">
-                  <i
-                    className={`${icon} font-xl align-center mr-2 inline-block items-center justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary outline-none focus:outline-none`}
-                  />
-                </a>
+              {SOCIAL_MEDIA.map((route) => (
+                <Link
+                  key={route.link}
+                  href={route.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="font-xl align-center mr-2 inline-block items-center justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary outline-none focus:outline-none">
+                    <route.icon className={cn('h-5 w-5', route.color)} />
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
           <div className="ml-auto w-full px-4 md:w-7/12">
             <div className="items-top mb-6 flex flex-wrap">
               <div className="w-6/12 pt-6 md:ml-auto md:px-4 md:pt-0 xl:w-3/12">
-                <span className="text-md mb-4 block font-medium text-primary">
+                <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Company
                 </span>
                 <ul className="list-unstyled">
@@ -133,7 +147,7 @@ export function Footer() {
                         href={link}
                         target="_blank"
                         rel="noreferrer"
-                        className="block pb-2 text-sm font-normal leading-relaxed text-gray-600 transition-colors hover:text-primary"
+                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
                       </a>
@@ -142,7 +156,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="ml-auto w-6/12 pt-6 md:px-4 md:pt-0 xl:w-3/12">
-                <span className="text-md mb-4 block font-medium text-primary">
+                <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Help and Support
                 </span>
                 <ul className="list-unstyled">
@@ -152,7 +166,7 @@ export function Footer() {
                         href={link}
                         rel="noreferrer"
                         target={name === 'Pricing' ? '_self' : '_blank'}
-                        className="block pb-2 text-sm font-normal leading-relaxed text-gray-600 transition-colors hover:text-primary"
+                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
                       </Link>
@@ -161,7 +175,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="ml-auto w-6/12 pt-6 md:px-4 md:pt-0 xl:w-3/12">
-                <span className="text-md mb-4 block font-medium text-primary">
+                <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Resources
                 </span>
                 <ul className="list-unstyled">
@@ -171,7 +185,7 @@ export function Footer() {
                         href={link}
                         rel="noreferrer"
                         target={name === 'Documentation' ? '_self' : '_blank'}
-                        className="block pb-2 text-sm font-normal leading-relaxed text-gray-600 transition-colors hover:text-primary"
+                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
                       </Link>
@@ -180,7 +194,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="ml-auto w-6/12 pt-6 md:px-4 md:pt-0 xl:w-3/12">
-                <span className="text-md mb-4 block font-medium text-primary">
+                <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Tehnologies
                 </span>
                 <ul className="list-unstyled">
@@ -188,7 +202,7 @@ export function Footer() {
                     <li key={key}>
                       <Link
                         href={link}
-                        className="block pb-2 text-sm font-normal leading-relaxed text-gray-600 transition-colors hover:text-primary"
+                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
                       </Link>
@@ -218,9 +232,14 @@ export function Footer() {
                 </svg>
               </span>
             </a>
-            <div className="text-md mt-2 py-1 font-normal text-gray-600">
+            <div className="text-md mt-2 py-1 font-normal text-zinc-900 dark:text-white">
               Copyright &copy; {YEAR}{' '}
-              <Link href="/" className="text-inherit transition-all">
+              <Link
+                href="/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-zinc-900 dark:text-white transition-all"
+              >
                 Material Tailwind
               </Link>{' '}
               by{' '}
@@ -228,13 +247,13 @@ export function Footer() {
                 href="https://www.creative-tim.com?ref=material-tailwind"
                 target="_blank"
                 rel="noreferrer"
-                className="text-inherit transition-all"
+                className="text-zinc-700 dark:text-white transition-all"
               >
                 Creative Tim. Made with ❤️ for a better web.
               </a>
             </div>
           </div>
-          <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
+          {/* <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
             <a href="https://nepcha.com?ref=material-tailwind">
               <Image
                 src="https://nepcha.com/img/media/badges/analytics-by-nepcha-black-transparent.png"
@@ -244,7 +263,7 @@ export function Footer() {
                 height={250}
               />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
