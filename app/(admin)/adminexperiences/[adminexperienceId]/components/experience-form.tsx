@@ -58,11 +58,11 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
 
   const title = initialData ? 'Edit experience' : 'Create experience';
   const description = initialData
-    ? 'Edit a experience.'
+    ? 'Edit a experience'
     : 'Add a new experience';
   const toastMessage = initialData
-    ? 'Experience updated.'
-    : 'Experience created.';
+    ? 'Experience updated'
+    : 'Experience created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<ExperienceFormValues>({

@@ -66,8 +66,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Edit project' : 'Create project';
-  const description = initialData ? 'Edit a project.' : 'Add a new project';
-  const toastMessage = initialData ? 'Project updated.' : 'Project created.';
+  const description = initialData ? 'Edit a project' : 'Add a new project';
+  const toastMessage = initialData ? 'Project updated' : 'Project created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<ProjectFormValues>({

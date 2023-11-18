@@ -68,11 +68,11 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
 
   const title = initialData ? 'Edit testimonial' : 'Create testimonial';
   const description = initialData
-    ? 'Edit a testimonial.'
+    ? 'Edit a testimonial'
     : 'Add a new testimonial';
   const toastMessage = initialData
-    ? 'Testimonial updated.'
-    : 'Testimonial created.';
+    ? 'Testimonial updated'
+    : 'Testimonial created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<TestimonialFormValues>({

@@ -52,8 +52,8 @@ export const SkillForm: React.FC<SkillFormProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Edit skill' : 'Create skill';
-  const description = initialData ? 'Edit a skill.' : 'Add a new skill';
-  const toastMessage = initialData ? 'Skill updated.' : 'Skill created.';
+  const description = initialData ? 'Edit a skill' : 'Add a new skill';
+  const toastMessage = initialData ? 'Skill updated' : 'Skill created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<SkillFormValues>({

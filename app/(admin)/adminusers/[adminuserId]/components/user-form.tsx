@@ -56,8 +56,8 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Edit user' : 'Create user';
-  const description = initialData ? 'Edit a user.' : 'Add a new user';
-  const toastMessage = initialData ? 'User updated.' : 'User created.';
+  const description = initialData ? 'Edit a user' : 'Add a new user';
+  const toastMessage = initialData ? 'User updated' : 'User created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<UserFormValues>({
