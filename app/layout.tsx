@@ -14,7 +14,7 @@ import { ModalProvider } from '@/components/providers/modal-provider';
 const inter = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL(`http://localhost:3000`),
   title: {
     default: 'Anish',
     template: `%s | Anish`,
