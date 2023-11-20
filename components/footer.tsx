@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Typography } from '@material-tailwind/react';
-import { Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
+import { RiTwitterXFill } from 'react-icons/ri';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
@@ -9,97 +10,91 @@ const YEAR = new Date().getFullYear();
 
 const SOCIAL_MEDIA = [
   {
-    icon: Twitter,
-    color: 'text-sky-500',
+    icon: Github,
+    color: 'text-black-500',
+    link: 'https://github.com/anishgithub890',
+  },
+  {
+    icon: Linkedin,
+    color: 'text-blue-500',
+    link: 'https://www.linkedin.com/in/anish-mahato-08b43a219/',
+  },
+  {
+    icon: RiTwitterXFill,
+    color: 'text-black-500',
     link: 'https://www.twitter.com/creativetim?ref=material-tailwind',
-  },
-  {
-    icon: Twitter,
-    color: 'text-sky-500',
-    link: 'https://www.facebook.com/creativetim?ref=material-tailwind',
-  },
-  {
-    icon: Twitter,
-    color: 'text-sky-500',
-    link: 'https://www.dribbble.com/creativetim?ref=material-tailwind',
-  },
-  {
-    icon: Twitter,
-    color: 'text-sky-500',
-    link: 'https://www.github.com/creativetimofficial?ref=material-tailwind',
-  },
-  {
-    icon: Twitter,
-    color: 'text-sky-500',
-    link: 'https://discord.com/invite/gxtg2rJa?ref=material-tailwind',
   },
 ];
 
 const COMPANY = [
   {
     name: 'About Us',
-    link: 'https://www.creative-tim.com/presentation?ref=material-tailwind',
+    link: '/',
   },
   {
     name: 'Blog',
-    link: 'https://www.creative-tim.com/blog?ref=material-tailwind',
+    link: '/',
   },
   {
     name: 'Github',
-    link: 'https://github.com/creativetimofficial?ref=material-tailwind',
+    link: 'https://github.com/anishgithub890/portfolio-shadcn',
   },
   {
     name: 'Free Products',
-    link: 'https://www.creative-tim.com/templates/free?ref=material-tailwind',
+    link: 'https://github.com/anishgithub890/portfolio-shadcn',
   },
 ];
 
 const HELP = [
   {
     name: 'Knowledge Center',
-    link: 'https://www.creative-tim.com/knowledge-center?ref=material-tailwind',
+    link: '/',
   },
   {
     name: 'Contact Us',
-    link: 'https://www.creative-tim.com/contact-us?ref=material-tailwind',
-  },
-  {
-    name: 'Premium Support',
-    link: 'https://www.creative-tim.com/support-terms?ref=material-tailwind',
-  },
-  {
-    name: 'Pricing',
-    link: '/blocks#pricing',
+    link: '/',
   },
 ];
 
 const RESOURCES = [
   {
     name: 'Documentation',
-    link: '/docs/react/installation',
+    link: '/',
   },
   {
     name: 'Custom Development',
-    link: 'https://www.creative-tim.com/services/updivision?ref=material-tailwind',
+    link: '/',
   },
   {
     name: 'Discord',
-    link: 'https://discord.com/invite/gxtg2rJa?ref=material-tailwind',
+    link: 'https://discord.gg/u6gWupuH',
   },
   {
     name: 'Tailwind Components',
-    link: 'https://tailwindcomponents.com/?ref=material-tailwind',
+    link: 'https://tailwindcomponents.com',
   },
 ];
 
 const TECHS = [
   {
-    name: 'React',
-    link: '/docs/react/installation',
+    name: 'Next',
+    link: 'https://nextjs.org/docs',
   },
   {
-    name: 'HTML',
-    link: '/docs/html/installation',
+    name: 'Shadcn-UI',
+    link: 'https://ui.shadcn.com/docs/installation/next',
+  },
+  {
+    name: 'Tailwind-CSS',
+    link: 'https://tailwindcss.com/docs/installation',
+  },
+  {
+    name: 'TypeScipt',
+    link: 'https://www.typescriptlang.org/',
+  },
+  {
+    name: 'Prisma',
+    link: 'https://www.prisma.io/nextjs',
   },
 ];
 
