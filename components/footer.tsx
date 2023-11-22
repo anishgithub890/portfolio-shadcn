@@ -22,7 +22,7 @@ const SOCIAL_MEDIA = [
   {
     icon: RiTwitterXFill,
     color: 'text-black-500',
-    link: 'https://www.twitter.com/creativetim?ref=material-tailwind',
+    link: 'https://twitter.com/AnishMa40489848',
   },
 ];
 
@@ -197,6 +197,8 @@ export function Footer() {
                     <li key={key}>
                       <Link
                         href={link}
+                        rel="noreferrer"
+                        target="_blank"
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
@@ -209,7 +211,7 @@ export function Footer() {
           </div>
         </div>
         <hr className="my-6 border-blue-gray-50" />
-        <div className="flex flex-wrap items-center justify-center gap-2 md:justify-between">
+        <div className="flex flex-wrap items-center justify-center md:justify-between">
           <div className="text-center lg:text-left">
             <a
               href="https://vercel.com/?utm_source=ct-tailwind-team&utm_campaign=oss"
@@ -228,37 +230,34 @@ export function Footer() {
               </span>
             </a>
             <div className="text-md mt-2 py-1 font-normal text-zinc-900 dark:text-white">
-              Copyright &copy; {YEAR}{' '}
-              <Link
-                href="/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-zinc-900 dark:text-white transition-all"
-              >
-                Material Tailwind
-              </Link>{' '}
-              by{' '}
-              <a
-                href="https://www.creative-tim.com?ref=material-tailwind"
-                target="_blank"
-                rel="noreferrer"
-                className="text-zinc-700 dark:text-white transition-all"
-              >
-                Creative Tim. Made with ❤️ for a better web.
-              </a>
+              Copyright &copy; {YEAR}
+              <span className="text-zinc-900 dark:text-white transition-all">
+                Anish Mahato
+              </span>
+              <span className="text-zinc-700 dark:text-white transition-all">
+                All rights reserved.
+              </span>
             </div>
           </div>
-          {/* <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
-            <a href="https://nepcha.com?ref=material-tailwind">
-              <Image
-                src="https://nepcha.com/img/media/badges/analytics-by-nepcha-black-transparent.png"
-                className="mx-auto lg:mr-0 lg:ml-auto"
-                alt="nepcha"
-                width={250}
-                height={250}
-              />
+          <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right justify-between">
+            <a
+              href="https://app.termsfeed.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-700 dark:text-white hover:underline hover:underline-offset-4 transition"
+            >
+              Term of Service
             </a>
-          </div> */}
+            <a
+              href="https://app.termsfeed.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-700 dark:text-white hover:underline hover:underline-offset-4  transition-all"
+            >
+              {' '}
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
