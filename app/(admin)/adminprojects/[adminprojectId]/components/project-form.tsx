@@ -219,6 +219,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+          </div>
+          <div>
             <FormField
               control={form.control}
               name="explanation"
@@ -232,6 +234,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+          </div>
+          <div className="md:grid md:grid-cols-2 gap-8">
             <div className="pt-2">
               <FormField
                 control={form.control}
