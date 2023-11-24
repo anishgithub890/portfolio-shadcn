@@ -109,10 +109,11 @@ export function Footer() {
               variant="h4"
               className="mb-2 !font-semibold !text-primary text-zinc-500 dark:text-white/75"
             >
-              Material Tailwind
+              Shadcn UI
             </Typography>
             <Typography className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">
-              Easy to use React components for Tailwind CSS and Material Design.
+              Beautifully designed components that you can copy and paste into
+              your apps. Accessible. Customizable. Open Source.
             </Typography>
             <div className="mt-6">
               {SOCIAL_MEDIA.map((route) => (
@@ -230,32 +231,32 @@ export function Footer() {
               </span>
             </a>
             <div className="text-md mt-2 py-1 font-normal text-zinc-900 dark:text-white">
-              Copyright &copy; {YEAR}
+              Copyright &copy; 2023-{YEAR} &nbsp;
               <span className="text-zinc-900 dark:text-white transition-all">
-                Anish Mahato
+                Anish Mahato. &nbsp;
               </span>
               <span className="text-zinc-700 dark:text-white transition-all">
                 All rights reserved.
               </span>
             </div>
           </div>
-          <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right justify-between">
+          <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
             <a
               href="https://app.termsfeed.com/"
               target="_blank"
               rel="noreferrer"
-              className="text-zinc-700 dark:text-white hover:underline hover:underline-offset-4 transition"
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4  transition-all"
+            >
+              Privacy Policy
+            </a>
+            <span>&nbsp; &nbsp; &nbsp;</span>
+            <a
+              href="https://app.termsfeed.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4 transition"
             >
               Term of Service
-            </a>
-            <a
-              href="https://app.termsfeed.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-700 dark:text-white hover:underline hover:underline-offset-4  transition-all"
-            >
-              {' '}
-              Privacy Policy
             </a>
           </div>
         </div>
