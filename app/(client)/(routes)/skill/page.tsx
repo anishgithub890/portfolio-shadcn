@@ -1,81 +1,53 @@
-'use client';
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import getSkills from '@/app/actions/getSkills';
+import ClientOnly from '@/components/client-only';
+import Container from '@/components/container';
+import RoleState from '@/components/role-state';
 
-import TypewriterComponent from 'typewriter-effect';
-import Link from 'next/link';
+const SkillPage = async () => {
+  const skills = await getSkills();
 
-import { Button } from '@/components/ui/button';
+  const currentUser = await getCurrentUser();
 
-const SkillPage = () => {
+  if (skills.length === 0) {
+    return (
+      <ClientOnly>
+        <RoleState />
+      </ClientOnly>
+    );
+  }
+
   return (
-    <div className="text-white font-bold py-36 text-center space-y-5">
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1 className="text-zinc-700 dark:text-white">The Best AI Tool for</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          <TypewriterComponent
-            options={{
-              strings: [
-                'Chatbot.',
-                'Photo Generation.',
-                'Blog Writing.',
-                'Mail Writing.',
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
+    <ClientOnly>
+      <Container>
+        <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
+          Skills
+        </h2>
+        <div
+          className="
+            pt-8
+            grid 
+            grid-cols-3 
+            sm:grid-cols-4 
+            md:grid-cols-6 
+            lg:grid-cols-7
+            xl:grid-cols-8
+            2xl:grid-cols-8
+            gap-4
+          "
+        >
+          {skills.map((skill: any) => {
+            return (
+              <SkillCard
+                currentUser={currentUser}
+                key={skill.id}
+                data={skill}
+              />
+            );
+          })}
         </div>
-      </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
-      </div>
-      <div>
-        <Link href={'/'}>
-          <Button
-            variant="premium"
-            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-          >
-            Start Generating For Free
-          </Button>
-        </Link>
-      </div>
-      <div className="text-zinc-400 text-xs md:text-sm font-normal">
-        No credit card required.
-      </div>
-
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1 className="text-zinc-700 dark:text-white">The Best AI Tool for</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          <TypewriterComponent
-            options={{
-              strings: [
-                'Chatbot.',
-                'Photo Generation.',
-                'Blog Writing.',
-                'Mail Writing.',
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
-      </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
-      </div>
-      <div>
-        <Link href={'/'}>
-          <Button
-            variant="premium"
-            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-          >
-            Start Generating For Free
-          </Button>
-        </Link>
-      </div>
-      <div className="text-zinc-400 text-xs md:text-sm font-normal">
-        No credit card required.
-      </div>
-    </div>
+      </Container>
+    </ClientOnly>
   );
 };
 
