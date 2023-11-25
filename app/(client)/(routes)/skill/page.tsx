@@ -1,17 +1,17 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getSkills from '@/app/actions/getSkills';
+
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
-import RoleState from '@/components/role-state';
-import SkillCard from './components/skill-card';
 import EmptyState from '@/components/empty-state';
+import SkillCard from './components/skill-card';
 
 const SkillPage = async () => {
-  const skills = await getSkills();
+  const skills = await getSkills({ isFeatured: true });
 
   const currentUser = await getCurrentUser();
 
-  if (skills.length === 0) {
+  if (skills!.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -39,7 +39,7 @@ const SkillPage = async () => {
             gap-4
           "
           >
-            {skills.map((skill: any) => {
+            {skills!.map((skill: any) => {
               return (
                 <SkillCard
                   currentUser={currentUser}
