@@ -109,7 +109,7 @@ export function Footer() {
               variant="h4"
               className="mb-2 !font-semibold !text-primary text-zinc-500 dark:text-white/75"
             >
-              Shadcn UI
+              Shadcn for Back-End UI
             </Typography>
             <Typography className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">
               Beautifully designed components that you can copy and paste into
