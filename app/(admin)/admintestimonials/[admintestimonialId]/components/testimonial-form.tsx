@@ -48,7 +48,6 @@ const formSchema = z.object({
     })
     .optional(),
   isFeatured: z.boolean().default(false).optional(),
-  isArchived: z.boolean().default(false).optional(),
 });
 
 type TestimonialFormValues = z.infer<typeof formSchema>;
@@ -84,7 +83,6 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
       comment: '',
       imageUrl: '',
       isFeatured: false,
-      isArchived: false,
     },
   });
 
@@ -257,29 +255,6 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                       <FormLabel>Featured</FormLabel>
                       <FormDescription>
                         This project will appear on page
-                      </FormDescription>
-                    </div>
-                  </FormItem>
-                )}
-              />
-            </div>
-            <div className="pt-2">
-              <FormField
-                control={form.control}
-                name="isArchived"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        // @ts-ignore
-                        onCheckedChange={field.onChange}
-                      />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>Archived</FormLabel>
-                      <FormDescription>
-                        This project will not appear anywhere in the portfolio
                       </FormDescription>
                     </div>
                   </FormItem>
