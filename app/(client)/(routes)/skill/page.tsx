@@ -4,7 +4,7 @@ import getSkills from '@/app/actions/getSkills';
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import SkillCard from './components/skill-card';
+import SkillCard from '../screen-cards/skill-card';
 
 const SkillPage = async () => {
   const skills = await getSkills({ isFeatured: true });
