@@ -1,6 +1,8 @@
 'use client';
 
 import { SafeExperience, SafeUser } from '@/app/types';
+import { Preview } from '@/components/preview';
+import { cn } from '@/lib/utils';
 
 interface ExperienceCardProps {
   data: SafeExperience;
@@ -17,7 +19,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
             <div className="text-slate-700">{data.language}</div>
           </figcaption>
           <blockquote>
-            <p className="text-lg font-medium">{data.description}</p>
+            <div className="flex items-center font-medium dark:text-zinc-700">
+              <Preview value={data.description} />
+            </div>
           </blockquote>
         </div>
       </figure>

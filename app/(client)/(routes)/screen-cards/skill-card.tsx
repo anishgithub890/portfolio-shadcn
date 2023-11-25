@@ -39,7 +39,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
               alt="Listing"
             />
           </div>
-          <div className="text-center text-slate-700 text-sm font-serif">
+          <div className="text-center text-zinc-700 dark:text-white text-sm font-serif">
             {data.label}
           </div>
         </div>
