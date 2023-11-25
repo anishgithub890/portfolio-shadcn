@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { year, language, description, isFeatured, isArchived } = body;
+    const { year, language, description, isFeatured } = body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -32,7 +32,6 @@ export async function POST(req: Request) {
         language,
         description,
         isFeatured,
-        isArchived,
         userId: currentUser.id,
       },
     });

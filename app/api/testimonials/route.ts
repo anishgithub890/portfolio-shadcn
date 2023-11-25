@@ -9,8 +9,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { name, role, company, comment, imageUrl, isFeatured, isArchived } =
-      body;
+    const { name, role, company, comment, imageUrl, isFeatured } = body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -42,7 +41,6 @@ export async function POST(req: Request) {
         comment,
         imageUrl,
         isFeatured,
-        isArchived,
         userId: currentUser.id,
       },
     });

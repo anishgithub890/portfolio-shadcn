@@ -55,7 +55,6 @@ model Project {
   githubUrl String
   images Image[] // Relation to Image model
   isFeatured  Boolean   @default(false)
-  isArchived  Boolean   @default(false)
   userId   String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
@@ -68,7 +67,6 @@ model Skill {
   label String
   imageUrl String
   isFeatured  Boolean   @default(false)
-  isArchived  Boolean   @default(false)
   userId   String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
@@ -82,7 +80,6 @@ model Experience {
   language String
   description String
   isFeatured  Boolean   @default(false)
-  isArchived  Boolean   @default(false)
   userId   String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
@@ -98,7 +95,6 @@ model Testimonial {
   comment   String
   imageUrl  String
   isFeatured  Boolean   @default(false)
-  isArchived  Boolean   @default(false)
   userId    String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())

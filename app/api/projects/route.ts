@@ -9,15 +9,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const {
-      name,
-      explanation,
-      viewUrl,
-      githubUrl,
-      images,
-      isFeatured,
-      isArchived,
-    } = body;
+    const { name, explanation, viewUrl, githubUrl, images, isFeatured } = body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -53,7 +45,6 @@ export async function POST(req: Request) {
           },
         },
         isFeatured,
-        isArchived,
         userId: currentUser.id,
       },
     });
