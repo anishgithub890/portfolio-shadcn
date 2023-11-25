@@ -3,6 +3,7 @@ import getSkills from '@/app/actions/getSkills';
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import RoleState from '@/components/role-state';
+import SkillCard from './components/skill-card';
 
 const SkillPage = async () => {
   const skills = await getSkills();
@@ -20,11 +21,12 @@ const SkillPage = async () => {
   return (
     <ClientOnly>
       <Container>
-        <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
-          Skills
-        </h2>
-        <div
-          className="
+        <div className="pt-14">
+          <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
+            Skills
+          </h2>
+          <div
+            className="
             pt-8
             grid 
             grid-cols-3 
@@ -35,16 +37,17 @@ const SkillPage = async () => {
             2xl:grid-cols-8
             gap-4
           "
-        >
-          {skills.map((skill: any) => {
-            return (
-              <SkillCard
-                currentUser={currentUser}
-                key={skill.id}
-                data={skill}
-              />
-            );
-          })}
+          >
+            {skills.map((skill: any) => {
+              return (
+                <SkillCard
+                  currentUser={currentUser}
+                  key={skill.id}
+                  data={skill}
+                />
+              );
+            })}
+          </div>
         </div>
       </Container>
     </ClientOnly>
