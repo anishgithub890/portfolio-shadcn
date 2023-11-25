@@ -1,6 +1,11 @@
-import { Skill, User } from '@prisma/client';
+import { Skill, Testimonial, User } from '@prisma/client';
 
 export type SafeSkill = Omit<Skill, 'updatedAt' | 'createdAt'> & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type SafeTestimonial = Omit<Testimonial, 'createdAt' | 'updatedAt'> & {
   createdAt: string;
   updatedAt: string;
 };
