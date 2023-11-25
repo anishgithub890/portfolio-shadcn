@@ -4,6 +4,7 @@ import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import RoleState from '@/components/role-state';
 import SkillCard from './components/skill-card';
+import EmptyState from '@/components/empty-state';
 
 const SkillPage = async () => {
   const skills = await getSkills();
@@ -13,7 +14,7 @@ const SkillPage = async () => {
   if (skills.length === 0) {
     return (
       <ClientOnly>
-        <RoleState />
+        <EmptyState showReset />
       </ClientOnly>
     );
   }

@@ -19,6 +19,6 @@ export default async function getSkills() {
     return safeSkills;
   } catch (error) {
     console.log('[GET_SKILL]', error);
-    return [];
+    return null;
   }
 }
