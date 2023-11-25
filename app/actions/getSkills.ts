@@ -6,12 +6,14 @@ interface Query {
 
 export default async function getSkills({ isFeatured }: Query) {
   try {
-    let query: any = {
-      isFeatured,
-    };
+    // let query: any = {
+    //   isFeatured,
+    // };
 
     const skills = await prisma.skill.findMany({
-      where: query,
+      where: {
+        isFeatured,
+      },
       orderBy: {
         createdAt: 'desc',
       },

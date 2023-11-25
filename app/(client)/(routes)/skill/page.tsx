@@ -22,7 +22,7 @@ const SkillPage = async () => {
   return (
     <ClientOnly>
       <Container>
-        <div className="pt-14">
+        <div className="pt-16">
           <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
             Skills
           </h2>
