@@ -1,27 +1,3 @@
-// 'use client';
-
-// import Footer from '@/components/footer';
-// import HomeCard from '../screen-cards/home-card';
-
-// const HomePage = () => {
-//   return (
-//     <>
-//       <div>
-//         <HomeCard />
-//       </div>
-//       <div>
-//         {/* for skills */}
-//         <Footer />
-//       </div>
-//       <div>
-//         <Footer />
-//       </div>
-//     </>
-//   );
-// };
-
-// export default HomePage;
-
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getSkills from '@/app/actions/getSkills';
 
@@ -32,9 +8,10 @@ import SkillCard from '../screen-cards/skill-card';
 import getExperiences from '@/app/actions/getExperiences';
 import ExperienceCard from '../screen-cards/experience-card';
 import { Separator } from '@/components/ui/separator';
-import HomeCard from '../screen-cards/home-card';
+import IntroCard from '../screen-cards/intro-card';
+import Footer from '@/components/footer';
 
-const SkillPage = async () => {
+const HomePage = async () => {
   const currentUser = await getCurrentUser();
 
   const skills = await getSkills({ isFeatured: true });
@@ -43,11 +20,13 @@ const SkillPage = async () => {
   return (
     <>
       <ClientOnly>
-        <div>
-          <HomeCard />
-        </div>
         <Container>
-          <div className="pt-16">
+          <div className="pt-14">
+            {/* for intro-screen */}
+            <div>
+              <IntroCard />
+            </div>
+
             <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
               Skills
             </h2>
@@ -117,6 +96,11 @@ const SkillPage = async () => {
                 })}
               </div>
             )}
+
+            {/* for footer-screen */}
+            <div className="pt-2">
+              <Footer />
+            </div>
           </div>
         </Container>
       </ClientOnly>
@@ -124,4 +108,4 @@ const SkillPage = async () => {
   );
 };
 
-export default SkillPage;
+export default HomePage;

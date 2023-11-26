@@ -1,6 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Typography } from '@material-tailwind/react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
@@ -100,7 +102,7 @@ const TECHS = [
 export function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="relative z-50 bg-white dark:bg-zinc-900 px-8 pt-12 pb-6">
+    <footer className="z-50 bg-white dark:bg-slate-900/0 px-8 pt-12 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-4/12">
@@ -122,7 +124,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="font-xl align-center mr-2 inline-block items-center justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary outline-none focus:outline-none">
+                  <div className="font-xl align-center mr-2 inline-block items-center justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
                     <route.icon className={cn('h-5 w-5', route.color)} />
                   </div>
                 </Link>
