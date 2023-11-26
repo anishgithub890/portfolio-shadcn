@@ -86,116 +86,118 @@ export const CreateRegisterModal = () => {
   };
 
   return (
-    <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-bold pb-2">
-            Register
-          </DialogTitle>
-          <Separator />
-          <DialogTitle className="pt-4">Welcome to my portfolio</DialogTitle>
-          <DialogDescription>Create an account!</DialogDescription>
-        </DialogHeader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="space-y-8 px-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Name
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter your name"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Email
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter your email"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Password
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        disabled={isLoading}
-                        type="password"
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter your password"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <DialogFooter>
-                <CustomeButton label="Continue" disabled={isLoading} />
-              </DialogFooter>
-              <Separator />
-              <div className="flex flex-col gap-4 mt-3">
-                <CustomeButton
-                  outline
-                  label="Continue with Google"
-                  icon={FcGoogle}
-                  onClick={() => signIn('google')}
+    <>
+      <Dialog open={isModalOpen} onOpenChange={handleClose}>
+        <DialogContent className="bg-white text-black p-0 overflow-hidden">
+          <DialogHeader className="pt-8 px-6">
+            <DialogTitle className="text-2xl text-center font-bold pb-2">
+              Register
+            </DialogTitle>
+            <Separator />
+            <DialogTitle className="pt-4">Welcome to my portfolio</DialogTitle>
+            <DialogDescription>Create an account!</DialogDescription>
+          </DialogHeader>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="space-y-8 px-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                        Name
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          disabled={isLoading}
+                          className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                          placeholder="Enter your name"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-                <div
-                  className="
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                        Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          disabled={isLoading}
+                          className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                          placeholder="Enter your email"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                        Password
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          disabled={isLoading}
+                          type="password"
+                          className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                          placeholder="Enter your password"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <DialogFooter>
+                  <CustomeButton label="Continue" disabled={isLoading} />
+                </DialogFooter>
+                <Separator />
+                <div className="flex flex-col gap-4 mt-3">
+                  <CustomeButton
+                    outline
+                    label="Continue with Google"
+                    icon={FcGoogle}
+                    onClick={() => signIn('google')}
+                  />
+                  <div
+                    className="
                    text-neutral-500 text-center mt-4 font-light pb-6"
-                >
-                  <p className="dark:text-zinc-900">
-                    Already have an account?
-                    <span
-                      onClick={() => onOpen('login')}
-                      className="
+                  >
+                    <p className="dark:text-zinc-900">
+                      Already have an account?
+                      <span
+                        onClick={() => onOpen('login')}
+                        className="
                       text-zinc-900
                       cursor-pointer
                       hover:underline
                       dark:text-zinc-900
                       "
-                    >
-                      {' '}
-                      Login
-                    </span>
-                  </p>
+                      >
+                        {' '}
+                        Login
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };

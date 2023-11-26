@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Typography } from '@material-tailwind/react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';

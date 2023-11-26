@@ -1,90 +1,127 @@
-'use client';
+// 'use client';
 
-import TypewriterComponent from 'typewriter-effect';
-import Link from 'next/link';
+// import Footer from '@/components/footer';
+// import HomeCard from '../screen-cards/home-card';
 
-import { Button } from '@/components/ui/button';
-import Footer from '@/components/footer';
+// const HomePage = () => {
+//   return (
+//     <>
+//       <div>
+//         <HomeCard />
+//       </div>
+//       <div>
+//         {/* for skills */}
+//         <Footer />
+//       </div>
+//       <div>
+//         <Footer />
+//       </div>
+//     </>
+//   );
+// };
 
-const HomePage = () => {
+// export default HomePage;
+
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import getSkills from '@/app/actions/getSkills';
+
+import ClientOnly from '@/components/client-only';
+import Container from '@/components/container';
+import EmptyState from '@/components/empty-state';
+import SkillCard from '../screen-cards/skill-card';
+import getExperiences from '@/app/actions/getExperiences';
+import ExperienceCard from '../screen-cards/experience-card';
+import { Separator } from '@/components/ui/separator';
+import HomeCard from '../screen-cards/home-card';
+
+const SkillPage = async () => {
+  const currentUser = await getCurrentUser();
+
+  const skills = await getSkills({ isFeatured: true });
+  const experiences = await getExperiences({ isFeatured: true });
+
   return (
     <>
-      <div className="text-white font-bold py-36 text-center space-y-5">
-        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-          <h1 className="text-zinc-700 dark:text-white">
-            The Best AI Tool for
-          </h1>
-          <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            <TypewriterComponent
-              options={{
-                strings: [
-                  'Chatbot.',
-                  'Photo Generation.',
-                  'Blog Writing.',
-                  'Mail Writing.',
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </div>
-        </div>
-        <div className="text-sm md:text-xl font-light text-zinc-400">
-          Create content using AI 10x faster.
-        </div>
+      <ClientOnly>
         <div>
-          <Link href={'/'}>
-            <Button
-              variant="premium"
-              className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-            >
-              Start Generating For Free
-            </Button>
-          </Link>
+          <HomeCard />
         </div>
-        <div className="text-zinc-400 text-xs md:text-sm font-normal">
-          No credit card required.
-        </div>
+        <Container>
+          <div className="pt-16">
+            <h2 className="font-bold text-3xl text-center pt-2 underline underline-offset-8">
+              Skills
+            </h2>
 
-        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-          <h1 className="text-zinc-700 dark:text-white">
-            The Best AI Tool for
-          </h1>
-          <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            <TypewriterComponent
-              options={{
-                strings: [
-                  'Chatbot.',
-                  'Photo Generation.',
-                  'Blog Writing.',
-                  'Mail Writing.',
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
+            {skills!.length === 0 ? (
+              <div className="pt-1">
+                <EmptyState />
+              </div>
+            ) : (
+              <div
+                className="
+                pt-8
+                grid 
+                grid-cols-3 
+                sm:grid-cols-4 
+                md:grid-cols-6 
+                lg:grid-cols-7
+                xl:grid-cols-8
+                2xl:grid-cols-8
+                gap-4
+              "
+              >
+                {skills!.map((skill: any) => {
+                  return (
+                    <SkillCard
+                      currentUser={currentUser}
+                      key={skill.id}
+                      data={skill}
+                    />
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="pt-8">
+              <Separator orientation="horizontal" />
+            </div>
+            <h2 className="font-bold text-3xl text-center pt-8 underline underline-offset-8">
+              Experiences
+            </h2>
+            {experiences!.length === 0 ? (
+              <div className="pt-1">
+                <EmptyState />
+              </div>
+            ) : (
+              <div
+                className="
+                pt-8
+                grid 
+                grid-cols-1 
+                sm:grid-cols-1 
+                md:grid-cols-2 
+                lg:grid-cols-3
+                xl:grid-cols-3
+                2xl:grid-cols-4
+                gap-4
+              "
+              >
+                {experiences!.map((experience: any) => {
+                  return (
+                    <ExperienceCard
+                      currentUser={currentUser}
+                      key={experience.id}
+                      data={experience}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
-        </div>
-        <div className="text-sm md:text-xl font-light text-zinc-400">
-          Create content using AI 10x faster.
-        </div>
-        <div>
-          <Link href={'/'}>
-            <Button
-              variant="premium"
-              className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-            >
-              Start Generating For Free
-            </Button>
-          </Link>
-        </div>
-        <div className="text-zinc-400 text-xs md:text-sm font-normal">
-          No credit card required.
-        </div>
-      </div>
-      <Footer />
+        </Container>
+      </ClientOnly>
     </>
   );
 };
 
-export default HomePage;
+export default SkillPage;

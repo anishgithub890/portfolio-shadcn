@@ -149,14 +149,16 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
         ) : (
           <>
             <DropdownMenuItem
-              onClick={loginModal.onOpen}
+              // onClick={loginModal.onOpen}
+              onClick={() => onOpen('login')}
               className="px-3 py-2 text-sm cursor-pointer"
             >
               Log in
               <LogIn className="h-4 w-4 ml-auto" />
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={registerModal.onOpen}
+              // onClick={registerModal.onOpen}
+              onClick={() => onOpen('createUser')}
               className="px-3 py-2 text-sm cursor-pointer"
             >
               Sign Up
