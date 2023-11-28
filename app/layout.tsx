@@ -16,7 +16,7 @@ const inter = Open_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL(`http://localhost:3000`),
   title: {
-    default: 'Anish',
+    default: 'Anish | Mahato',
     template: `%s | Anish`,
   },
   description: 'Anish portfolio create by next app',

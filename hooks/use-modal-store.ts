@@ -12,7 +12,8 @@ export type ModalType =
   | 'deleteUser'
   | 'deleteSkill'
   | 'messageFile'
-  | 'deleteMessage';
+  | 'deleteMessage'
+  | 'showResume';
 
 interface ModalData {
   user?: User;

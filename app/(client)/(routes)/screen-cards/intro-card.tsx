@@ -13,8 +13,7 @@ const IntroCard = () => {
           <h1 className="text-zinc-700 dark:text-white">
             The Best Full-Stack Developer
           </h1>
-          <h2 className="text-zinc-700 dark:text-white">Hi There!</h2>
-          <h2 className="text-zinc-700 dark:text-white">I am Anish Mahato</h2>
+
           <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
             <TypewriterComponent
               options={{
@@ -29,12 +28,18 @@ const IntroCard = () => {
           Create content using AI 10x faster.
         </div>
         <div>
-          <Link href={'/'}>
+          <Link
+            href={
+              'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
+            }
+            rel="noreferrer"
+            target="_blank"
+          >
             <Button
               variant="premium"
               className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
             >
-              Start Generating For Free
+              Resume
             </Button>
           </Link>
         </div>
