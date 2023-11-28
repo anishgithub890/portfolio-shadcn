@@ -1,11 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { useModal } from '@/hooks/use-modal-store';
 import TypewriterComponent from 'typewriter-effect';
 
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 const IntroCard = () => {
+  const { onOpen } = useModal();
+  const router = useRouter();
   return (
     <>
       <div className="text-white font-bold py-10 text-center space-y-5">
@@ -28,20 +32,21 @@ const IntroCard = () => {
           Create content using AI 10x faster.
         </div>
         <div>
-          <Link
+          {/* <Link
             href={
               'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
             }
             rel="noreferrer"
             target="_blank"
           >
-            <Button
-              variant="premium"
-              className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-            >
-              Resume
-            </Button>
-          </Link>
+          </Link> */}
+          <Button
+            variant="premium"
+            onClick={() => onOpen('showResume')}
+            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
+          >
+            Resume
+          </Button>
         </div>
         <div className="text-zinc-400 text-xs md:text-sm font-normal">
           No credit card required.

@@ -8,6 +8,7 @@ import { CreateStoreModal } from '@/components/modals/create-store-modal';
 import { StoreModal } from '@/components/modals/store-modal';
 import LoginModal from '@/components/modals/login-modal';
 import RegisterModal from '@/components/modals/register-modal';
+import { ShowResume } from '@/components/modals/resume';
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -29,6 +30,7 @@ export const ModalProvider = () => {
       <LoginModal />
       <RegisterModal />
       <StoreModal />
+      <ShowResume />
     </>
   );
 };
