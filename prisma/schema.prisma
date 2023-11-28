@@ -27,6 +27,7 @@ model User {
   skills Skill[]
   experiences Experience[]
   testimonials Testimonial[]
+  resumes Resume[]
 }
 model Account {
   id                 String @id @default(uuid()) @map("_id")
@@ -101,6 +102,18 @@ model Testimonial {
   updatedAt DateTime @updatedAt
 
   @@index([userId]) 
+}
+
+model Resume {
+  id           String @id @default(uuid()) @map("_id")
+  note         String
+  isFeatured   Boolean @default(false)
+  userId       String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model Image {
