@@ -29,6 +29,10 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onConfirm = async () => {
     try {
+      setLoading(true);
+      await axios.delete(`/api/resume/${data.id}`);
+      toast.success('Resume deleted.');
+      router.refresh();
     } catch (error) {
       toast.error('Make sure you removed all resumes');
     } finally {

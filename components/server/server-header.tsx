@@ -4,6 +4,7 @@ import { GiSkills } from 'react-icons/gi';
 import { MdReviews } from 'react-icons/md';
 import { GoProjectSymlink } from 'react-icons/go';
 import { AiOutlineProfile } from 'react-icons/ai';
+import { MdEditNote } from 'react-icons/md';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { SafeUser } from '@/app/types';
@@ -136,6 +137,13 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             >
               <GoProjectSymlink className="mr-2 h-4 w-4" />
               <span>Manage Projects</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/adminresume')}
+            >
+              <MdEditNote className="mr-2 h-4 w-4" />
+              <span>Manage Resume</span>
             </DropdownMenuItem>
             <Separator />
             <DropdownMenuItem
