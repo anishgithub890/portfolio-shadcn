@@ -3,6 +3,8 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
+import { Preview } from '@/components/preview';
+
 export type ResumeColumn = {
   id: string;
   note: string;
@@ -13,6 +15,11 @@ export const columns: ColumnDef<ResumeColumn>[] = [
   {
     accessorKey: 'note',
     header: 'Resume-Note',
+    cell: ({ row }) => (
+      <div className="flex items-center">
+        {<Preview value={row.original.note.substring(50)} />}
+      </div>
+    ),
   },
   {
     accessorKey: 'createdAt',
