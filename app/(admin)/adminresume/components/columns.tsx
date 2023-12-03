@@ -17,7 +17,7 @@ export const columns: ColumnDef<ResumeColumn>[] = [
     header: 'Resume-Note',
     cell: ({ row }) => (
       <div className="flex items-center">
-        {<Preview value={row.original.note.substring(50)} />}
+        {<Preview value={row.original.note.slice(0, 100)} />}
       </div>
     ),
   },

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Trash } from 'lucide-react';
-import { Project } from '@prisma/client';
+import { Resume } from '@prisma/client';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
@@ -35,11 +35,11 @@ const formSchema = z.object({
 
 type ResumeFormValues = z.infer<typeof formSchema>;
 
-interface ProjectFormProps {
-  initialData?: Project | null;
+interface ResumeFormProps {
+  initialData?: Resume | null;
 }
 
-export const ResumeForm: React.FC<ProjectFormProps> = ({ initialData }) => {
+export const ResumeForm: React.FC<ResumeFormProps> = ({ initialData }) => {
   const params = useParams();
   const router = useRouter();
 
@@ -151,7 +151,7 @@ export const ResumeForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                     <div className="space-y-1 leading-none">
                       <FormLabel>Featured</FormLabel>
                       <FormDescription>
-                        This project will appear on page
+                        This resume will appear on page
                       </FormDescription>
                     </div>
                   </FormItem>
