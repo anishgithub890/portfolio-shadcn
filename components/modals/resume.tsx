@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
@@ -24,19 +24,22 @@ import { Preview } from '@/components/preview';
 import Container from '@/components/container';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 interface ShowResumeProps {
   data: SafeResume;
   currentUser?: SafeUser | null;
 }
 
-export const ShowResume: React.FC<ShowResumeProps> = ({ data }) => {
+export const ShowResume: React.FC<ShowResumeProps> = async ({ data }) => {
   const { isOpen, onClose, type } = useModal();
   const router = useRouter();
   const params = useParams();
   const [isLoading] = useState(false);
 
   const isModalOpen = isOpen && type === 'showResume';
+
+  const currentUser = await getCurrentUser();
 
   return (
     <Container>
