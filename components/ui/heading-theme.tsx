@@ -2,7 +2,7 @@
 
 interface HeadingThemeProps {
   title: string;
-  description: string;
+  description?: string;
   center?: boolean;
 }
 
