@@ -8,6 +8,7 @@ import ResumeCard from './components/resume-card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Footer from '@/components/footer';
+import { Separator } from '@/components/ui/separator';
 
 const ResumePage = async () => {
   const currentUser = await getCurrentUser();
@@ -27,7 +28,7 @@ const ResumePage = async () => {
             ) : (
               <div className="pt-8">
                 <div className="flex-1 pb-4">
-                  <h2 className="text-xl font-semibold text-zinc-900 dark:text-white pb-1">
+                  <h2 className="text-zinc-900 text-xl font-semibold dark:text-white pb-1">
                     Click the button to resume download and print.
                   </h2>
                   <Link
@@ -37,9 +38,16 @@ const ResumePage = async () => {
                     rel="noreferrer"
                     target="_blank"
                   >
-                    <Button>Download / Print</Button>
+                    <Button size="lg" variant="outline">
+                      Download / Print
+                    </Button>
                   </Link>
+
+                  <div className="pt-2">
+                    <Separator orientation="horizontal" />
+                  </div>
                 </div>
+
                 {resumes!.map((resume: any) => {
                   return (
                     <ResumeCard
