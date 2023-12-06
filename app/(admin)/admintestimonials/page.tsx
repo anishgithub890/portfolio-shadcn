@@ -35,10 +35,7 @@ const AdminTestimonialsPage = async () => {
       <Container>
         {currentUser?.role == 'user' ? (
           <div>
-            <RoleState
-              title="OOOPS! ACCESS DENIED"
-              description="This page not for users....!!"
-            />
+            <RoleState showReset />
           </div>
         ) : currentUser?.role == 'admin' ? (
           <>

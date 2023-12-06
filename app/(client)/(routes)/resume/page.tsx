@@ -4,7 +4,6 @@ import getResumes from '@/app/actions/getResumes';
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import { Button } from '@/components/ui/button';
 import ResumeCard from './components/resume-card';
 
 const ResumePage = async () => {
