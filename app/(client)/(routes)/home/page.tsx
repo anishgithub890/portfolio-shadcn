@@ -22,7 +22,7 @@ const HomePage = async () => {
       <ClientOnly>
         <Container>
           <div className="pt-14">
-            {/* for intro-screen */}
+            {/* intro-screen */}
             <div>
               <IntroCard />
             </div>
@@ -97,7 +97,7 @@ const HomePage = async () => {
               </div>
             )}
 
-            {/* for footer-screen */}
+            {/* footer-screen */}
             <div className="pt-2">
               <Footer />
             </div>

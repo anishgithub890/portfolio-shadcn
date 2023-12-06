@@ -1,19 +1,21 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import CustomeButton from './custome-button';
-import Image from 'next/image';
-import { Heading } from './ui/heading';
+import CustomeButton from '@/components/custome-button';
+import { HeadingTheme } from '@/components/ui/heading-theme';
 
 interface RoleStateProps {
   title?: string;
   description?: string;
+  showReset?: boolean;
 }
 
 const RoleState: React.FC<RoleStateProps> = ({
-  title = "OOOPS! It's Empty",
-  description = "Looks like you haven't added any data yet...!!!",
+  title = 'OOOPS! ACCESS DENIED',
+  description = 'This page not for users....!!!',
+  showReset,
 }) => {
   const router = useRouter();
 
@@ -35,9 +37,15 @@ const RoleState: React.FC<RoleStateProps> = ({
         width={300}
         height={300}
       />
-      <Heading center title={title} description={description} />
+      <HeadingTheme center title={title} description={description} />
       <div className="w-48 mt-4">
-        <CustomeButton outline label="Home" onClick={() => router.push('/')} />
+        {showReset && (
+          <CustomeButton
+            outline
+            label="Home"
+            onClick={() => router.push('/')}
+          />
+        )}
       </div>
     </div>
   );

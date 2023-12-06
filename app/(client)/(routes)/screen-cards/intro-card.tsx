@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useModal } from '@/hooks/use-modal-store';
 import TypewriterComponent from 'typewriter-effect';
 
