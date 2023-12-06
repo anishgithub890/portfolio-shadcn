@@ -3,12 +3,10 @@
 import qs from 'query-string';
 import axios from 'axios';
 import * as z from 'zod';
-import { FcGoogle } from 'react-icons/fc';
-import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import {
   Dialog,
@@ -46,7 +44,6 @@ const formSchema = z.object({
 export const CreateRegisterModal = () => {
   const { isOpen, onClose, type } = useModal();
   const router = useRouter();
-  const params = useParams();
 
   const { onOpen } = useModal();
 
@@ -166,12 +163,6 @@ export const CreateRegisterModal = () => {
                 </DialogFooter>
                 <Separator />
                 <div className="flex flex-col gap-4 mt-3">
-                  <CustomeButton
-                    outline
-                    label="Continue with Google"
-                    icon={FcGoogle}
-                    onClick={() => signIn('google')}
-                  />
                   <div
                     className="
                    text-neutral-500 text-center mt-4 font-light pb-6"

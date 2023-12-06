@@ -1,17 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import { SafeUser } from '@/app/types';
 
 import Container from '@/components/container';
 import Logo from '@/components/logo';
 import NavbarMenuItem from '@/components/navbar/navbar-menuitem';
+
 import { ModeToggle } from '@/components/mode-toggle';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '@/components/ui/separator';
 import { ServerHeader } from '@/components/server/server-header';
 import { RiTwitterXFill } from 'react-icons/ri';
+import { Button } from '../ui/button';
 
 const TOP_OFFSET = 66;
 
@@ -97,6 +100,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                 </a>
               </div>
               <ModeToggle />
+              <div className="h-10 pl-3 md:hidden">
+                <Separator orientation="vertical" />
+              </div>
+              <div className="flex flex-col pl-2">
+                <Link href="/resume">
+                  <Button variant="premium">Resume</Button>
+                </Link>
+              </div>
             </div>
           </div>
         </Container>

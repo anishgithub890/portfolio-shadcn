@@ -15,10 +15,6 @@ const routes = [
     href: '/project',
   },
   {
-    label: 'Skill',
-    href: '/skill',
-  },
-  {
     label: 'Contact',
     href: '/contact',
   },

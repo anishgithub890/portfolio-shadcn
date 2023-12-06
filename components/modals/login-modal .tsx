@@ -1,12 +1,14 @@
 'use client';
 
-import qs from 'query-string';
-import axios from 'axios';
 import * as z from 'zod';
-import { useEffect } from 'react';
-import toast from 'react-hot-toast';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useParams, useRouter } from 'next/navigation';
+
+import { useModal } from '@/hooks/use-modal-store';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import {
@@ -27,13 +29,9 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { useModal } from '@/hooks/use-modal-store';
 import CustomeButton from '@/components/custome-button';
 
 const formSchema = z.object({
-  name: z.string().min(1, {
-    message: 'Name is required.',
-  }),
   email: z.string().min(1, {
     message: 'Email is required.',
   }),
@@ -42,53 +40,45 @@ const formSchema = z.object({
   }),
 });
 
-export const EditProfileModal = () => {
-  const { isOpen, onClose, type, data } = useModal();
+export const LoginModal = () => {
+  const { isOpen, onClose, type } = useModal();
   const router = useRouter();
   const params = useParams();
+  const [issloadingg, setIsLoading] = useState(false);
 
   const { onOpen } = useModal();
 
-  const isModalOpen = isOpen && type === 'editUser';
-  const { user } = data;
+  const isModalOpen = isOpen && type === 'login';
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
       email: '',
       password: '',
     },
   });
 
-  useEffect(() => {
-    if (user) {
-      form.setValue('name', user.name);
-      form.setValue('email', user.email);
-      // form.setValue('password', user.password);
-    }
-  }, [user, form]);
-
   const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      const url = qs.stringifyUrl({
-        url: `/api/register/${user?.id}`,
-        query: {
-          userId: user?.id,
-        },
-      });
-      await axios.post(url, values);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
 
-      toast.success('Profile Updated!');
-      form.reset();
-      router.refresh();
-      onClose();
-      // onOpen('login');
-    } catch (error) {
-      console.log(error);
-    }
+    signIn('credentials', {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success('Logged in');
+        router.refresh();
+        onClose();
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const handleClose = () => {
@@ -101,35 +91,15 @@ export const EditProfileModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold pb-2">
-            Edit Profile
+            Login
           </DialogTitle>
           <Separator />
-          <DialogTitle className="pt-4">Welcome to your profile</DialogTitle>
-          <DialogDescription>Update an account!</DialogDescription>
+          <DialogTitle className="pt-4">Welcome back</DialogTitle>
+          <DialogDescription>Login to your account!</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Name
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter your name"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
               <FormField
                 control={form.control}
                 name="email"
@@ -150,10 +120,52 @@ export const EditProfileModal = () => {
                   </FormItem>
                 )}
               />
-              <div className="pb-4">
-                <DialogFooter>
-                  <CustomeButton label="Update" disabled={isLoading} />
-                </DialogFooter>
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                      Password
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        type="password"
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        placeholder="Enter your password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <DialogFooter>
+                <CustomeButton label="Continue" disabled={isLoading} />
+              </DialogFooter>
+              <Separator />
+              <div className="flex flex-col gap-4 mt-3">
+                <div
+                  className="
+                   text-neutral-500 text-center mt-4 font-light pb-6"
+                >
+                  <p className="dark:text-zinc-900">
+                    First time using portfolio?
+                    <span
+                      onClick={() => onOpen('createUser')}
+                      className="
+                      text-zinc-900
+                      cursor-pointer
+                      hover:underline
+                      dark:text-zinc-900
+                    "
+                    >
+                      {' '}
+                      Create an account
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </form>
