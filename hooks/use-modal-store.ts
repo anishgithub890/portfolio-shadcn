@@ -1,19 +1,7 @@
 import { User } from '@prisma/client';
 import { create } from 'zustand';
 
-export type ModalType =
-  | 'createUser'
-  | 'createSkill'
-  | 'createStore'
-  | 'login'
-  | 'editUser'
-  | 'editServer'
-  | 'editSkill'
-  | 'deleteUser'
-  | 'deleteSkill'
-  | 'messageFile'
-  | 'deleteMessage'
-  | 'showResume';
+export type ModalType = 'createUser' | 'login';
 
 interface ModalData {
   user?: User;

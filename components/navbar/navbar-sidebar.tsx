@@ -1,10 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { Home } from 'lucide-react';
 import { AiFillProject } from 'react-icons/ai';
-import { GiSkills } from 'react-icons/gi';
 import { MdContacts } from 'react-icons/md';
-import Link from 'next/link';
 
 import { Montserrat } from 'next/font/google';
 import { usePathname } from 'next/navigation';

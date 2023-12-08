@@ -30,23 +30,7 @@ const IntroCard = () => {
         <div className="text-sm md:text-xl font-light text-zinc-400">
           Create content using AI 10x faster.
         </div>
-        <div>
-          {/* <Link
-            href={
-              'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
-            }
-            rel="noreferrer"
-            target="_blank"
-          >
-          </Link> */}
-          <Button
-            variant="premium"
-            onClick={() => onOpen('showResume')}
-            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-          >
-            Resume
-          </Button>
-        </div>
+
         <div className="text-zinc-400 text-xs md:text-sm font-normal">
           No credit card required.
         </div>

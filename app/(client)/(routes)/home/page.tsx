@@ -4,12 +4,13 @@ import getSkills from '@/app/actions/getSkills';
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import SkillCard from '../screen-cards/skill-card';
 import getExperiences from '@/app/actions/getExperiences';
-import ExperienceCard from '../screen-cards/experience-card';
 import { Separator } from '@/components/ui/separator';
-import IntroCard from '../screen-cards/intro-card';
 import Footer from '@/components/footer';
+
+import SkillCard from '../screen-cards/skill-card';
+import ExperienceCard from '../screen-cards/experience-card';
+import IntroCard from '../screen-cards/intro-card';
 
 const HomePage = async () => {
   const currentUser = await getCurrentUser();

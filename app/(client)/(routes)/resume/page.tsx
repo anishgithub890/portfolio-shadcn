@@ -1,14 +1,15 @@
+import Link from 'next/link';
+
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getResumes from '@/app/actions/getResumes';
 
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
-import ResumeCard from './components/resume-card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import Footer from '@/components/footer';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import ResumeCard from './components/resume-card';
 
 const ResumePage = async () => {
   const currentUser = await getCurrentUser();

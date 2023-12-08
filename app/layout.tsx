@@ -2,14 +2,15 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
-import { ThemeProvider } from '@/components/providers/theme-provider';
 
 import ClientOnly from '@/components/client-only';
 import Navbar from '@/components/navbar/navbar';
 import ToasterProvider from '@/components/providers/toaster-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
+import { ModalProvider } from '@/components/providers/modal-provider';
+
 import getCurrentUser from './actions/getCurrentUser';
 import './globals.css';
-import { ModalProvider } from '@/components/providers/modal-provider';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 

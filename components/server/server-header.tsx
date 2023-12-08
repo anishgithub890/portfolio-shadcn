@@ -14,7 +14,6 @@ import {
   LogOut,
   Medal,
   PlusCircle,
-  Store,
   Users,
 } from 'lucide-react';
 import {
@@ -27,8 +26,6 @@ import { UserAvatar } from '@/components/user-avatar';
 import { Separator } from '@/components/ui/separator';
 
 import { useModal } from '@/hooks/use-modal-store';
-import useRegisterModal from '@/hooks/useRegisterModal';
-import useLoginModal from '@/hooks/useLoginModal';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
@@ -38,8 +35,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
   const { onOpen } = useModal();
 
   const router = useRouter();
-  const loginModal = useLoginModal();
-  const registerModal = useRegisterModal();
 
   return (
     <DropdownMenu>
@@ -95,13 +90,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             >
               <LayoutDashboard className="mr-2 h-4 w-4" />
               <span>Dashboard</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => onOpen('createStore')}
-            >
-              <Store className="mr-2 h-4 w-4" />
-              <span>Store</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"

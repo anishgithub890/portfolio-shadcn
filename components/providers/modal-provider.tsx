@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import { CreateRegisterModal } from '@/components/modals/create-register-modal';
 import { LoginModal } from '@/components/modals/login-modal ';
 
