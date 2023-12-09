@@ -124,7 +124,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="font-xl align-center mr-2 inline-block items-center justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
+                  <div className="font-xl align-center mr-2 inline-block items-center hover:bg-zinc-200 justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
                     <route.icon className={cn('h-5 w-5', route.color)} />
                   </div>
                 </Link>

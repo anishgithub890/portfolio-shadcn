@@ -44,9 +44,9 @@ const HomePage = async () => {
                 grid-cols-3 
                 sm:grid-cols-4 
                 md:grid-cols-6 
-                lg:grid-cols-7
-                xl:grid-cols-8
-                2xl:grid-cols-8
+                lg:grid-cols-8
+                xl:grid-cols-9
+                2xl:grid-cols-10
                 gap-4
               "
               >

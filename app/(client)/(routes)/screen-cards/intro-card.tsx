@@ -1,14 +1,8 @@
 'use client';
 
-import { useModal } from '@/hooks/use-modal-store';
 import TypewriterComponent from 'typewriter-effect';
 
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-
 const IntroCard = () => {
-  const { onOpen } = useModal();
-  const router = useRouter();
   return (
     <>
       <div className="text-white font-bold py-10 text-center space-y-5">
