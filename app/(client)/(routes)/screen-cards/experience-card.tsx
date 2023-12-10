@@ -20,7 +20,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
                 {data.year}
               </div>
             </Badge>
-            <div className="text-slate-700">{data.language}</div>
+            <div className="text-zinc-700 pl-1">{data.language}</div>
           </figcaption>
           <blockquote>
             <div className="flex items-center font-medium dark:text-zinc-700">
