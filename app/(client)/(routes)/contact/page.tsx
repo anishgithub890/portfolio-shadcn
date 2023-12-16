@@ -17,6 +17,7 @@ import Footer from '@/components/footer';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import CustomeButton from '@/components/custome-button';
 
 const ContactPage = () => {
   return (
@@ -85,10 +86,10 @@ const ContactPage = () => {
             pt-8
             pl-[2rem]
             pr-[2rem]
-            sm:pl-[8rem]
-            sm:pr-[8rem]
-            md:pl-[4rem]
-            md:pr-[4rem]
+            sm:pl-[2rem]
+            sm:pr-[2rem]
+            md:pl-[2rem]
+            md:pr-[2rem]
             grid 
             grid-cols-1 
             sm:grid-cols-1
@@ -112,7 +113,19 @@ const ContactPage = () => {
               placeholder="Enter your messages"
               rows={5}
             />
+            <div
+              className="
+              pt-[1rem]
+              sm:pt-[1rem]
+              md:pt-[6rem]
+              "
+            >
+              <Button variant="primary" className="p-8 text-lg">
+                SEND
+              </Button>
+            </div>
           </div>
+
           {/* footer-part */}
           <div className="pt-8">
             <Footer />
