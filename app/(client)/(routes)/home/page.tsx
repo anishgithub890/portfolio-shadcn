@@ -32,7 +32,7 @@ const HomePage = async () => {
               Skills
             </h2>
 
-            {skills!.length === 0 ? (
+            {skills?.length === 0 ? (
               <div className="pt-1">
                 <EmptyState />
               </div>
@@ -50,7 +50,7 @@ const HomePage = async () => {
                 gap-4
               "
               >
-                {skills!.map((skill: any) => {
+                {skills?.map((skill: any) => {
                   return (
                     <SkillCard
                       currentUser={currentUser}
@@ -68,7 +68,7 @@ const HomePage = async () => {
             <h2 className="font-bold text-3xl text-center pt-8 underline underline-offset-8">
               Experiences
             </h2>
-            {experiences!.length === 0 ? (
+            {experiences?.length === 0 ? (
               <div className="pt-1">
                 <EmptyState />
               </div>
@@ -86,7 +86,7 @@ const HomePage = async () => {
                 gap-4
               "
               >
-                {experiences!.map((experience: any) => {
+                {experiences?.map((experience: any) => {
                   return (
                     <ExperienceCard
                       currentUser={currentUser}
