@@ -23,9 +23,13 @@ const ContactPage = () => {
     <>
       <Container>
         <div className="pt-14">
-          <div className="pt-8 flex-row">
-            <h2>get in touch</h2>
-            <h1>CONTACT</h1>
+          <div className="pt-8 text-center flex-row">
+            <p className="text-xl font-light text-muted-foreground text-zinc-500 dark:text-white">
+              get in touch
+            </p>
+            <h2 className="text-5xl pt-1 font-bold tracking-tight text-zinc-900 dark:text-white">
+              CONTACT
+            </h2>
           </div>
           <div
             className="
@@ -96,15 +100,15 @@ const ContactPage = () => {
             "
           >
             <Input
-              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
               placeholder="Enter your name"
             />
             <Input
-              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
               placeholder="Enter your email"
             />
             <Textarea
-              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
               placeholder="Enter your messages"
               rows={5}
             />
