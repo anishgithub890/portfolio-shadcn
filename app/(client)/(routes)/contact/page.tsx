@@ -14,17 +14,24 @@ import {
 
 import Container from '@/components/container';
 import Footer from '@/components/footer';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 const ContactPage = () => {
   return (
     <>
       <Container>
-        <div className="pt-24">
+        <div className="pt-14">
+          <div className="pt-8 flex-row">
+            <h2>get in touch</h2>
+            <h1>CONTACT</h1>
+          </div>
           <div
             className="
            pt-8
-           pl-2
-           pr-2 
+           pl-8
+           pr-8 
            grid 
            grid-cols-1 
            sm:grid-cols-1
@@ -72,8 +79,12 @@ const ContactPage = () => {
           <div
             className="
             pt-8
-            pl-2
-            pr-2 
+            pl-[2rem]
+            pr-[2rem]
+            sm:pl-[8rem]
+            sm:pr-[8rem]
+            md:pl-[4rem]
+            md:pr-[4rem]
             grid 
             grid-cols-1 
             sm:grid-cols-1
@@ -83,7 +94,21 @@ const ContactPage = () => {
             2xl:grid-cols-2
             gap-4
             "
-          ></div>
+          >
+            <Input
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              placeholder="Enter your name"
+            />
+            <Input
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              placeholder="Enter your email"
+            />
+            <Textarea
+              className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
+              placeholder="Enter your messages"
+              rows={5}
+            />
+          </div>
           {/* footer-part */}
           <div className="pt-8">
             <Footer />
