@@ -57,7 +57,7 @@ const ContactPage = () => {
       });
       await axios.post(url, values);
 
-      toast.success('Submitted! thank you for your valuable message');
+      toast.success('thank you for your message');
       form.reset();
       router.refresh();
     } catch (error) {
@@ -216,15 +216,15 @@ const ContactPage = () => {
 
                 <div
                   className="
-                  pt-[1rem]
-                  sm:pt-[1rem]
-                  md:pt-[5.8rem]
+                  pt-[0.4rem]
+                  sm:pt-[0.2rem]
+                  md:pt-[6.8rem]
                   "
                 >
                   <Button
                     disabled={isLoading}
                     variant="primary"
-                    className="p-8 text-lg"
+                    className="p-6 text-lg"
                   >
                     SEND
                   </Button>

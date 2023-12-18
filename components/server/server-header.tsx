@@ -9,6 +9,7 @@ import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { SafeUser } from '@/app/types';
 import {
+  Contact,
   LayoutDashboard,
   LogIn,
   LogOut,
@@ -90,6 +91,13 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             >
               <LayoutDashboard className="mr-2 h-4 w-4" />
               <span>Dashboard</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/admincontacts')}
+            >
+              <Contact className="mr-2 h-4 w-4" />
+              <span>Manage Contacts</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
