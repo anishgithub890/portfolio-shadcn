@@ -28,7 +28,6 @@ model User {
   experiences Experience[]
   testimonials Testimonial[]
   resumes Resume[]
-  contacts Contact[]
 }
 model Account {
   id                 String @id @default(uuid()) @map("_id")
@@ -122,12 +121,8 @@ model Contact {
   name         String
   email        String
   message      String
-  userId       String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  @@index([userId])
 }
 
 model Image {
