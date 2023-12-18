@@ -8,7 +8,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { Contact } from '@prisma/client';
 
 import {
   Form,
@@ -39,6 +38,7 @@ const formSchema = z.object({
 
 const ContactPage = () => {
   const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -79,18 +79,18 @@ const ContactPage = () => {
           </div>
           <div
             className="
-           pt-8
-           pl-8
-           pr-8 
-           grid 
-           grid-cols-1 
-           sm:grid-cols-1
-           md:grid-cols-3
-           lg:grid-cols-3
-           xl:grid-cols-3
-           2xl:grid-cols-3
-           gap-4
-         "
+              pt-8
+              pl-8
+              pr-8 
+              grid 
+              grid-cols-1 
+              sm:grid-cols-1
+              md:grid-cols-3
+              lg:grid-cols-3
+              xl:grid-cols-3
+              2xl:grid-cols-3
+              gap-4
+            "
           >
             <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
               <div className="md:p-8 text-center md:text-left space-y-4">
@@ -166,7 +166,7 @@ const ContactPage = () => {
                           placeholder="Enter your name"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-rose-600" />
                     </FormItem>
                   )}
                 />
@@ -187,7 +187,7 @@ const ContactPage = () => {
                           placeholder="Enter your email"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-rose-600" />
                     </FormItem>
                   )}
                 />
@@ -206,10 +206,10 @@ const ContactPage = () => {
                           {...field}
                           className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                           placeholder="Enter your messages"
-                          rows={5}
+                          rows={3}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-rose-600" />
                     </FormItem>
                   )}
                 />
@@ -218,7 +218,7 @@ const ContactPage = () => {
                   className="
                   pt-[1rem]
                   sm:pt-[1rem]
-                  md:pt-[8rem]
+                  md:pt-[5.8rem]
                   "
                 >
                   <Button
