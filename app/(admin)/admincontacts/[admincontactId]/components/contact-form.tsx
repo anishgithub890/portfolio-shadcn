@@ -23,6 +23,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
+import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -123,7 +124,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialData }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <div className="md:grid md:grid-cols-3 gap-8">
+          <div className="md:grid md:grid-cols-2 gap-8">
             <FormField
               control={form.control}
               name="name"
@@ -166,11 +167,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialData }) => {
                 <FormItem>
                   <FormLabel>Contact Message</FormLabel>
                   <FormControl>
-                    <Input
+                    {/* <Input
                       disabled={loading}
                       placeholder="contact message"
                       {...field}
-                    />
+                    /> */}
+                    <Editor {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

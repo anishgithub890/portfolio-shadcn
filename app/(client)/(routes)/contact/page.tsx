@@ -23,6 +23,7 @@ import Footer from '@/components/footer';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -85,7 +86,7 @@ const ContactPage = () => {
               grid 
               grid-cols-1 
               sm:grid-cols-1
-              md:grid-cols-3
+              md:grid-cols-1
               lg:grid-cols-3
               xl:grid-cols-3
               2xl:grid-cols-3
@@ -134,12 +135,12 @@ const ContactPage = () => {
               <div
                 className="
                   pt-8
-                  pl-[2rem]
-                  pr-[2rem]
-                  sm:pl-[2rem]
-                  sm:pr-[2rem]
-                  md:pl-[2rem]
-                  md:pr-[2rem]
+                  pl-[0.5rem]
+                  pr-[0.5rem]
+                  sm:pl-[1rem]
+                  sm:pr-[1rem]
+                  md:pl-[1rem]
+                  md:pr-[1rem]
                   grid 
                   grid-cols-1 
                   sm:grid-cols-1
@@ -201,13 +202,14 @@ const ContactPage = () => {
                         Message
                       </FormLabel>
                       <FormControl>
-                        <Textarea
+                        {/* <Textarea
                           disabled={isLoading}
                           {...field}
                           className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                           placeholder="Enter your messages"
                           rows={3}
-                        />
+                        /> */}
+                        <Editor {...field} />
                       </FormControl>
                       <FormMessage className="text-rose-600" />
                     </FormItem>
@@ -218,7 +220,7 @@ const ContactPage = () => {
                   className="
                   pt-[0.4rem]
                   sm:pt-[0.2rem]
-                  md:pt-[6.8rem]
+                  md:pt-[4.5rem]
                   "
                 >
                   <Button

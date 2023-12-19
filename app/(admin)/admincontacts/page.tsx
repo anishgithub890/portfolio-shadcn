@@ -25,7 +25,6 @@ const AdminContactsPage = async () => {
     id: item.id,
     name: item.name,
     email: item.email,
-    message: item.message,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
