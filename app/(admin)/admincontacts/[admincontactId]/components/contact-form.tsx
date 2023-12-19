@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Trash } from 'lucide-react';
-import { User } from '@prisma/client';
+import { Contact } from '@prisma/client';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Input } from '@/components/ui/input';
@@ -31,55 +31,48 @@ const formSchema = z.object({
   email: z.string().min(1, {
     message: 'email name is required',
   }),
-  role: z
-    .string()
-    .min(1, {
-      message: 'role is default-use.',
-    })
-    .optional(),
-  password: z.string().min(1, {
-    message: 'password is required.',
+  message: z.string().min(1, {
+    message: 'messages is required',
   }),
 });
 
-type UserFormValues = z.infer<typeof formSchema>;
+type ContactFormValues = z.infer<typeof formSchema>;
 
-interface UserFormProps {
-  initialData?: User | null;
+interface ContactFormProps {
+  initialData?: Contact | null;
 }
 
-export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
+export const ContactForm: React.FC<ContactFormProps> = ({ initialData }) => {
   const params = useParams();
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit user' : 'Create user';
-  const description = initialData ? 'Edit a user' : 'Add a new user';
-  const toastMessage = initialData ? 'User updated' : 'User created';
+  const title = initialData ? 'Edit contact' : 'Create contact';
+  const description = initialData ? 'Edit a contact' : 'Add a new contact';
+  const toastMessage = initialData ? 'Contact updated' : 'Contact created';
   const action = initialData ? 'Save changes' : 'Create';
 
-  const form = useForm<UserFormValues>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       name: '',
       email: '',
-      role: '',
-      password: '',
+      message: '',
     },
   });
 
-  const onSubmit = async (data: UserFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
     try {
       setLoading(true);
       if (initialData) {
-        await axios.patch(`/api/register/${params?.adminuserId}`, data);
+        await axios.patch(`/api/contacts/${params?.admincontactId}`, data);
       } else {
-        await axios.post(`/api/register`, data);
+        await axios.post(`/api/contacts`, data);
       }
       router.refresh();
-      router.push(`/adminusers`);
+      router.push(`/admincontacts`);
       toast.success(toastMessage);
     } catch (error: any) {
       toast.error('Something went wrong.');
@@ -91,12 +84,12 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/register/${params?.adminuserId}`);
+      await axios.delete(`/api/contacts/${params?.admincontactId}`);
       router.refresh();
-      router.push(`/adminusers`);
-      toast.success('User deleted.');
+      router.push(`/admincontacts`);
+      toast.success('Contact deleted.');
     } catch (error: any) {
-      toast.error('Make sure you removed all users.');
+      toast.error('Make sure you removed all contacts.');
     } finally {
       setLoading(false);
       setOpen(false);
@@ -136,11 +129,11 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Name</FormLabel>
+                  <FormLabel>Contact Name</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user name"
+                      placeholder="contact name"
                       {...field}
                     />
                   </FormControl>
@@ -153,11 +146,11 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Email</FormLabel>
+                  <FormLabel>Contact Email</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user email"
+                      placeholder="contact email"
                       {...field}
                     />
                   </FormControl>
@@ -165,33 +158,17 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
-              name="role"
+              name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Roles</FormLabel>
+                  <FormLabel>Contact Message</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user role user/admin"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>User Password Is Bcrypt</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="user password"
+                      placeholder="contact message"
                       {...field}
                     />
                   </FormControl>

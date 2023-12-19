@@ -1,16 +1,16 @@
 import prisma from '@/lib/prismadb';
 
-import { UserForm } from './components/user-form';
+import { ContactForm } from './components/contact-form';
 import Container from '@/components/container';
 
-const AdminUserPage = async ({
+const AdminContactPage = async ({
   params,
 }: {
-  params: { adminuserId: string };
+  params: { admincontactId: string };
 }) => {
-  const user = await prisma.user.findFirst({
+  const contact = await prisma.contact.findFirst({
     where: {
-      id: params.adminuserId,
+      id: params.admincontactId,
     },
   });
 
@@ -18,11 +18,11 @@ const AdminUserPage = async ({
     <div className="flex-col pt-14">
       <Container>
         <div className="flex-1 space-y-4 p-8 pt-6">
-          <UserForm initialData={user} />
+          <ContactForm initialData={contact} />
         </div>
       </Container>
     </div>
   );
 };
 
-export default AdminUserPage;
+export default AdminContactPage;

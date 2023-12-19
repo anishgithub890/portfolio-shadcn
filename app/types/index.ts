@@ -4,6 +4,7 @@ import {
   Testimonial,
   Experience,
   Resume,
+  Contact,
   User,
 } from '@prisma/client';
 
@@ -28,6 +29,11 @@ export type SafeExperience = Omit<Experience, 'createdAt' | 'updatedAt'> & {
 };
 
 export type SafeResume = Omit<Resume, 'createdAt' | 'updatedAt'> & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type SafeContact = Omit<Contact, 'createdAt' | 'updatedAt'> & {
   createdAt: string;
   updatedAt: string;
 };
