@@ -7,7 +7,9 @@ import { Preview } from '@/components/preview';
 export type ProjectColumn = {
   id: string;
   name: string;
-  explanation: string;
+  viewUrl: string;
+  githubUrl: string;
+  // explanation: string;
   createdAt: string;
 };
 
@@ -17,14 +19,22 @@ export const columns: ColumnDef<ProjectColumn>[] = [
     header: 'Name',
   },
   {
-    accessorKey: 'explanation',
-    header: 'Explanation',
-    cell: ({ row }) => (
-      <div className="flex items-center">
-        <Preview value={row.original.explanation} />
-      </div>
-    ),
+    accessorKey: 'githubUrl',
+    header: 'View Url',
   },
+  {
+    accessorKey: 'viewUrl',
+    header: 'Github Url',
+  },
+  // {
+  //   accessorKey: 'explanation',
+  //   header: 'Explanation',
+  //   cell: ({ row }) => (
+  //     <div className="flex items-center">
+  //       <Preview value={row.original.explanation} />
+  //     </div>
+  //   ),
+  // },
   {
     accessorKey: 'createdAt',
     header: 'Date',
