@@ -29,43 +29,27 @@ const SOCIAL_MEDIA = [
 
 const COMPANY = [
   {
-    name: 'About Us',
+    name: 'Home',
     link: '/',
   },
   {
-    name: 'Blog',
-    link: '/',
+    name: 'Project',
+    link: '/project',
   },
   {
-    name: 'Github',
-    link: 'https://github.com/anishgithub890/portfolio-shadcn',
-  },
-  {
-    name: 'Free Products',
-    link: 'https://github.com/anishgithub890/portfolio-shadcn',
+    name: 'Contact',
+    link: '/contact',
   },
 ];
 
 const HELP = [
   {
-    name: 'Knowledge Center',
-    link: '/',
-  },
-  {
     name: 'Contact Us',
-    link: '/',
+    link: '/contact',
   },
 ];
 
 const RESOURCES = [
-  {
-    name: 'Documentation',
-    link: '/',
-  },
-  {
-    name: 'Custom Development',
-    link: '/',
-  },
   {
     name: 'Discord',
     link: 'https://discord.gg/u6gWupuH',
@@ -73,6 +57,10 @@ const RESOURCES = [
   {
     name: 'Tailwind Components',
     link: 'https://tailwindcomponents.com',
+  },
+  {
+    name: 'Github',
+    link: 'https://github.com/anishgithub890',
   },
 ];
 
@@ -135,19 +123,17 @@ export function Footer() {
             <div className="items-top mb-6 flex flex-wrap">
               <div className="w-6/12 pt-6 md:ml-auto md:px-4 md:pt-0 xl:w-3/12">
                 <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
-                  Company
+                  Important links
                 </span>
                 <ul className="list-unstyled">
                   {COMPANY.map(({ name, link }, key) => (
                     <li key={key}>
-                      <a
+                      <Link
                         href={link}
-                        target="_blank"
-                        rel="noreferrer"
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -161,8 +147,6 @@ export function Footer() {
                     <li key={key}>
                       <Link
                         href={link}
-                        rel="noreferrer"
-                        target={name === 'Pricing' ? '_self' : '_blank'}
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                       >
                         {name}
