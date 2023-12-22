@@ -5,10 +5,17 @@ import {
   Experience,
   Resume,
   Contact,
+  Image,
   User,
 } from '@prisma/client';
 
 export type SafeProject = Omit<Project, 'createdAt' | 'updatedAt'> & {
+  images: Image[];
+  createdAt: string;
+  updatedAt: string;
+};
+export type SafeImage = Omit<Image, 'createdAt' | 'updatedAt'> & {
+  // url: string;
   createdAt: string;
   updatedAt: string;
 };
