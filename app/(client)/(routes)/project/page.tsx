@@ -5,11 +5,13 @@ import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import ProjectCard from '../screen-cards/project-card';
+import geProjectImages from '@/app/actions/getProjectImages';
 
 const ProjectPage = async () => {
   const currentUser = await getCurrentUser();
 
   const projects = await getProjects({ isFeatured: true });
+  const images = await geProjectImages({ isFeatured: true });
 
   return (
     <>
@@ -40,6 +42,7 @@ const ProjectPage = async () => {
                       currentUser={currentUser}
                       key={project.id}
                       data={project}
+                      images={project}
                     />
                   );
                 })}

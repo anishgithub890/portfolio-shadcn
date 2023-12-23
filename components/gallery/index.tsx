@@ -4,7 +4,6 @@ import NextImage from 'next/image';
 import { Tab } from '@headlessui/react';
 
 import { SafeImage } from '@/app/types';
-
 import GalleryTab from './gallery-tab';
 
 interface GalleryProps {
