@@ -6,6 +6,7 @@ import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import ProjectCard from '../screen-cards/project-card';
 import geProjectImages from '@/app/actions/getProjectImages';
+import ProjectList from '../screen-cards/project-list';
 
 const ProjectPage = async () => {
   const currentUser = await getCurrentUser();
@@ -38,11 +39,10 @@ const ProjectPage = async () => {
               >
                 {projects?.map((project: any) => {
                   return (
-                    <ProjectCard
-                      currentUser={currentUser}
+                    <ProjectList
+                      title="Featured Products"
+                      items={projects}
                       key={project.id}
-                      data={project}
-                      images={project}
                     />
                   );
                 })}

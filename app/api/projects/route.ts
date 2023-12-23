@@ -9,7 +9,8 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const { name, explanation, viewUrl, githubUrl, images, isFeatured } = body;
+    const { name, explanation, viewUrl, githubUrl, imageUrl, isFeatured } =
+      body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -29,8 +30,8 @@ export async function POST(req: Request) {
       return new NextResponse('Github URL is required', { status: 400 });
     }
 
-    if (!images || !images.length) {
-      return new NextResponse('Images are required', { status: 400 });
+    if (!imageUrl) {
+      return new NextResponse('Image is required', { status: 400 });
     }
 
     const project = await prisma.project.create({
@@ -39,11 +40,7 @@ export async function POST(req: Request) {
         explanation,
         viewUrl,
         githubUrl,
-        images: {
-          createMany: {
-            data: [...images.map((image: { url: string }) => image)],
-          },
-        },
+        imageUrl,
         isFeatured,
         userId: currentUser.id,
       },

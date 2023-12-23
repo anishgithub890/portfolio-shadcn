@@ -62,7 +62,8 @@ export async function PATCH(
 
     const body = await req.json();
 
-    const { name, explanation, viewUrl, githubUrl, images, isFeatured } = body;
+    const { name, explanation, viewUrl, githubUrl, imageUrl, isFeatured } =
+      body;
 
     if (!currentUser) {
       return new NextResponse('Unauthenticated', { status: 403 });
@@ -82,15 +83,15 @@ export async function PATCH(
       return new NextResponse('Github URL is required', { status: 400 });
     }
 
-    if (!images || !images.length) {
-      return new NextResponse('Images are required', { status: 400 });
+    if (!imageUrl) {
+      return new NextResponse('Image is required', { status: 400 });
     }
 
     if (!params.projectId) {
       return new NextResponse('Project id is required', { status: 400 });
     }
 
-    await prisma.project.update({
+    const project = await prisma.project.update({
       where: {
         id: params.projectId,
       },
@@ -99,23 +100,8 @@ export async function PATCH(
         explanation,
         viewUrl,
         githubUrl,
-        images: {
-          deleteMany: {},
-        },
+        imageUrl,
         isFeatured,
-      },
-    });
-
-    const project = await prisma.project.update({
-      where: {
-        id: params.projectId,
-      },
-      data: {
-        images: {
-          createMany: {
-            data: [...images.map((image: { url: string }) => image)],
-          },
-        },
       },
     });
 

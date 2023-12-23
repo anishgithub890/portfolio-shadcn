@@ -26,6 +26,7 @@ const AdminProjectsPage = async () => {
     name: item.name,
     viewUrl: item.viewUrl,
     githubUrl: item.githubUrl,
+    isFeatured: item.isFeatured,
     // explanation: item.explanation,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));

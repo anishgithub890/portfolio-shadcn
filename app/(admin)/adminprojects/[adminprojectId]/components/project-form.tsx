@@ -41,13 +41,9 @@ const formSchema = z.object({
   githubUrl: z.string().min(1, {
     message: 'github url is required.',
   }),
-  images: z
-    .object({
-      url: z.string().min(1, {
-        message: 'images are required.',
-      }),
-    })
-    .array(),
+  imageUrl: z.string().min(1, {
+    message: 'image url is required.',
+  }),
   isFeatured: z.boolean().default(false).optional(),
 });
 
@@ -76,7 +72,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
       explanation: '',
       viewUrl: '',
       githubUrl: '',
-      images: [],
+      imageUrl: '',
       isFeatured: false,
     },
   });
@@ -143,22 +139,16 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
         >
           <FormField
             control={form.control}
-            name="images"
+            name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Images</FormLabel>
+                <FormLabel>Project image</FormLabel>
                 <FormControl>
                   <ImageUpload
-                    value={field.value.map((image) => image.url)}
+                    value={field.value ? [field.value] : []}
                     disabled={loading}
-                    onChange={(url) =>
-                      field.onChange([...field.value, { url }])
-                    }
-                    onRemove={(url) =>
-                      field.onChange([
-                        ...field.value.filter((current) => current.url !== url),
-                      ])
-                    }
+                    onChange={(url) => field.onChange(url)}
+                    onRemove={() => field.onChange('')}
                   />
                 </FormControl>
                 <FormMessage />

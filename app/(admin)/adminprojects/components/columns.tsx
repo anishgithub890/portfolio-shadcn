@@ -10,6 +10,7 @@ export type ProjectColumn = {
   viewUrl: string;
   githubUrl: string;
   // explanation: string;
+  isFeatured: boolean;
   createdAt: string;
 };
 
@@ -25,6 +26,10 @@ export const columns: ColumnDef<ProjectColumn>[] = [
   {
     accessorKey: 'viewUrl',
     header: 'Github Url',
+  },
+  {
+    accessorKey: 'isFeatured',
+    header: 'Featured',
   },
   // {
   //   accessorKey: 'explanation',
