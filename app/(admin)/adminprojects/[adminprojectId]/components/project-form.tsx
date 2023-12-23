@@ -42,7 +42,7 @@ const formSchema = z.object({
     message: 'github url is required.',
   }),
   imageUrl: z.string().min(1, {
-    message: 'image url is required.',
+    message: 'image is required.',
   }),
   isFeatured: z.boolean().default(false).optional(),
 });

@@ -12,9 +12,6 @@ const AdminProjectPage = async ({
     where: {
       id: params.adminprojectId,
     },
-    include: {
-      images: true,
-    },
   });
 
   return (
