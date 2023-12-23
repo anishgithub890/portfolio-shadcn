@@ -24,7 +24,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
           "
           >
             <Image
-              fill
+              height="900"
+              width="900"
               className="
                 object-cover 
                 h-[6rem] 

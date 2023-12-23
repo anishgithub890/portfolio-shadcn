@@ -32,17 +32,19 @@ const ResumePage = async () => {
                   <h2 className="text-zinc-900 text-xl font-semibold dark:text-white pb-1">
                     Click the button to resume download and print.
                   </h2>
-                  <Link
-                    href={
-                      'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
-                    }
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <Button size="lg" variant="outline">
-                      Download / Print
-                    </Button>
-                  </Link>
+                  <div className="pt-1">
+                    <Link
+                      href={
+                        'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
+                      }
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <Button size="lg" variant="outline">
+                        Download / Print
+                      </Button>
+                    </Link>
+                  </div>
 
                   <div className="pt-2">
                     <Separator orientation="horizontal" />

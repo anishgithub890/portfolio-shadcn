@@ -5,6 +5,7 @@ import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import EmptyState from '@/components/empty-state';
 import ProjectCard from '../screen-cards/project-card';
+import Footer from '@/components/footer';
 
 const ProjectPage = async () => {
   const currentUser = await getCurrentUser();
@@ -45,6 +46,9 @@ const ProjectPage = async () => {
                 })}
               </div>
             )}
+            <div className="pt-2">
+              <Footer />
+            </div>
           </div>
         </Container>
       </ClientOnly>
