@@ -8,6 +8,7 @@ import { Preview } from '@/components/preview';
 export type ResumeColumn = {
   id: string;
   note: string;
+  isFeatured: boolean;
   createdAt: string;
 };
 
@@ -20,6 +21,10 @@ export const columns: ColumnDef<ResumeColumn>[] = [
         {<Preview value={row.original.note.slice(0, 100)} />}
       </div>
     ),
+  },
+  {
+    accessorKey: 'isFeatured',
+    header: 'Featured',
   },
   {
     accessorKey: 'createdAt',

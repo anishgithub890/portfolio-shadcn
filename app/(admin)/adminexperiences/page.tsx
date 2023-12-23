@@ -27,6 +27,7 @@ const AdminExperiencesPage = async () => {
     year: item.year,
     language: item.language,
     description: item.description,
+    isFeatured: item.isFeatured,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 

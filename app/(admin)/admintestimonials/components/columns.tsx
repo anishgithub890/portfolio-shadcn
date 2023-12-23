@@ -8,6 +8,7 @@ export type TestimonialColumn = {
   id: string;
   name: string;
   role: string;
+  isFeatured: boolean;
   createdAt: string;
 };
 
@@ -19,6 +20,10 @@ export const columns: ColumnDef<TestimonialColumn>[] = [
   {
     accessorKey: 'role',
     header: 'Role',
+  },
+  {
+    accessorKey: 'isFeatured',
+    header: 'Featured',
   },
   {
     accessorKey: 'createdAt',

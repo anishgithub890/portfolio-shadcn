@@ -19,7 +19,6 @@ export const columns: ColumnDef<ContactColumn>[] = [
     accessorKey: 'email',
     header: 'Email',
   },
-
   {
     accessorKey: 'createdAt',
     header: 'Date',

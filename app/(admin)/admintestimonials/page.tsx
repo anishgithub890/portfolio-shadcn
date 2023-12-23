@@ -26,6 +26,7 @@ const AdminTestimonialsPage = async () => {
       id: item.id,
       name: item.name,
       role: item.role,
+      isFeatured: item.isFeatured,
       createdAt: format(item.createdAt, 'MMMM do, yyyy'),
     })
   );

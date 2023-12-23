@@ -24,6 +24,7 @@ const AdminResumesPage = async () => {
   const formattedResumes: ResumeColumn[] = resumes.map((item) => ({
     id: item.id,
     note: item.note,
+    isFeatured: item.isFeatured,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 

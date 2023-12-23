@@ -7,6 +7,7 @@ export type ExperienceColumn = {
   id: string;
   year: string;
   language: string;
+  isFeatured: boolean;
   createdAt: string;
 };
 
@@ -18,6 +19,10 @@ export const columns: ColumnDef<ExperienceColumn>[] = [
   {
     accessorKey: 'language',
     header: 'Language',
+  },
+  {
+    accessorKey: 'isFeatured',
+    header: 'Featured',
   },
   {
     accessorKey: 'createdAt',

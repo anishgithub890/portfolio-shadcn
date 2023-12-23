@@ -24,6 +24,7 @@ const AdminSkillsPage = async () => {
   const formattedSkills: SkillColumn[] = skills.map((item) => ({
     id: item.id,
     label: item.label,
+    isFeatured: item.isFeatured,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
