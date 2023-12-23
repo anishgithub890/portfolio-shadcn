@@ -21,7 +21,6 @@ import {
 import Container from '@/components/container';
 import Footer from '@/components/footer';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Editor } from '@/components/editor';
 import { toast } from 'sonner';

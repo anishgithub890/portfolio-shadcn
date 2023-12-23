@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Check, Copy, Server } from 'lucide-react';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge, BadgeProps } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 interface ApiAlertProps {
   title: string;
@@ -51,7 +52,14 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
     }, 1000); // 👈 change icon back after 1 second
 
     navigator.clipboard.writeText(description);
-    toast.success('API Route copied to the clipboard');
+    // toast('API Route copied to the clipboard');
+    toast('API Route', {
+      description: 'Copied to the clipboard',
+      action: {
+        label: 'Undo',
+        onClick: () => console.log('Undo'),
+      },
+    });
   };
 
   return (
