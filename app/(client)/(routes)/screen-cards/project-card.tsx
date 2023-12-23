@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
   return (
     <>
-      <div className="md:flex bg-slate-100 hover:bg-slate-200/75 transition rounded-xl p-8 md:p-0">
+      <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-xl p-8 md:p-0">
         <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
           <div onClick={handleClick} className="items-center">
             <Image
@@ -31,14 +31,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
               alt=""
               width={`900`}
               height={`900`}
-              className="rounded-md cursor-pointer"
+              className="rounded-md border-2 border-zinc-500/80 cursor-pointer"
             />
           </div>
           <div className="flex-col items-center font-medium dark:text-zinc-700">
             <Preview value={data.explanation.substring(0, 400)} />
             <strong
               onClick={handleClick}
-              className="text-rose-700 pl-4 text-sm cursor-pointer"
+              className="text-rose-700 hover:text-rose-600 transition pl-4 text-sm cursor-pointer"
             >
               ...readmore
             </strong>

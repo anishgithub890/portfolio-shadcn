@@ -3,7 +3,7 @@
 import * as z from 'zod';
 import qs from 'query-string';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Mail, MapPin, Phone } from 'lucide-react';
@@ -24,6 +24,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Editor } from '@/components/editor';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -58,7 +59,14 @@ const ContactPage = () => {
       });
       await axios.post(url, values);
 
-      toast.success('thank you for your message');
+      // toast.success('thank you for your message');
+      toast('Contact has been created', {
+        description: 'thank you for your message',
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      });
       form.reset();
       router.refresh();
     } catch (error) {

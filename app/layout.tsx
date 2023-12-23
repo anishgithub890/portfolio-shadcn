@@ -11,6 +11,7 @@ import { ModalProvider } from '@/components/providers/modal-provider';
 
 import getCurrentUser from './actions/getCurrentUser';
 import './globals.css';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
@@ -45,6 +46,7 @@ export default async function RootLayout({
             <ClientOnly>
               <ModalProvider />
               <ToasterProvider />
+              <Toaster />
               <Navbar currentUser={currentUser} />
               {children}
             </ClientOnly>
