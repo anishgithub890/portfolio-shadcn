@@ -7,6 +7,7 @@ import { BsGithub } from 'react-icons/bs';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Preview } from '@/components/preview';
 import { UserAvatar } from '@/components/user-avatar';
+import { Separator } from '@/components/ui/separator';
 
 interface ProjectInfoProps {
   user: SafeUser;
@@ -25,9 +26,11 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
 }) => {
   return (
     <div className="col-span-8 flex flex-col gap-8">
-      <div className="flex flex-col gap-2">
-        <div
-          className="
+      <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-xl p-8 md:p-0">
+        <div className="pt-6 md:p-8 space-y-4">
+          <div className="flex flex-col gap-2">
+            <div
+              className="
                   text-xl
                   font-semibold
                   flex
@@ -35,29 +38,33 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
                   items-center
                   gap-2
                   "
-        >
-          <div>Hosted by {user?.name}</div>
-          <UserAvatar src={user?.imageUrl} />
+            >
+              <div className="dark:text-zinc-900">Hosted by {user?.name}</div>
+              <UserAvatar src={user?.imageUrl} />
+            </div>
+          </div>
+          <Separator orientation="horizontal" />
+          <div className="text-lg dark:text-zinc-900 font-medium text-zinc-900">
+            {name}
+          </div>
+          <div className="text-md font-medium dark:text-white text-zinc-900">
+            <Preview value={explanation} />
+          </div>
+          <div className="flex gap-6">
+            <Link href={`${githubUrl}`} target="_blank">
+              <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+                <BsGithub className="text-2xl" />
+              </button>
+            </Link>
+            <Link href={`${viewUrl}`} target="_blank">
+              <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+                Live <BiLinkExternal className="text-2xl" />
+              </button>
+            </Link>
+          </div>
+          <Separator orientation="horizontal" />
         </div>
       </div>
-      <hr />
-      <div className="text-lg font-light text-neutral-900">{name}</div>
-      <div className="text-lg font-light text-neutral-500">
-        <Preview value={explanation} />
-      </div>
-      <div className="flex gap-6">
-        <Link href={`${githubUrl}`} target="_blank">
-          <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-            <BsGithub className="text-2xl" />
-          </button>
-        </Link>
-        <Link href={`${viewUrl}`} target="_blank">
-          <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-            Live <BiLinkExternal className="text-2xl" />
-          </button>
-        </Link>
-      </div>
-      <hr />
     </div>
   );
 };

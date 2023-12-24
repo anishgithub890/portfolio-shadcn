@@ -1,8 +1,8 @@
 'use client';
 
-import { SafeUser } from '@/app/types';
 import Image from 'next/image';
-import Loading from '@/components/loading';
+
+import { SafeUser } from '@/app/types';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 
 interface ProjectHeadProps {
@@ -18,23 +18,19 @@ const ProjectHead: React.FC<ProjectHeadProps> = ({ name, imageUrl }) => {
       <HeadingTheme title={name} />
       <div
         className="
-      w-full
-      h-[60vh]
-      overflow-hidden
-      rounded-xl
-      relative
-      "
+        w-full
+        h-[60vh]
+        overflow-hidden
+        rounded-xl
+        relative
+        "
       >
-        <Loading /> ?
-        {
-          <Image
-            src={imageUrl}
-            alt="Image"
-            fill
-            className="object-cover w-full"
-          />
-        }
-        : {''}
+        <Image
+          src={imageUrl}
+          alt="Image"
+          fill
+          className="object-cover w-full"
+        />
       </div>
     </>
   );
