@@ -1,13 +1,14 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
-import { SafeProject, SafeUser } from '@/app/types';
-import { Preview } from '@/components/preview';
-import Image from 'next/image';
-import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { ExternalLink, Github } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+
+import { SafeProject, SafeUser } from '@/app/types';
+
+import { Preview } from '@/components/preview';
+import { Separator } from '@/components/ui/separator';
 
 interface ProjectCardProps {
   data: SafeProject;
@@ -23,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
   return (
     <>
-      <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-xl p-8 md:p-0">
+      <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
         <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
           <div onClick={handleClick} className="items-center">
             <Image
@@ -31,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
               alt=""
               width={`900`}
               height={`900`}
-              className="rounded-md border-2 border-zinc-500/80 cursor-pointer"
+              className="rounded-md border-2 border-zinc-400/80 cursor-pointer"
             />
           </div>
           <div className="flex-col items-center font-medium dark:text-zinc-700">
@@ -48,12 +49,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           </div>
           <div className="flex gap-4">
             <Link href={`${data.githubUrl}`} target="_blank">
-              <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+              <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] transition duration-150">
                 <Github className="text-2xl" />
               </button>
             </Link>
             <Link href={`${data.viewUrl}`} target="_blank">
-              <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+              <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] transition duration-150">
                 Live <ExternalLink className="text-2xl" />
               </button>
             </Link>

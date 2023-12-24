@@ -1,7 +1,7 @@
 import prisma from '@/lib/prismadb';
 
 interface IParams {
-  projectId: string;
+  projectId?: string;
 }
 
 export default async function getProjectById(params: IParams) {
@@ -36,7 +36,7 @@ export default async function getProjectById(params: IParams) {
       },
     };
   } catch (error) {
-    console.log('[get_PROJECTBYID]');
+    console.log('[GET_PROJECTBYID]');
     return null;
   }
 }
