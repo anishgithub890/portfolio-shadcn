@@ -22,7 +22,7 @@ const IntroCard = () => {
           </div>
         </div>
         <div className="text-sm md:text-xl font-light text-zinc-400">
-          Create website using Reactjs/Nextjs faster.
+          Create website using Reactjs/Nextjs much faster.
         </div>
 
         {/* <div className="text-zinc-400 text-xs md:text-sm font-normal">
