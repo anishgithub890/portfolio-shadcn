@@ -50,6 +50,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
           <div className="text-md font-medium dark:text-white text-zinc-900">
             <Preview value={explanation} />
           </div>
+          <Separator orientation="horizontal" />
           <div className="flex gap-6">
             <Link href={`${githubUrl}`} target="_blank">
               <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
@@ -62,7 +63,6 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
               </button>
             </Link>
           </div>
-          <Separator orientation="horizontal" />
         </div>
       </div>
     </div>
