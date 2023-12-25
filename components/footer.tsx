@@ -111,6 +111,7 @@ export function Footer() {
                   href={route.link}
                   target="_blank"
                   rel="noreferrer"
+                  as="social-media"
                 >
                   <div className="font-xl align-center mr-2 inline-block items-center hover:bg-zinc-200 justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
                     <route.icon className={cn('h-5 w-5', route.color)} />
@@ -131,6 +132,7 @@ export function Footer() {
                       <Link
                         href={link}
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
+                        as="company"
                       >
                         {name}
                       </Link>
@@ -148,6 +150,7 @@ export function Footer() {
                       <Link
                         href={link}
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
+                        as="help"
                       >
                         {name}
                       </Link>
@@ -167,6 +170,7 @@ export function Footer() {
                         rel="noreferrer"
                         target={name === 'Documentation' ? '_self' : '_blank'}
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
+                        as=""
                       >
                         {name}
                       </Link>
@@ -186,6 +190,7 @@ export function Footer() {
                         rel="noreferrer"
                         target="_blank"
                         className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
+                        as="techs"
                       >
                         {name}
                       </Link>

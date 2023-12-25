@@ -1,5 +1,6 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getSkills from '@/app/actions/getSkills';
+import getTestimonials from '@/app/actions/getTestimonials';
 
 import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
@@ -11,13 +12,14 @@ import Footer from '@/components/footer';
 import SkillCard from '../screen-cards/skill-card';
 import ExperienceCard from '../screen-cards/experience-card';
 import IntroCard from '../screen-cards/intro-card';
-import { TestimonialCard } from '../screen-cards/testimonial-card';
+import TestimonialCard from '../screen-cards/testimonial-card';
 
 const HomePage = async () => {
   const currentUser = await getCurrentUser();
 
   const skills = await getSkills({ isFeatured: true });
   const experiences = await getExperiences({ isFeatured: true });
+  const testimonials = await getTestimonials({ isFeatured: true });
 
   return (
     <>
@@ -106,22 +108,36 @@ const HomePage = async () => {
               <h2 className="font-bold text-3xl text-center pt-8 underline underline-offset-8">
                 Testimonial
               </h2>
-
-              <div
-                className="
+              {testimonials?.length === 0 ? (
+                <div className="pt-1">
+                  <EmptyState />
+                </div>
+              ) : (
+                <div
+                  className="
                 pt-8
-                grid 
+                grid
                 justify-center
                 items-center
               "
-              >
-                <TestimonialCard />
-              </div>
-            </div>
+                >
+                  {testimonials?.map((testimonial: any) => {
+                    return (
+                      <TestimonialCard
+                        currentUser={currentUser}
+                        key={testimonial.id}
+                        data={testimonial}
+                        testimonialdata={testimonial}
+                      />
+                    );
+                  })}
+                </div>
+              )}
 
-            {/* footer-screen */}
-            <div className="pt-2">
-              <Footer />
+              {/* footer-screen */}
+              <div className="pt-2">
+                <Footer />
+              </div>
             </div>
           </div>
         </Container>

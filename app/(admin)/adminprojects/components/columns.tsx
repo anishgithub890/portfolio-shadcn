@@ -2,7 +2,7 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
-import { Preview } from '@/components/preview';
+// import { Preview } from '@/components/preview';
 
 export type ProjectColumn = {
   id: string;
