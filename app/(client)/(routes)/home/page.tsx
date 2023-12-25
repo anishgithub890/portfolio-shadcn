@@ -11,6 +11,7 @@ import Footer from '@/components/footer';
 import SkillCard from '../screen-cards/skill-card';
 import ExperienceCard from '../screen-cards/experience-card';
 import IntroCard from '../screen-cards/intro-card';
+import { TestimonialCard } from '../screen-cards/testimonial-card';
 
 const HomePage = async () => {
   const currentUser = await getCurrentUser();
@@ -97,6 +98,26 @@ const HomePage = async () => {
                 })}
               </div>
             )}
+
+            <div className="pt-8">
+              <Separator orientation="horizontal" />
+            </div>
+            <div className="flex flex-col">
+              <h2 className="font-bold text-3xl text-center pt-8 underline underline-offset-8">
+                Testimonial
+              </h2>
+
+              <div
+                className="
+                pt-8
+                grid 
+                justify-center
+                items-center
+              "
+              >
+                <TestimonialCard />
+              </div>
+            </div>
 
             {/* footer-screen */}
             <div className="pt-2">
