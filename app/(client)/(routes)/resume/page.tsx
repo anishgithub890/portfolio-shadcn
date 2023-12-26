@@ -9,7 +9,7 @@ import EmptyState from '@/components/empty-state';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import ResumeCard from './components/resume-card';
+import ResumeCard from '../screen-cards/resume-card';
 
 const ResumePage = async () => {
   const currentUser = await getCurrentUser();

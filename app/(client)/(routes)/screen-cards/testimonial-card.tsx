@@ -14,6 +14,7 @@ import {
 import { SafeTestimonial, SafeUser } from '@/app/types';
 import { Preview } from '@/components/preview';
 import { TestimonialColumn } from '@/app/(admin)/admintestimonials/components/columns';
+import Image from 'next/image';
 
 interface TestimonialCardProps {
   data: SafeTestimonial;
@@ -42,12 +43,21 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <figure className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-sm p-8 md:p-0">
-                    <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
+                  <figure className="md:flex bg-slate-100 hover:bg-slate-200 justify-center transition rounded-sm p-8 md:p-0">
+                    <div className="pt-6 md:p-8 text-center space-y-4">
+                      <div className="flex justify-center">
+                        <Image
+                          src={data.imageUrl}
+                          alt=""
+                          width="100"
+                          height="100"
+                        />
+                      </div>
                       <figcaption className="font-medium">
                         <div className="text-sky-500 text-sm font-medium">
                           {data.name}
                         </div>
+                        <div className="text-zinc-700 pl-1">{data.role}</div>
                         <div className="text-zinc-700 pl-1">{data.company}</div>
                       </figcaption>
                       <blockquote>
