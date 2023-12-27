@@ -6,17 +6,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 const Loading = () => {
   return (
     <Container>
-      {/* <div className="w-full h-full p-8 pt-20">
-        <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-        </div>
-      </div> */}
-      <div className="w-full h-full pt-20">
+      <div className="w-full h-full pt-20 duration-500">
         <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div className="max-w-sm p-10 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
             <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+
 import { SafeSkill, SafeUser } from '@/app/types';
 
 interface SkillCardProps {

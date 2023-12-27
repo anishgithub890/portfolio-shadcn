@@ -7,7 +7,10 @@ import { AiOutlineProfile } from 'react-icons/ai';
 import { MdEditNote } from 'react-icons/md';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+
 import { SafeUser } from '@/app/types';
+import { useModal } from '@/hooks/use-modal-store';
+
 import {
   Contact,
   LayoutDashboard,
@@ -25,8 +28,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { UserAvatar } from '@/components/user-avatar';
 import { Separator } from '@/components/ui/separator';
-
-import { useModal } from '@/hooks/use-modal-store';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;

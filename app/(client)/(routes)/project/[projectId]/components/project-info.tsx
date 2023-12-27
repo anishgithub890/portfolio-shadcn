@@ -1,7 +1,6 @@
 'use client';
 
 import { SafeUser } from '@/app/types';
-import { IconType } from 'react-icons';
 import Link from 'next/link';
 import { BsGithub } from 'react-icons/bs';
 import { BiLinkExternal } from 'react-icons/bi';

@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { Typography } from '@material-tailwind/react';
 import { Github, Linkedin } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';
-import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+
+import { cn } from '@/lib/utils';
 
 const YEAR = new Date().getFullYear();
 

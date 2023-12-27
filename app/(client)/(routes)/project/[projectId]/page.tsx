@@ -1,5 +1,6 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getProjectById from '@/app/actions/getProjectById';
+
 import ClientOnly from '@/components/client-only';
 import EmptyState from '@/components/empty-state';
 import ProjectClient from './components/project-client';

@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
+
 import { SafeTestimonial, SafeUser } from '@/app/types';
 import { Preview } from '@/components/preview';
-import Image from 'next/image';
 
 interface TestimonialCardProps {
   data: SafeTestimonial;

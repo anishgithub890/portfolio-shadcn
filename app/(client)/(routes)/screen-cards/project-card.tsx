@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
 import { SafeProject, SafeUser } from '@/app/types';
 

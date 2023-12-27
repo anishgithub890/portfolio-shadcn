@@ -5,7 +5,8 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 
 import {
@@ -67,7 +68,13 @@ export const CreateRegisterModal = () => {
       });
       await axios.post(url, values);
 
-      toast.success('Registered!');
+      // toast.success('Registered!');
+      toast('Registered!', {
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      });
       form.reset();
       router.refresh();
       onClose();
