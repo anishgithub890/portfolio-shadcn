@@ -18,16 +18,24 @@ import {
   LogOut,
   Medal,
   PlusCircle,
+  Scale,
   Users,
 } from 'lucide-react';
+import { SiGnuprivacyguard } from 'react-icons/si';
+import { GrServices } from 'react-icons/gr';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { UserAvatar } from '@/components/user-avatar';
-import { Separator } from '@/components/ui/separator';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
@@ -67,6 +75,8 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
       <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
         {currentUser?.role == 'user' ? (
           <>
+            <DropdownMenuLabel className="pl-4">My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => router.push('')}
@@ -74,7 +84,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
             </DropdownMenuItem>
-            <Separator />
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => signOut()}
@@ -85,6 +95,10 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
           </>
         ) : currentUser?.role == 'admin' ? (
           <>
+            <DropdownMenuLabel className="pl-4">
+              Admin Account
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => {}}
@@ -141,7 +155,33 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               <MdEditNote className="mr-2 h-4 w-4" />
               <span>Manage Resume</span>
             </DropdownMenuItem>
-            <Separator />
+            <DropdownMenuSeparator />
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger className="px-3 py-2 text-sm cursor-pointer">
+                <Scale className="mr-2 h-4 w-4" />
+                <span>Legal Policy</span>
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem
+                    className="px-3 py-2 text-sm cursor-pointer"
+                    onClick={() => router.push('/adminprivacypolicy')}
+                  >
+                    <SiGnuprivacyguard className="mr-2 h-4 w-4" />
+                    <span>Privacy Policy</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="px-3 py-2 text-sm cursor-pointer"
+                    onClick={() => router.push('/admintermservice')}
+                  >
+                    <GrServices className="mr-2 h-4 w-4" />
+                    <span>Term Service</span>
+                  </DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => signOut()}
@@ -153,7 +193,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
         ) : (
           <>
             <DropdownMenuItem
-              // onClick={loginModal.onOpen}
               onClick={() => onOpen('login')}
               className="px-3 py-2 text-sm cursor-pointer"
             >
@@ -161,7 +200,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               <LogIn className="h-4 w-4 ml-auto" />
             </DropdownMenuItem>
             <DropdownMenuItem
-              // onClick={registerModal.onOpen}
               onClick={() => onOpen('createUser')}
               className="px-3 py-2 text-sm cursor-pointer"
             >
