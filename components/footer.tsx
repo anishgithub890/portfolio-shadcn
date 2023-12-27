@@ -232,23 +232,23 @@ export function Footer() {
             </div>
           </div>
           <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
-            <a
-              href="https://app.termsfeed.com/"
-              target="_blank"
+            <Link
+              href="privacypolicy"
+              as=""
               rel="noreferrer"
               className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4  transition-all"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span>&nbsp; &nbsp; &nbsp;</span>
-            <a
-              href="https://app.termsfeed.com/"
-              target="_blank"
+            <Link
+              href="termservice"
+              as=""
               rel="noreferrer"
               className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4 transition"
             >
               Term of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
