@@ -2,7 +2,7 @@ import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import Footer from '@/components/footer';
 
-const privacypage = () => {
+const PrivacyPage = () => {
   return (
     <ClientOnly>
       <Container>
@@ -19,4 +19,4 @@ const privacypage = () => {
   );
 };
 
-export default privacypage;
+export default PrivacyPage;

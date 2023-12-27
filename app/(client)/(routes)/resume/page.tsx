@@ -27,7 +27,7 @@ const ResumePage = async () => {
                 <EmptyState showReset />
               </div>
             ) : (
-              <div className="pt-8">
+              <div className="pt-5">
                 <div className="flex-1 pb-4">
                   <h2 className="text-zinc-900 text-xl font-semibold dark:text-white pb-1">
                     Click the button to resume download and print.

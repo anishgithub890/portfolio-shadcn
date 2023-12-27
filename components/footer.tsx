@@ -223,10 +223,10 @@ export function Footer() {
             </a>
             <div className="text-md mt-2 py-1 font-normal text-zinc-900 dark:text-white">
               Copyright &copy; 2023-{YEAR} &nbsp;
-              <span className="text-zinc-900 dark:text-white transition-all">
+              <span className="text-zinc-900 dark:text-white transition">
                 Anish Mahato. &nbsp;
               </span>
-              <span className="text-zinc-700 dark:text-white transition-all">
+              <span className="text-zinc-700 dark:text-white transition">
                 All rights reserved.
               </span>
             </div>
@@ -245,7 +245,7 @@ export function Footer() {
               href="termservice"
               as=""
               rel="noreferrer"
-              className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4 transition"
+              className="text-zinc-700 hover:text-zinc-900 dark:text-white hover:underline hover:underline-offset-4 transition-all"
             >
               Term of Service
             </Link>

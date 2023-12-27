@@ -2,7 +2,7 @@ import ClientOnly from '@/components/client-only';
 import Container from '@/components/container';
 import Footer from '@/components/footer';
 
-const termpage = () => {
+const TermPage = () => {
   return (
     <ClientOnly>
       <Container>
@@ -19,4 +19,4 @@ const termpage = () => {
   );
 };
 
-export default termpage;
+export default TermPage;
