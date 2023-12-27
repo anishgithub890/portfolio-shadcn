@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       return new NextResponse('Note is required', { status: 400 });
     }
 
-    const resume = await prisma.resume.create({
+    const term = await prisma.term.create({
       data: {
         note,
         isFeatured,
@@ -26,9 +26,9 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(resume);
+    return NextResponse.json(term);
   } catch (error) {
-    console.log('[RESUME_POST]', error);
+    console.log('[TERM_POST]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 }
