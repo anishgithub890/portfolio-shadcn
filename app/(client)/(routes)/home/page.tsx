@@ -36,9 +36,7 @@ const HomePage = async () => {
             </h2>
 
             {skills?.length === 0 ? (
-              <div className="pt-1">
-                <EmptyState />
-              </div>
+              <EmptyState />
             ) : (
               <div
                 className="
@@ -72,9 +70,7 @@ const HomePage = async () => {
               Experiences
             </h2>
             {experiences?.length === 0 ? (
-              <div className="pt-1">
-                <EmptyState />
-              </div>
+              <EmptyState />
             ) : (
               <div
                 className="
@@ -109,16 +105,19 @@ const HomePage = async () => {
                 Testimonial
               </h2>
               {testimonials?.length === 0 ? (
-                <div className="pt-1">
-                  <EmptyState />
-                </div>
+                <EmptyState />
               ) : (
                 <div
                   className="
                 pt-8
                 grid
-                justify-center
-                items-center
+                grid-cols-1 
+                sm:grid-cols-1 
+                md:grid-cols-2 
+                lg:grid-cols-2
+                xl:grid-cols-2
+                2xl:grid-cols-3
+                gap-4
               "
                 >
                   {testimonials?.map((testimonial: any) => {
@@ -127,7 +126,6 @@ const HomePage = async () => {
                         currentUser={currentUser}
                         key={testimonial.id}
                         data={testimonial}
-                        testimonialdata={testimonial}
                       />
                     );
                   })}

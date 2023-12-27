@@ -12,7 +12,7 @@ interface ExperienceCardProps {
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
   return (
     <>
-      <figure className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-xl p-8 md:p-0">
+      <figure className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-xl p-8 md:p-0 hover:-translate-y-2 duration-300">
         <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
           <figcaption className="font-medium">
             <Badge variant="outline">

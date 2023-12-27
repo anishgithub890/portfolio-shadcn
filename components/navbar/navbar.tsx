@@ -89,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
               <div className="flex flex-col">
                 <ServerHeader currentUser={currentUser} />
               </div>
-              <div className="flex flex-col pr-2">
+              <div className="hidden md:block flex-col pr-2">
                 <a
                   id="twitterLink"
                   href="https://twitter.com/AnishMa40489848"

@@ -5,7 +5,8 @@ import qs from 'query-string';
 import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 import {
@@ -103,7 +104,7 @@ const ContactPage = () => {
               <div className="md:p-8 text-center md:text-left space-y-4">
                 <span className="flex gap-4 dark:text-zinc-900">
                   <div className="absolute rounded-xl bg-slate-300 p-4">
-                    <Phone className="w-6 h-6" />
+                    <FaWhatsapp className="w-6 h-6" />
                   </div>
                   <p className="p-4 break-all pl-[5rem]">+977-9845695512</p>
                 </span>
