@@ -6,7 +6,7 @@ import Container from '@/components/container';
 const Loading = () => {
   return (
     <Container>
-      <div className="flex h-[60vh] w-full items-center justify-center pt-24 duration-400">
+      <div className="flex h-[60vh] w-full items-center justify-center pt-24 duration-500">
         <Loader />
       </div>
     </Container>
