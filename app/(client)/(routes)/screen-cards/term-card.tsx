@@ -1,14 +1,14 @@
 'use client';
 
-import { SafePrivacy, SafeUser } from '@/app/types';
+import { SafeTerm, SafeUser } from '@/app/types';
 import { Preview } from '@/components/preview';
 
-interface PrivacyCardProps {
-  data: SafePrivacy;
+interface TermCardProps {
+  data: SafeTerm;
   currentUser?: SafeUser | null;
 }
 
-const PrivacyCard: React.FC<PrivacyCardProps> = ({ data }) => {
+const TermCard: React.FC<TermCardProps> = ({ data }) => {
   return (
     <>
       <div className="md:flex bg-slate-100 hover:bg-slate-200/100 transition rounded-sm p-8 md:p-0">
@@ -20,4 +20,4 @@ const PrivacyCard: React.FC<PrivacyCardProps> = ({ data }) => {
   );
 };
 
-export default PrivacyCard;
+export default TermCard;
