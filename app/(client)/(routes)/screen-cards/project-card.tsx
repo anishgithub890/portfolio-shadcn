@@ -35,8 +35,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
               className="rounded-md border-2 border-zinc-400/80 cursor-pointer"
             />
           </div>
-          <div className="flex-col items-center font-medium dark:text-zinc-700">
-            <Preview value={data.explanation.substring(0, 400)} />
+          <div className="flex-col items-center font-medium dark:text-zinc-900">
+            <h2 className="text-2xl font-semibold hover:underline transition">
+              {data.name}
+            </h2>
+          </div>
+          <div className="flex-col items-center font-medium dark:text-zinc-900">
+            <Preview value={data.explanation.substring(0, 300)} />
             <strong
               onClick={handleClick}
               className="text-rose-700 hover:text-rose-600 transition pl-4 text-sm cursor-pointer"
