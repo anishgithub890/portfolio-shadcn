@@ -172,7 +172,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     className="px-3 py-2 text-sm cursor-pointer"
-                    onClick={() => router.push('/adminitemservice')}
+                    onClick={() => router.push('/admintermservice')}
                   >
                     <GrServices className="mr-2 h-4 w-4" />
                     <span>Term Service</span>

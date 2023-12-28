@@ -28,7 +28,7 @@ const PrivacyPage = async () => {
               <div className="pt-5">
                 <div className="flex-1 pb-4">
                   <h2 className="text-zinc-900 text-3xl font-bold dark:text-white pb-1">
-                    Code with Anish
+                    Privacy Policy for Code with Anish
                   </h2>
                   <div className="pt-2">
                     <Separator orientation="horizontal" />
