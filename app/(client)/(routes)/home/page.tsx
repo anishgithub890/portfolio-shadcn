@@ -49,7 +49,7 @@ const HomePage = async () => {
                 xl:grid-cols-9
                 2xl:grid-cols-10
                 gap-4
-              "
+                "
               >
                 {skills?.map((skill: any) => {
                   return (
