@@ -17,10 +17,6 @@ const itemVariants = {
   hidden: { opacity: 0, y: 10 },
   visible,
 };
-const itemVariantsleft = {
-  hidden: { opacity: 0, y: 20 },
-  visible,
-};
 
 const Profile = ({ id }: { id: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,7 +42,7 @@ const Profile = ({ id }: { id: number }) => {
             onLoad={() => setIsLoaded(true)}
             width="300"
             height="300"
-            className="bg-neutral-500 hover:bg-neutral-400 transition rounded-full"
+            className="bg-zinc-700 hover:bg-zinc-800 transition rounded-md"
           />
         </motion.div>
       </section>

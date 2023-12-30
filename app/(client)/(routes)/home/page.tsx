@@ -31,7 +31,7 @@ const HomePage = async () => {
               <IntroCard />
             </div>
 
-            <h2 className="font-bold text-3xl text-center pt-4 underline underline-offset-8">
+            <h2 className="font-bold text-3xl text-center pt-5 underline underline-offset-8">
               Skills
             </h2>
 
