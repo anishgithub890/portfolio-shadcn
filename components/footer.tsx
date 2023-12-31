@@ -41,6 +41,10 @@ const COMPANY = [
     name: 'Contact',
     link: '/contact',
   },
+  {
+    name: 'Resume',
+    link: '/resume',
+  },
 ];
 
 const HELP = [
