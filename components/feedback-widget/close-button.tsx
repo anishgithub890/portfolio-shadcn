@@ -4,10 +4,10 @@ import { X } from 'lucide-react';
 export const CloseButton = () => {
   return (
     <Popover.Button
-      className="top-5 right-5 absolute text-white hover:text-white"
+      className="top-5 right-5 absolute text-white hover:text-white transition"
       title="Close feedback form"
     >
-      <X className="w-4 h-4" />
+      <X className="w-4 h-4 font-bold" />
     </Popover.Button>
   );
 };
