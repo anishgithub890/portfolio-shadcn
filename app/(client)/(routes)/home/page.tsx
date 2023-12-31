@@ -13,6 +13,7 @@ import SkillCard from '../screen-cards/skill-card';
 import ExperienceCard from '../screen-cards/experience-card';
 import IntroCard from '../screen-cards/intro-card';
 import TestimonialCard from '../screen-cards/testimonial-card';
+import { Widget } from '@/components/feedback-widget/widget';
 
 const HomePage = async () => {
   const currentUser = await getCurrentUser();
@@ -131,7 +132,7 @@ const HomePage = async () => {
                   })}
                 </div>
               )}
-
+              <Widget />
               {/* footer-screen */}
               <div className="pt-2">
                 <Footer />

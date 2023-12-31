@@ -1,6 +1,8 @@
-import { useState } from 'react';
-import { Camera, Trash } from 'lucide-react';
+// 'use client';
+
 import html2canvas from 'html2canvas';
+import { Camera, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 
 interface ScreenshotButtonProps {
   screenshot: string | null;
@@ -19,6 +21,7 @@ export const ScreenshotButton = ({
     const base64image = canvas.toDataURL('image/png');
 
     onScreenshotTook(base64image);
+
     setIsTakingScreenshot(false);
   }
 
@@ -26,7 +29,7 @@ export const ScreenshotButton = ({
     return (
       <button
         type="button"
-        className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end text-zinc-700 hover:text-zinc-100 transition-colors"
+        className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end text-slate-700 hover:text-zinc-100 transition-colors"
         onClick={() => onScreenshotTook(null)}
         style={{
           backgroundImage: `url(${screenshot})`,
@@ -34,13 +37,17 @@ export const ScreenshotButton = ({
           backgroundSize: 180,
         }}
       >
-        <Trash className="text-zinc-900 hover:text-zinc-700 transition" />
+        <Trash2 className="w-4 h-4 text-red-500 hover:text-red-600 transition" />
       </button>
     );
   }
 
   return (
-    <button>
+    <button
+      type="button"
+      onClick={handleTakeScreenshot}
+      className="p-2 bg-slate-200 rounded-md border-transparent hover:bg-zinc-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
+    >
       {isTakingScreenshot ? (
         <p className="text-rose-500 font-serif">Loading...</p>
       ) : (
