@@ -1,7 +1,7 @@
 // 'use client';
 
 import html2canvas from 'html2canvas';
-import { Camera, Trash2 } from 'lucide-react';
+import { Camera, Loader, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 
 interface ScreenshotButtonProps {
@@ -49,7 +49,9 @@ export const ScreenshotButton = ({
       className="p-2 bg-slate-200 rounded-md border-transparent hover:bg-zinc-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
     >
       {isTakingScreenshot ? (
-        <p className="text-rose-500 font-serif">Loading...</p>
+        <p className="text-rose-500 font-semibold">
+          <Loader className="animate-spin" />
+        </p>
       ) : (
         <Camera className="h-6 w-6" />
       )}

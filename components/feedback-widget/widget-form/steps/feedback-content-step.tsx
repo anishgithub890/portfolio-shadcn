@@ -113,20 +113,20 @@ export const FeedbackContentStep = ({
       </header>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 px-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-6">
           <FormField
             control={form.control}
             name="comment"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
-                  Comment
+                <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-zinc-500">
+                  comment
                 </FormLabel>
                 <FormControl>
                   <Input
                     disabled={isLoading}
                     {...field}
-                    className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                    className="bg-zinc-300/50 dark:bg-zinc-300/50 border-0 focus-visible:ring-0 text-zinc-700 dark:text-zinc-700 focus-visible:ring-offset-0 p-6 text-sm"
                     placeholder="Enter your feedback"
                   />
                 </FormControl>
@@ -143,7 +143,7 @@ export const FeedbackContentStep = ({
               {isSendingFeedback ? (
                 <Loader className="animate-spin" />
               ) : (
-                'Send feedback'
+                <p className="text-zinc-700 dark:text-white">Send feedback</p>
               )}
             </Button>
           </footer>
