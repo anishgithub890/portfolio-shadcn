@@ -6,9 +6,9 @@ interface FeedbackTypeStepProps {
   onFeedbackTypeChanged: (type: FeedbackType) => void;
 }
 
-export function FeedbackTypeStep({
+export const FeedbackTypeStep = ({
   onFeedbackTypeChanged,
-}: FeedbackTypeStepProps) {
+}: FeedbackTypeStepProps) => {
   return (
     <>
       <header>
@@ -39,4 +39,4 @@ export function FeedbackTypeStep({
       </div>
     </>
   );
-}
+};
