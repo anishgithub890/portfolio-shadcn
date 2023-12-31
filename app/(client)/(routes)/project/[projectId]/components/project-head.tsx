@@ -21,16 +21,11 @@ const ProjectHead: React.FC<ProjectHeadProps> = ({ name, imageUrl }) => {
         w-full
         h-[60vh]
         overflow-hidden
-        rounded-xl
+        rounded-md
         relative
         "
       >
-        <Image
-          src={imageUrl}
-          alt="Image"
-          fill
-          className="object-cover w-full"
-        />
+        <Image src={imageUrl} alt="" fill className="object-cover w-full" />
       </div>
     </>
   );
