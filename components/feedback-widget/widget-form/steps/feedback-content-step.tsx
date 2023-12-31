@@ -62,15 +62,25 @@ export const FeedbackContentStep = ({
       const url = qs.stringifyUrl({
         url: '/api/feedbacks',
       });
-      await axios.post(url, values);
-
-      toast('Feedback has been created', {
-        description: 'thank you for your feedback',
-        action: {
-          label: 'Undo',
-          onClick: () => console.log('Undo'),
-        },
-      });
+      await axios
+        .post(url, values)
+        .then(() => {
+          toast('Feedback has been created', {
+            description: 'thank you for your feedback',
+            action: {
+              label: 'Undo',
+              onClick: () => console.log('Undo'),
+            },
+          });
+        })
+        .catch(() => {
+          toast.error('Ooops! try again..');
+        })
+        .finally(() => {
+          setIsSendingFeedback(false);
+        });
+      setIsSendingFeedback(false);
+      onFeedbackSent();
       form.reset();
     } catch (error) {
       console.log(error);
@@ -129,7 +139,7 @@ export const FeedbackContentStep = ({
               screenshot={screenshot}
               onScreenshotTook={setScreenshot}
             />
-            <Button disabled={isLoading} variant="outline">
+            <Button variant="outline">
               {isSendingFeedback ? (
                 <Loader className="animate-spin" />
               ) : (
