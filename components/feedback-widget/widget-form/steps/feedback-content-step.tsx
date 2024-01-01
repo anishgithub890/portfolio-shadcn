@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { toast } from 'sonner';
 import { CloseButton } from '../../close-button';
-import { Input } from '@/components/ui/input';
 import { ScreenshotButton } from '../screenshot-button';
 import { Button } from '@/components/ui/button';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -21,6 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
   type: z.string().min(1),
@@ -128,7 +128,7 @@ export const FeedbackContentStep = ({
                   comment
                 </FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     disabled={isLoading}
                     {...field}
                     className="bg-zinc-300/50 dark:bg-zinc-300/50 border-0 focus-visible:ring-0 text-zinc-700 dark:text-zinc-700 focus-visible:ring-offset-0 p-6 text-sm"
