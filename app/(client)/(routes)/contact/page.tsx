@@ -57,9 +57,7 @@ const ContactPage = () => {
         url: '/api/contacts',
       });
       await axios.post(url, values);
-
-      // toast.success('thank you for your message');
-      toast('Contact has been created', {
+      toast.success('Contact has been created', {
         description: 'thank you for your message',
         action: {
           label: 'Undo',
