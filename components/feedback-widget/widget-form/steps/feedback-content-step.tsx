@@ -65,7 +65,7 @@ export const FeedbackContentStep = ({
       await axios
         .post(url, values)
         .then(() => {
-          toast('Feedback has been created', {
+          toast.success('Feedback has been created', {
             description: 'thank you for your feedback',
             action: {
               label: 'Undo',
@@ -74,7 +74,12 @@ export const FeedbackContentStep = ({
           });
         })
         .catch(() => {
-          toast.error('Ooops! try again..');
+          toast.error('Ooops! try again..', {
+            action: {
+              label: 'Undo',
+              onClick: () => console.log('Undo'),
+            },
+          });
         })
         .finally(() => {
           setIsSendingFeedback(false);

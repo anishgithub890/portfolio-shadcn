@@ -67,9 +67,7 @@ export const CreateRegisterModal = () => {
         url: '/api/register',
       });
       await axios.post(url, values);
-
-      // toast.success('Registered!');
-      toast('Registered!', {
+      toast.success('Registered!', {
         action: {
           label: 'Undo',
           onClick: () => console.log('Undo'),
@@ -79,7 +77,13 @@ export const CreateRegisterModal = () => {
       router.refresh();
       onClose();
       onOpen('login');
-    } catch (error) {
+    } catch (error: any) {
+      toast.error('Something went wrong.', {
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      });
       console.log(error);
     }
   };

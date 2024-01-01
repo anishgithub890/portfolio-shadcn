@@ -5,6 +5,8 @@ import { MdReviews } from 'react-icons/md';
 import { GoProjectSymlink } from 'react-icons/go';
 import { AiOutlineProfile } from 'react-icons/ai';
 import { MdEditNote } from 'react-icons/md';
+import { CgMoreVerticalR } from 'react-icons/cg';
+import { VscFeedback } from 'react-icons/vsc';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -115,13 +117,6 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => router.push('/admincontacts')}
-            >
-              <Contact className="mr-2 h-4 w-4" />
-              <span>Manage Contacts</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => router.push('/adminskills')}
             >
               <GiSkills className="mr-2 h-4 w-4" />
@@ -176,6 +171,30 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
                   >
                     <GrServices className="mr-2 h-4 w-4" />
                     <span>Term Service</span>
+                  </DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger className="px-3 py-2 text-sm cursor-pointer">
+                <CgMoreVerticalR className="mr-2 h-4 w-4" />
+                <span>Contact & Feedback</span>
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem
+                    className="px-3 py-2 text-sm cursor-pointer"
+                    onClick={() => router.push('/admincontacts')}
+                  >
+                    <Contact className="mr-2 h-4 w-4" />
+                    <span>Manage Contacts</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="px-3 py-2 text-sm cursor-pointer"
+                    onClick={() => router.push('/adminfeedbacks')}
+                  >
+                    <VscFeedback className="mr-2 h-4 w-4" />
+                    <span>Manage Feedbacks</span>
                   </DropdownMenuItem>
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>

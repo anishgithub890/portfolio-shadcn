@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { RiTwitterXFill } from 'react-icons/ri';
 
 import { SafeUser } from '@/app/types';
@@ -14,7 +14,6 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '@/components/ui/separator';
 import { ServerHeader } from '@/components/server/server-header';
-
 import { Button } from '@/components/ui/button';
 
 const TOP_OFFSET = 66;

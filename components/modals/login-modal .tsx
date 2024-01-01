@@ -2,7 +2,7 @@
 
 import * as z from 'zod';
 import { useState } from 'react';
-import { toast } from 'react-hot-toast';
+import { toast } from 'sonner';
 import { signIn } from 'next-auth/react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useParams, useRouter } from 'next/navigation';
@@ -69,13 +69,24 @@ export const LoginModal = () => {
       setIsLoading(false);
 
       if (callback?.ok) {
-        toast.success('Logged in');
+        toast.success('Logged in', {
+          action: {
+            label: 'Undo',
+            onClick: () => console.log('Undo'),
+          },
+        });
         router.refresh();
         onClose();
       }
 
       if (callback?.error) {
-        toast.error(callback.error);
+        toast.error(callback.error, {
+          action: {
+            label: 'Undo',
+            onClick: () => console.log('Undo'),
+          },
+        });
+        // toast.error(callback.error);
       }
     });
   };
