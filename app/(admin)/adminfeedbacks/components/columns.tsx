@@ -4,10 +4,10 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type FeedbackColumn = {
-  id: string;
-  type: string;
-  comment: string;
-  createdAt: string;
+  id?: string;
+  type?: string;
+  comment?: string;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<FeedbackColumn>[] = [
