@@ -4,10 +4,10 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type ContactColumn = {
-  id: string;
-  name: string;
-  email: string;
-  createdAt: string;
+  id?: string;
+  name?: string;
+  email?: string;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<ContactColumn>[] = [

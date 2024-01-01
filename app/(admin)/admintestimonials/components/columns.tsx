@@ -5,11 +5,11 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type TestimonialColumn = {
-  id: string;
-  name: string;
-  role: string;
-  isFeatured: boolean;
-  createdAt: string;
+  id?: string;
+  name?: string;
+  role?: string;
+  isFeatured?: boolean;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<TestimonialColumn>[] = [
