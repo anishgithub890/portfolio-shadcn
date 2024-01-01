@@ -1,8 +1,8 @@
 // 'use client';
 
-import html2canvas from 'html2canvas';
-import { Camera, Loader, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+import { Camera, Loader, Trash2 } from 'lucide-react';
+import html2canvas from 'html2canvas';
 
 interface ScreenshotButtonProps {
   screenshot: string | null;

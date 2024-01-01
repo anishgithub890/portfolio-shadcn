@@ -68,8 +68,13 @@ const ContactPage = () => {
       });
       form.reset();
       router.refresh();
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error('Something went wrong.', {
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      });
     }
   };
 

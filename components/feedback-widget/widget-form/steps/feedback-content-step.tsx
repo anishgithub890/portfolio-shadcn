@@ -7,12 +7,12 @@ import { FeedbackType, feedbackTypes } from '..';
 
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
+import { toast } from 'sonner';
 import { CloseButton } from '../../close-button';
 import { Input } from '@/components/ui/input';
 import { ScreenshotButton } from '../screenshot-button';
 import { Button } from '@/components/ui/button';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'sonner';
 import {
   Form,
   FormControl,

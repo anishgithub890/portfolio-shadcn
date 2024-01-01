@@ -167,11 +167,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialData }) => {
                 <FormItem>
                   <FormLabel>Contact Message</FormLabel>
                   <FormControl>
-                    {/* <Input
-                      disabled={loading}
-                      placeholder="contact message"
-                      {...field}
-                    /> */}
                     <Editor {...field} />
                   </FormControl>
                   <FormMessage />
