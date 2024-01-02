@@ -6,10 +6,10 @@ import { CellAction } from './cell-action';
 import { Preview } from '@/components/preview';
 
 export type PrivacyColumn = {
-  id: string;
-  note: string;
-  isFeatured: boolean;
-  createdAt: string;
+  id?: string;
+  note?: string;
+  isFeatured?: boolean;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<PrivacyColumn>[] = [
@@ -18,7 +18,7 @@ export const columns: ColumnDef<PrivacyColumn>[] = [
     header: 'Privacy-Note',
     cell: ({ row }) => (
       <div className="flex items-center">
-        {<Preview value={row.original.note.slice(0, 100)} />}
+        {<Preview value={row.original.note!.slice(0, 100)} />}
       </div>
     ),
   },

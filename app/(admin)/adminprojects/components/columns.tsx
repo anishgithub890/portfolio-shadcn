@@ -5,13 +5,13 @@ import { CellAction } from './cell-action';
 // import { Preview } from '@/components/preview';
 
 export type ProjectColumn = {
-  id: string;
-  name: string;
-  viewUrl: string;
-  githubUrl: string;
-  // explanation: string;
-  isFeatured: boolean;
-  createdAt: string;
+  id?: string;
+  name?: string;
+  viewUrl?: string;
+  githubUrl?: string;
+  // explanation?: string;
+  isFeatured?: boolean;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<ProjectColumn>[] = [

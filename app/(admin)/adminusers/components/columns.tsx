@@ -4,11 +4,11 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type UserColumn = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string;
+  id?: string;
+  name?: string;
+  email?: string;
+  role?: string;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<UserColumn>[] = [

@@ -8,6 +8,13 @@ import { FeedbackColumn } from '../adminfeedbacks/components/columns';
 import { ContactColumn } from '../admincontacts/components/columns';
 import Link from 'next/link';
 import DashboardRefresh from './dashboard-refresh';
+import { SkillColumn } from '../adminskills/components/columns';
+import { ExperienceColumn } from '../adminexperiences/components/columns';
+import { ProjectColumn } from '../adminprojects/components/columns';
+import { UserColumn } from '../adminusers/components/columns';
+import { ResumeColumn } from '../adminresume/components/columns';
+import { PrivacyColumn } from '../adminprivacypolicy/components/columns';
+import { TermColumn } from '../admintermservice/components/columns';
 
 const AdminDashboardPage = async () => {
   const currentUser = await getCurrentUser();
@@ -28,6 +35,34 @@ const AdminDashboardPage = async () => {
     await prisma.contact.findMany({})
   ).map(() => ({}));
 
+  const skillNumber: SkillColumn[] = (await prisma.skill.findMany({})).map(
+    () => ({})
+  );
+
+  const experienceNumber: ExperienceColumn[] = (
+    await prisma.experience.findMany({})
+  ).map(() => ({}));
+
+  const projectNumber: ProjectColumn[] = (
+    await prisma.project.findMany({})
+  ).map(() => ({}));
+
+  const userNumber: UserColumn[] = (await prisma.user.findMany({})).map(
+    () => ({})
+  );
+
+  const resumeNumber: ResumeColumn[] = (await prisma.resume.findMany({})).map(
+    () => ({})
+  );
+
+  const privacyNumber: PrivacyColumn[] = (
+    await prisma.privacy.findMany({})
+  ).map(() => ({}));
+
+  const termNumber: TermColumn[] = (await prisma.term.findMany({})).map(
+    () => ({})
+  );
+
   return (
     <>
       <Container>
@@ -45,6 +80,13 @@ const AdminDashboardPage = async () => {
                 test={testimonialNumber}
                 feed={feedbackNumber}
                 cont={contactNumber}
+                skl={skillNumber}
+                exp={experienceNumber}
+                prj={projectNumber}
+                usr={userNumber}
+                rsm={resumeNumber}
+                pri={privacyNumber}
+                trm={termNumber}
               />
             </div>
           ) : (

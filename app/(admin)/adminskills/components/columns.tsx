@@ -5,10 +5,10 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type SkillColumn = {
-  id: string;
-  label: string;
-  isFeatured: boolean;
-  createdAt: string;
+  id?: string;
+  label?: string;
+  isFeatured?: boolean;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<SkillColumn>[] = [

@@ -4,11 +4,11 @@ import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
 
 export type ExperienceColumn = {
-  id: string;
-  year: string;
-  language: string;
-  isFeatured: boolean;
-  createdAt: string;
+  id?: string;
+  year?: string;
+  language?: string;
+  isFeatured?: boolean;
+  createdAt?: string;
 };
 
 export const columns: ColumnDef<ExperienceColumn>[] = [
