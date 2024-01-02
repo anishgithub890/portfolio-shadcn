@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import * as z from 'zod';
 import axios from 'axios';
 import { useState } from 'react';
@@ -20,6 +21,15 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
 import { AlertModal } from '@/components/modals/alert-modal';
@@ -170,14 +180,24 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               name="role"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Roles</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="user role user/admin"
-                      {...field}
-                    />
-                  </FormControl>
+                  <FormLabel>User Role</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="select user roles" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Roles</SelectLabel>
+                        <SelectItem value="user">user</SelectItem>
+                        <SelectItem value="admin">admin</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
