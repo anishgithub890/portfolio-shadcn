@@ -44,7 +44,7 @@ const formSchema = z.object({
   role: z
     .string()
     .min(1, {
-      message: 'role is default-use.',
+      message: 'default role [user].',
     })
     .optional(),
   password: z.string().min(1, {
@@ -140,7 +140,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <div className="md:grid md:grid-cols-3 gap-8">
+          <div className="md:grid md:grid-cols-3 space-y-6 sm:space-y-0 gap-8">
             <FormField
               control={form.control}
               name="name"

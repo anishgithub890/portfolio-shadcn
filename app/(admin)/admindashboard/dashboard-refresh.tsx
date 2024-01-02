@@ -7,9 +7,20 @@ const DashboardRefresh = () => {
   const router = useRouter();
   return (
     <>
-      <div className="pt-2">
-        <Button variant="outline" onClick={() => router.refresh()}>
+      <div className="pt-2 flex flex-col sm:flex-row gap-4">
+        <Button
+          variant="outline"
+          onClick={() => router.refresh()}
+          className="p-6 text-md"
+        >
           Refresh Data
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => router.refresh()}
+          className="p-6 text-md"
+        >
+          Graph Drawer
         </Button>
       </div>
     </>
