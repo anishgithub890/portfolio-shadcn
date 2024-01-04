@@ -3,6 +3,7 @@
 import * as z from 'zod';
 import qs from 'query-string';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Mail, MapPin } from 'lucide-react';
@@ -24,6 +25,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Editor } from '@/components/editor';
 import { toast } from 'sonner';
+import { Loader } from '@/components/ui/loader';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -39,6 +41,14 @@ const formSchema = z.object({
 
 const ContactPage = () => {
   const router = useRouter();
+  const [loading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading for 2 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -60,7 +70,7 @@ const ContactPage = () => {
       toast.success('Contact has been created', {
         description: 'thank you for your message',
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });
@@ -69,7 +79,7 @@ const ContactPage = () => {
     } catch (error: any) {
       toast.error('Something went wrong.', {
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });
@@ -77,9 +87,15 @@ const ContactPage = () => {
   };
 
   return (
-    <>
-      <Container>
-        <div className="pt-14">
+    <div className="pt-14">
+      {loading ? (
+        <Container>
+          <div className="flex h-[60vh] w-full items-center justify-center pt-24 duration-500">
+            <Loader />
+          </div>
+        </Container>
+      ) : (
+        <Container>
           <div className="pt-8 text-center flex-row">
             <p className="text-xl font-light text-muted-foreground text-zinc-500 dark:text-white">
               get in touch
@@ -242,9 +258,9 @@ const ContactPage = () => {
           <div className="pt-8">
             <Footer />
           </div>
-        </div>
-      </Container>
-    </>
+        </Container>
+      )}
+    </div>
   );
 };
 export default ContactPage;

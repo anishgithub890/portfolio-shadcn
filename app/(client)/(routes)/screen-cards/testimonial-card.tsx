@@ -20,7 +20,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ data }) => {
     // Simulate loading for 3 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
   }, []);
   return (
     <>
