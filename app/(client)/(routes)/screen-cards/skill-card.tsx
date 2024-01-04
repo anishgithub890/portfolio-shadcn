@@ -1,9 +1,10 @@
 'use client';
 
-import Image from 'next/image';
-import { SafeSkill, SafeUser } from '@/app/types';
-import { Loader } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Loader } from 'lucide-react';
+import Image from 'next/image';
+
+import { SafeSkill, SafeUser } from '@/app/types';
 import Container from '@/components/container';
 
 interface SkillCardProps {
