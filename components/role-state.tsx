@@ -36,6 +36,7 @@ const RoleState: React.FC<RoleStateProps> = ({
         alt="unauthorized"
         width={300}
         height={300}
+        className="dark:bg-slate-400 rounded-md"
       />
       <HeadingTheme center title={title} description={description} />
       <div className="w-48 mt-4">

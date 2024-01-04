@@ -82,7 +82,7 @@ export const LoginModal = () => {
       if (callback?.error) {
         toast.error(callback.error, {
           action: {
-            label: 'Undo',
+            label: 'Close',
             onClick: () => console.log('Undo'),
           },
         });

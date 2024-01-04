@@ -33,7 +33,11 @@ const AdminResumesPage = async () => {
       <Container>
         {currentUser?.role == 'user' ? (
           <div>
-            <RoleState showReset />
+            <RoleState
+              showReset
+              title="Unauthorized"
+              description="Please login"
+            />
           </div>
         ) : currentUser?.role == 'admin' ? (
           <>

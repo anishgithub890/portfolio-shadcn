@@ -20,7 +20,9 @@ const AdminDashboardPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return <RoleState title="Unauthorized" description="Please login" />;
+    return (
+      <RoleState showReset title="Unauthorized" description="Please login" />
+    );
   }
 
   const testimonialNumber: TestimonialColumn[] = (
@@ -69,7 +71,11 @@ const AdminDashboardPage = async () => {
         <div className="flex-col pt-14">
           {currentUser?.role == 'user' ? (
             <div>
-              <RoleState showReset />
+              <RoleState
+                showReset
+                title="Unauthorized"
+                description="Please login"
+              />
             </div>
           ) : currentUser?.role == 'admin' ? (
             <div className="flex-1 space-y-4 p-8 pt-6">

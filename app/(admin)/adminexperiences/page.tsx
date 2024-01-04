@@ -13,7 +13,9 @@ const AdminExperiencesPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return <RoleState title="Unauthorized" description="Please login" />;
+    return (
+      <RoleState showReset title="Unauthorized" description="Please login" />
+    );
   }
 
   const experiences = await prisma.experience.findMany({

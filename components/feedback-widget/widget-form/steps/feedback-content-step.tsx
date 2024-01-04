@@ -68,7 +68,7 @@ export const FeedbackContentStep = ({
           toast.success('Feedback has been created', {
             description: 'thank you for your feedback',
             action: {
-              label: 'Undo',
+              label: 'Close',
               onClick: () => console.log('Undo'),
             },
           });

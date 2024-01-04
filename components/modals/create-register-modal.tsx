@@ -80,7 +80,7 @@ export const CreateRegisterModal = () => {
     } catch (error: any) {
       toast.error('Something went wrong.', {
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });

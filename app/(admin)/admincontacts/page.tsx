@@ -12,7 +12,9 @@ const AdminContactsPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return <RoleState title="Unauthorized" description="Please login" />;
+    return (
+      <RoleState showReset title="Unauthorized" description="Please login" />
+    );
   }
 
   const contacts = await prisma.contact.findMany({
