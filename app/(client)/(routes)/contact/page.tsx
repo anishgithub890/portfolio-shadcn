@@ -18,6 +18,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import Container from '@/components/container';
 import Footer from '@/components/footer';
@@ -122,32 +128,73 @@ const ContactPage = () => {
             <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
               <div className="md:p-8 text-center md:text-left space-y-4">
                 <span className="flex gap-4 dark:text-zinc-900">
-                  <div className="absolute rounded-xl bg-slate-300 p-4">
-                    <FaWhatsapp className="w-6 h-6" />
-                  </div>
-                  <p className="p-4 break-all pl-[5rem]">+977-9845695512</p>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="absolute rounded-xl bg-slate-300 p-4">
+                          <FaWhatsapp className="w-6 h-6" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipTrigger asChild>
+                        <p className="p-4 break-all pl-[5rem]">
+                          +977-9845695512
+                        </p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="font-semibold text-md p-2">Whats App</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </span>
               </div>
             </div>
             <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
               <div className="md:p-8 text-center md:text-left space-y-4">
                 <span className="flex gap-4 dark:text-zinc-900">
-                  <div className="absolute rounded-xl bg-slate-300 p-4">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <p className="p-4 break-all pl-[5rem]">
-                    anishgithub890@gmail.com
-                  </p>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="absolute rounded-xl bg-slate-300 p-4">
+                          <Mail className="w-6 h-6" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipTrigger asChild>
+                        <p className="p-4 break-all pl-[5rem]">
+                          anishgithub890@gmail.com
+                        </p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="font-semibold text-md p-2">
+                          Email Address
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </span>
               </div>
             </div>
             <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
               <div className="md:p-8 text-center md:text-left space-y-4">
                 <span className="flex gap-4 dark:text-zinc-900">
-                  <div className="absolute rounded-xl bg-slate-300 p-4">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <p className="p-4 break-all pl-[5rem]">Kathmandu, Nepal</p>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div className="absolute rounded-xl bg-slate-300 p-4">
+                          <MapPin className="w-6 h-6" />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipTrigger asChild>
+                        <p className="p-4 break-all pl-[5rem]">
+                          Kathmandu, Nepal
+                        </p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="font-semibold text-md p-2">
+                          Contact Location
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </span>
               </div>
             </div>
