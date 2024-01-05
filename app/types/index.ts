@@ -7,6 +7,7 @@ import {
   Privacy,
   Term,
   Contact,
+  Feedback,
   User,
 } from '@prisma/client';
 
@@ -46,6 +47,11 @@ export type SafeTerm = Omit<Term, 'createdAt' | 'updatedAt'> & {
 };
 
 export type SafeContact = Omit<Contact, 'createdAt' | 'updatedAt'> & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type SafeFeedback = Omit<Feedback, 'createdAt' | 'updatedAt'> & {
   createdAt: string;
   updatedAt: string;
 };
