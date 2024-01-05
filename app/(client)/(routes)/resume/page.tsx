@@ -10,6 +10,12 @@ import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import ResumeCard from '../screen-cards/resume-card';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const ResumePage = async () => {
   const currentUser = await getCurrentUser();
@@ -29,11 +35,11 @@ const ResumePage = async () => {
             ) : (
               <div className="pt-5">
                 <div className="flex-1 pb-4">
-                  <h2 className="text-zinc-900 text-xl font-semibold dark:text-white pb-1">
-                    Click the button to resume download and print.
+                  <h2 className="text-zinc-900 text-xl font-semibold dark:text-white pb-1 underline underline-offset-[3px] decoration-dotted">
+                    Click the button, to resume downloading and printing.
                   </h2>
                   <div className="pt-1">
-                    <Link
+                    {/* <Link
                       href={
                         'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
                       }
@@ -43,7 +49,29 @@ const ResumePage = async () => {
                       <Button size="lg" variant="outline">
                         Download / Print
                       </Button>
-                    </Link>
+                    </Link> */}
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link
+                            href={
+                              'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
+                            }
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            <Button size="lg" variant="outline">
+                              Download / Print
+                            </Button>
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="font-semibold text-md p-1">
+                            A Google Drive link to download/print.
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </div>
 
                   <div className="pt-2">
