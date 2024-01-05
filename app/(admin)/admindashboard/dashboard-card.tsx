@@ -59,7 +59,7 @@ const DashboardCard: React.FC<DashboardCardProps> = async ({
       count: `[${usr.length}]`,
       icon: Users,
       color: 'text-violet-500',
-      tooltip: 'User Read, write, update and delete ',
+      tooltip: 'As a admin Read, write, update and delete ',
     },
     {
       name: 'Manage Testimonials',
@@ -167,7 +167,7 @@ const DashboardCard: React.FC<DashboardCardProps> = async ({
                           className="dark:text-zinc-900 flex gap-2"
                         >
                           <div className="text-center flex">
-                            <p className="p-4 break-all text-md pl-[5rem] font-semibold hover:underline hover:underline-offset-2 transition">
+                            <p className="p-4 break-all text-md pl-[5rem] font-semibold hover:underline hover:underline-offset-[3px] transition">
                               {data.name} {data.count}
                             </p>
                           </div>
