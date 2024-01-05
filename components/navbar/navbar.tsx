@@ -15,6 +15,12 @@ import { MobileSidebar } from '@/components/navbar/navbar-mobilesidebar';
 import { Separator } from '@/components/ui/separator';
 import { ServerHeader } from '@/components/server/server-header';
 import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const TOP_OFFSET = 66;
 
@@ -104,9 +110,20 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                 <Separator orientation="vertical" />
               </div>
               <div className="flex flex-col pl-2">
-                <Link href="/resume">
-                  <Button variant="premium">Resume</Button>
-                </Link>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link href="/resume">
+                        <Button variant="premium">Resume</Button>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="font-semibold text-md p-1 uppercase">
+                        get my resume
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>

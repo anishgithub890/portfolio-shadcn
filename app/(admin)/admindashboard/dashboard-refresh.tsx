@@ -5,7 +5,6 @@ import { IoMdRefresh } from 'react-icons/io';
 
 import { useRouter } from 'next/navigation';
 import CustomeButton from '@/components/custome-button';
-import { Button } from '@/components/ui/button';
 
 const DashboardRefresh = () => {
   const router = useRouter();

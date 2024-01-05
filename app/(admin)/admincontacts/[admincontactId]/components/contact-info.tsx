@@ -28,7 +28,7 @@ const AdminContactInfo: React.FC<ContactInfoProps> = ({
           <div className="text-lg dark:text-zinc-900 font-medium text-zinc-900">
             Email Address: {email}
           </div>
-          <div className="text-md font-medium dark:text-white text-zinc-900">
+          <div className="text-md font-medium dark:text-zinc-900 text-zinc-900">
             Message: <Preview value={message!} />
           </div>
         </div>

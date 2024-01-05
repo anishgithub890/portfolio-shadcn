@@ -15,8 +15,11 @@ const AdminFeedbackInfo: React.FC<FeedbackInfoProps> = ({ type, comment }) => {
       </div>
       <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
         <div className="pt-6 md:p-8 space-y-4">
-          <div className="text-md font-medium dark:text-white text-zinc-900">
-            Feedback is: {comment}
+          <div className="text-md font-medium dark:text-zinc-900 text-zinc-900">
+            <strong>{type}</strong>
+          </div>
+          <div className="text-sm font-medium dark:text-zinc-900 text-zinc-900">
+            <strong>Feedback is</strong> : {comment}
           </div>
         </div>
       </div>
