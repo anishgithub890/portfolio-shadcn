@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Copy, Edit, MoreHorizontal, Trash } from 'lucide-react';
-import { toast } from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
@@ -31,10 +31,20 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     try {
       setLoading(true);
       await axios.delete(`/api/contacts/${data.id}`);
-      toast.success('Contact deleted.');
+      toast.success('Contact deleted.', {
+        action: {
+          label: 'Close',
+          onClick: () => console.log('Undo'),
+        },
+      });
       router.refresh();
     } catch (error) {
-      toast.error('Make sure you removed all contacts.');
+      toast.error('Something went wrong.', {
+        action: {
+          label: 'Close',
+          onClick: () => console.log('Undo'),
+        },
+      });
     } finally {
       setOpen(false);
       setLoading(false);
@@ -43,7 +53,12 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Contact ID copied to clipboard.');
+    toast.success('Contact ID copied to clipboard.', {
+      action: {
+        label: 'Close',
+        onClick: () => console.log('Undo'),
+      },
+    });
   };
 
   return (

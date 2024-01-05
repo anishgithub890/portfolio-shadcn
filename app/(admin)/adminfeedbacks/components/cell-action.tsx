@@ -34,7 +34,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
       toast.success('Feedback deleted.', {
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });
@@ -42,7 +42,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     } catch (error: any) {
       toast.error('Something went wrong.', {
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });
@@ -56,7 +56,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     navigator.clipboard.writeText(id);
     toast.success('Feedback ID copied to clipboard.', {
       action: {
-        label: 'Undo',
+        label: 'Close',
         onClick: () => console.log('Undo'),
       },
     });
