@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import { SafeSkill, SafeUser } from '@/app/types';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
 
 interface SkillCardProps {
   data: SafeSkill;
@@ -24,15 +25,16 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
 
   return (
     <>
-      {isLoading ? (
-        <Container>
-          <Loader className="w-8 h-8 animate-spin" />
-        </Container>
-      ) : (
-        <div className="col-span-1 cursor-pointer group">
-          <div className="flex flex-col gap-2 w-[6rem] ml-5 mr-5 pt-6 text-center">
-            <div
-              className="
+      <ClientOnly>
+        {isLoading ? (
+          <Container>
+            <Loader className="w-8 h-8 animate-spin" />
+          </Container>
+        ) : (
+          <div className="col-span-1 cursor-pointer group">
+            <div className="flex flex-col gap-2 w-[6rem] ml-5 mr-5 pt-6 text-center">
+              <div
+                className="
              aspect-square 
              w-[6rem] 
              relative 
@@ -40,11 +42,11 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
              gap-2
              rounded-xl
              "
-            >
-              <Image
-                height="900"
-                width="900"
-                className="
+              >
+                <Image
+                  height="900"
+                  width="900"
+                  className="
                 object-cover 
                 h-[6rem] 
                 w-[6rem] 
@@ -54,16 +56,17 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
                 rounded-md
                 transition           
             "
-                src={data.imageUrl}
-                alt="Listing"
-              />
-            </div>
-            <div className="text-center text-zinc-700 dark:text-white text-sm font-serif">
-              {data.label}
+                  src={data.imageUrl}
+                  alt="Listing"
+                />
+              </div>
+              <div className="text-center text-zinc-700 dark:text-white text-sm font-serif">
+                {data.label}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </ClientOnly>
     </>
   );
 };

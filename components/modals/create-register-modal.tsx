@@ -69,7 +69,7 @@ export const CreateRegisterModal = () => {
       await axios.post(url, values);
       toast.success('Registered!', {
         action: {
-          label: 'Undo',
+          label: 'Close',
           onClick: () => console.log('Undo'),
         },
       });

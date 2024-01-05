@@ -71,7 +71,7 @@ export const LoginModal = () => {
       if (callback?.ok) {
         toast.success('Logged in', {
           action: {
-            label: 'Undo',
+            label: 'Close',
             onClick: () => console.log('Undo'),
           },
         });
