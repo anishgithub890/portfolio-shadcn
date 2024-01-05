@@ -10,6 +10,7 @@ import { Mail, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
+import { cn } from '@/lib/utils';
 import {
   Form,
   FormControl,
@@ -47,6 +48,24 @@ const formSchema = z.object({
 });
 
 const ContactPage = () => {
+  const CONTACTINFO = [
+    {
+      icon: FaWhatsapp,
+      detail: '+977-9845695512',
+      tooltip: 'Whats App',
+    },
+    {
+      icon: Mail,
+      detail: 'anishgithub890@gmail.com',
+      tooltip: ' Email Address',
+    },
+    {
+      icon: MapPin,
+      detail: 'Kathmandu, Nepal',
+      tooltip: 'Contact Location',
+    },
+  ];
+
   const router = useRouter();
   const [loading, setIsLoading] = useState(true);
 
@@ -121,85 +140,41 @@ const ContactPage = () => {
               grid-cols-1 
               sm:grid-cols-1
               md:grid-cols-1
-              lg:grid-cols-3
+              lg:grid-cols-2
               xl:grid-cols-3
               2xl:grid-cols-3
               gap-4
             "
             >
-              <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
-                <div className="md:p-8 text-center md:text-left space-y-4">
-                  <span className="flex gap-4 dark:text-zinc-900">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="absolute rounded-xl bg-slate-300 p-4">
-                            <FaWhatsapp className="w-6 h-6" />
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipTrigger asChild>
-                          <p className="p-4 break-all pl-[5rem]">
-                            +977-9845695512
-                          </p>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p className="font-semibold text-md p-2">Whats App</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </span>
+              {CONTACTINFO.map((data) => (
+                <div key={data.detail}>
+                  <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
+                    <div className="md:p-8 text-center md:text-left space-y-4">
+                      <div className="flex gap-4 dark:text-zinc-900">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="absolute rounded-xl bg-slate-300 p-4">
+                                <data.icon className={cn('h-6 w-6')} />
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipTrigger asChild>
+                              <p className="p-4 break-all pl-[5rem]">
+                                {data.detail}
+                              </p>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="font-semibold text-md p-2">
+                                {data.tooltip}
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
-                <div className="md:p-8 text-center md:text-left space-y-4">
-                  <span className="flex gap-4 dark:text-zinc-900">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="absolute rounded-xl bg-slate-300 p-4">
-                            <Mail className="w-6 h-6" />
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipTrigger asChild>
-                          <p className="p-4 break-all pl-[5rem]">
-                            anishgithub890@gmail.com
-                          </p>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p className="font-semibold text-md p-2">
-                            Email Address
-                          </p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </span>
-                </div>
-              </div>
-              <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
-                <div className="md:p-8 text-center md:text-left space-y-4">
-                  <span className="flex gap-4 dark:text-zinc-900">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="absolute rounded-xl bg-slate-300 p-4">
-                            <MapPin className="w-6 h-6" />
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipTrigger asChild>
-                          <p className="p-4 break-all pl-[5rem]">
-                            Kathmandu, Nepal
-                          </p>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p className="font-semibold text-md p-2">
-                            Contact Location
-                          </p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
             {/* contact form */}
             <Form {...form}>
@@ -286,10 +261,10 @@ const ContactPage = () => {
 
                   <div
                     className="
-                  pt-[0.4rem]
-                  sm:pt-[0.2rem]
-                  md:pt-[4.5rem]
-                  "
+                    pt-[0.4rem]
+                    sm:pt-[0.2rem]
+                    md:pt-[4.5rem]
+                    "
                   >
                     <Button
                       disabled={isLoading}
