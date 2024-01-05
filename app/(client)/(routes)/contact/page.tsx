@@ -146,8 +146,8 @@ const ContactPage = () => {
               gap-4
             "
             >
-              {CONTACTINFO.map((data) => (
-                <div key={data.detail}>
+              {CONTACTINFO.map((data, key) => (
+                <div key={key}>
                   <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
                     <div className="md:p-8 text-center md:text-left space-y-4">
                       <div className="flex gap-4 dark:text-zinc-900">

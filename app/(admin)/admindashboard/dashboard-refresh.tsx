@@ -13,17 +13,6 @@ const DashboardRefresh = () => {
   return (
     <>
       <div className="pt-2 flex flex-col sm:flex-row gap-4">
-        {/* <Button
-          variant="outline"
-          onClick={() => router.refresh()}
-          className="p-6 text-md"
-        >
-          <div className="flex flex-row">
-            <IoMdRefresh />
-            <p>Refresh Data</p>
-          </div>
-        </Button> */}
-
         <CustomeButton
           outline
           label="Refresh Data"

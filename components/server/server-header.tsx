@@ -1,18 +1,5 @@
 'use client';
 
-import { GiSkills } from 'react-icons/gi';
-import { MdReviews } from 'react-icons/md';
-import { GoProjectSymlink } from 'react-icons/go';
-import { AiOutlineProfile } from 'react-icons/ai';
-import { MdEditNote } from 'react-icons/md';
-import { CgMoreVerticalR } from 'react-icons/cg';
-import { VscFeedback } from 'react-icons/vsc';
-import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-
-import { SafeUser } from '@/app/types';
-import { useModal } from '@/hooks/use-modal-store';
-
 import {
   Contact,
   LayoutDashboard,
@@ -23,8 +10,22 @@ import {
   Scale,
   Users,
 } from 'lucide-react';
+import { GiSkills } from 'react-icons/gi';
+import { MdReviews } from 'react-icons/md';
+import { GoProjectSymlink } from 'react-icons/go';
+import { AiOutlineProfile } from 'react-icons/ai';
+import { MdEditNote } from 'react-icons/md';
+import { CgMoreVerticalR } from 'react-icons/cg';
+import { VscFeedback } from 'react-icons/vsc';
 import { SiGnuprivacyguard } from 'react-icons/si';
 import { GrServices } from 'react-icons/gr';
+
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+import { SafeUser } from '@/app/types';
+import { useModal } from '@/hooks/use-modal-store';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
