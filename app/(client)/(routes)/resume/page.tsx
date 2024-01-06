@@ -39,17 +39,6 @@ const ResumePage = async () => {
                     Click the button, to resume downloading and printing.
                   </h2>
                   <div className="pt-1">
-                    {/* <Link
-                      href={
-                        'https://drive.google.com/file/d/1mbc22zEemgzNRlNF0rQwEmCq7r5u-mZl/view?usp=sharing'
-                      }
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      <Button size="lg" variant="outline">
-                        Download / Print
-                      </Button>
-                    </Link> */}
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>

@@ -207,14 +207,14 @@ const ContactPage = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
-                          Email
+                          Name
                         </FormLabel>
                         <FormControl>
                           <Input
                             disabled={isLoading}
                             {...field}
                             className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
-                            placeholder="Enter your email"
+                            placeholder="Enter your name"
                           />
                         </FormControl>
                         <FormMessage className="text-rose-600" />
