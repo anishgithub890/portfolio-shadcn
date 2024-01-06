@@ -2,29 +2,25 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
+import getCurrentUser from './actions/getCurrentUser';
 
 import ClientOnly from '@/components/client-only';
-import Navbar from '@/components/navbar/navbar';
 import ToasterProvider from '@/components/providers/toaster-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ModalProvider } from '@/components/providers/modal-provider';
 
-import getCurrentUser from './actions/getCurrentUser';
-import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
+import Navbar from '@/components/navbar/navbar';
+import './globals.css';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`http://localhost:3000`),
   title: {
     default: 'Anish | Mahato',
     template: `%s | Anish`,
   },
   description: 'Anish portfolio create by next app',
-  verification: {
-    google: 'google-site-verification=123123123',
-  },
 };
 export default async function RootLayout({
   children,

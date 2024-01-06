@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Typography } from '@material-tailwind/react';
 import { Github, Linkedin } from 'lucide-react';
 import { RiTwitterXFill } from 'react-icons/ri';
 import {
@@ -106,16 +105,13 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-4/12">
-            <Typography
-              variant="h4"
-              className="mb-2 !font-semibold !text-primary text-zinc-500 dark:text-white/75"
-            >
+            <p className="mb-2 text-2xl font-semibold !text-primary text-zinc-500 dark:text-white/75">
               Shadcn for Front/Back-End UI
-            </Typography>
-            <Typography className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">
+            </p>
+            <p className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">
               Beautifully designed components that you can copy and paste into
               your apps. Accessible. Customizable. Open Source.
-            </Typography>
+            </p>
             <div className="mt-6">
               {SOCIAL_MEDIA.map((route) => (
                 <>
