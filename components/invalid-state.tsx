@@ -17,8 +17,12 @@ const InvalidState: React.FC<InvalidStateProps> = ({ showReset }) => {
       </p>
       <div className="pt-2">
         {showReset && (
-          <Button variant="outline" size="sm" onClick={() => router.push('/')}>
-            Home
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => router.push('/project')}
+          >
+            Project
           </Button>
         )}
       </div>
