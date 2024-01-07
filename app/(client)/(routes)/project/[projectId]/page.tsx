@@ -2,7 +2,7 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 import getProjectById from '@/app/actions/getProjectById';
 
 import ClientOnly from '@/components/client-only';
-import EmptyState from '@/components/empty-state';
+import InvalidState from '@/components/invalid-state';
 import ProjectClient from './components/project-client';
 
 interface IParams {
@@ -16,7 +16,9 @@ const ProjectPage = async ({ params }: { params: IParams }) => {
   if (!project) {
     return (
       <ClientOnly>
-        <EmptyState />
+        <div className="pt-24">
+          <InvalidState showReset />
+        </div>
       </ClientOnly>
     );
   }
