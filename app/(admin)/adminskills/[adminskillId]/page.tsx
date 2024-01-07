@@ -2,6 +2,8 @@ import prisma from '@/lib/prismadb';
 
 import { SkillForm } from './components/skill-form';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
+import InvalidState from '@/components/invalid-state';
 
 const AdminSkillPage = async ({
   params,
@@ -13,6 +15,16 @@ const AdminSkillPage = async ({
       id: params.adminskillId,
     },
   });
+
+  if (!skill) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <InvalidState showReset name="Admin Skill" link="/adminskills" />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   return (
     <div className="flex-col pt-14">

@@ -2,6 +2,8 @@ import prisma from '@/lib/prismadb';
 
 import { TermForm } from './components/term-form';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
+import InvalidState from '@/components/invalid-state';
 
 const AdminTermPage = async ({
   params,
@@ -13,6 +15,16 @@ const AdminTermPage = async ({
       id: params.admintermId,
     },
   });
+
+  if (!term) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <InvalidState showReset name="Admin Contact" link="/admincontacts" />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   return (
     <div className="flex-col pt-14">

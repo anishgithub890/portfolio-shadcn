@@ -2,6 +2,8 @@ import prisma from '@/lib/prismadb';
 
 import { PrivacyForm } from './components/privacy-form';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
+import InvalidState from '@/components/invalid-state';
 
 const AdminPrivacyPage = async ({
   params,
@@ -13,6 +15,20 @@ const AdminPrivacyPage = async ({
       id: params.adminprivacyId,
     },
   });
+
+  if (!privacy) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <InvalidState
+            showReset
+            name="Privacy Policy"
+            link="/adminprivacypolicy"
+          />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   return (
     <div className="flex-col pt-14">

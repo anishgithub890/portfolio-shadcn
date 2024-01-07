@@ -2,6 +2,8 @@ import prisma from '@/lib/prismadb';
 
 import { UserForm } from './components/user-form';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
+import InvalidState from '@/components/invalid-state';
 
 const AdminUserPage = async ({
   params,
@@ -13,6 +15,16 @@ const AdminUserPage = async ({
       id: params.adminuserId,
     },
   });
+
+  if (!user) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <InvalidState showReset name="Admin User" link="/adminusers" />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   return (
     <div className="flex-col pt-14">

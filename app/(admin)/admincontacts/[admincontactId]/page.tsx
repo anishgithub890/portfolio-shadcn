@@ -3,7 +3,7 @@ import getAdminContactById from '@/app/actions/getAdminContact';
 
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import EmptyState from '@/components/empty-state';
+import InvalidState from '@/components/invalid-state';
 import AdminContactClient from './components/contact-client';
 
 interface IParams {
@@ -17,7 +17,9 @@ const AdminContactPage = async ({ params }: { params: IParams }) => {
   if (!contact) {
     return (
       <ClientOnly>
-        <EmptyState />
+        <div className="pt-24">
+          <InvalidState showReset name="Admin Contact" link="/admincontacts" />
+        </div>
       </ClientOnly>
     );
   }

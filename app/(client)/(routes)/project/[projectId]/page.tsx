@@ -17,7 +17,7 @@ const ProjectPage = async ({ params }: { params: IParams }) => {
     return (
       <ClientOnly>
         <div className="pt-24">
-          <InvalidState showReset />
+          <InvalidState showReset name="project" link="/project" />
         </div>
       </ClientOnly>
     );

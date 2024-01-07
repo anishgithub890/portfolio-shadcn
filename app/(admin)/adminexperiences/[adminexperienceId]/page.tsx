@@ -2,6 +2,8 @@ import prisma from '@/lib/prismadb';
 
 import { ExperienceForm } from './components/experience-form';
 import Container from '@/components/container';
+import ClientOnly from '@/components/client-only';
+import InvalidState from '@/components/invalid-state';
 
 const AdminExperiencePage = async ({
   params,
@@ -13,6 +15,20 @@ const AdminExperiencePage = async ({
       id: params.adminexperienceId,
     },
   });
+
+  if (!experience) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <InvalidState
+            showReset
+            name="Admin Experience"
+            link="/adminexperiences"
+          />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   return (
     <div className="flex-col pt-14">

@@ -3,7 +3,7 @@ import getAdminFeedbackById from '@/app/actions/getAdminFeedback';
 
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import EmptyState from '@/components/empty-state';
+import InvalidState from '@/components/invalid-state';
 import AdminFeedbackClient from './components/feedback-client';
 
 interface IParams {
@@ -17,7 +17,13 @@ const AdminFeedbackPage = async ({ params }: { params: IParams }) => {
   if (!feedback) {
     return (
       <ClientOnly>
-        <EmptyState />
+        <div className="pt-24">
+          <InvalidState
+            showReset
+            name="Admin Feedback"
+            link="/adminfeedbacks"
+          />
+        </div>
       </ClientOnly>
     );
   }
