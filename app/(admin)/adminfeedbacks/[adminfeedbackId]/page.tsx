@@ -5,6 +5,7 @@ import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
 import InvalidState from '@/components/invalid-state';
 import AdminFeedbackClient from './components/feedback-client';
+import RoleState from '@/components/role-state';
 
 interface IParams {
   adminfeedbackId?: string;
@@ -13,6 +14,16 @@ interface IParams {
 const AdminFeedbackPage = async ({ params }: { params: IParams }) => {
   const feedback = await getAdminFeedbackById(params);
   const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <RoleState />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   if (!feedback) {
     return (

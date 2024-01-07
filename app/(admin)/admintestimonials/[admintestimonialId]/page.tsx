@@ -1,9 +1,11 @@
 import prisma from '@/lib/prismadb';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 import { TestimonialForm } from './components/testimonial-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
 import InvalidState from '@/components/invalid-state';
+import RoleState from '@/components/role-state';
 
 const AdminTestimonialPage = async ({
   params,
@@ -15,6 +17,18 @@ const AdminTestimonialPage = async ({
       id: params.admintestimonialId,
     },
   });
+
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <RoleState />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   if (!testimonial) {
     return (

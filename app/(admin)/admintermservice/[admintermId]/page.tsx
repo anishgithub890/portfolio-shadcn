@@ -1,9 +1,11 @@
 import prisma from '@/lib/prismadb';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 import { TermForm } from './components/term-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
 import InvalidState from '@/components/invalid-state';
+import RoleState from '@/components/role-state';
 
 const AdminTermPage = async ({
   params,
@@ -15,6 +17,18 @@ const AdminTermPage = async ({
       id: params.admintermId,
     },
   });
+
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <RoleState />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   if (!term) {
     return (

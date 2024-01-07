@@ -5,6 +5,7 @@ import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
 import InvalidState from '@/components/invalid-state';
 import AdminContactClient from './components/contact-client';
+import RoleState from '@/components/role-state';
 
 interface IParams {
   admincontactId?: string;
@@ -13,6 +14,16 @@ interface IParams {
 const AdminContactPage = async ({ params }: { params: IParams }) => {
   const contact = await getAdminContactById(params);
   const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <RoleState />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   if (!contact) {
     return (

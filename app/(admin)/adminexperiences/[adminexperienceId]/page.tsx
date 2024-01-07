@@ -1,9 +1,11 @@
 import prisma from '@/lib/prismadb';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 import { ExperienceForm } from './components/experience-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
 import InvalidState from '@/components/invalid-state';
+import RoleState from '@/components/role-state';
 
 const AdminExperiencePage = async ({
   params,
@@ -15,6 +17,18 @@ const AdminExperiencePage = async ({
       id: params.adminexperienceId,
     },
   });
+
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-24">
+          <RoleState />
+        </div>
+      </ClientOnly>
+    );
+  }
 
   if (!experience) {
     return (
