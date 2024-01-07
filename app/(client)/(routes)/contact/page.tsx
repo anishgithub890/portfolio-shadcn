@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Mail, MapPin } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaDiscord } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
@@ -50,9 +50,9 @@ const formSchema = z.object({
 const ContactPage = () => {
   const CONTACTINFO = [
     {
-      icon: FaWhatsapp,
-      detail: '+977-9845695512',
-      tooltip: 'Whats App',
+      icon: FaDiscord,
+      detail: 'username: anishpabe',
+      tooltip: 'Send a direct message on Discord',
     },
     {
       icon: Mail,
