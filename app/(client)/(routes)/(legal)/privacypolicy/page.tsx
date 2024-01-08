@@ -20,14 +20,14 @@ const PrivacyPage = async () => {
         <Container>
           {/* intro-screen */}
           <div className="pt-16">
-            {privacies!.length === 0 ? (
+            {privacies?.length === 0 ? (
               <div className="pt-1">
                 <EmptyState showReset />
               </div>
             ) : (
               <div className="pt-5">
                 <div className="flex-1 pb-4">
-                  <h2 className="text-zinc-900 text-3xl font-bold dark:text-white pb-1">
+                  <h2 className="text-zinc-900 text-3xl font-bold dark:text-white underline underline-offset-8 pb-1">
                     Privacy Policy for Code with Anish
                   </h2>
                   <div className="pt-2">
@@ -35,7 +35,7 @@ const PrivacyPage = async () => {
                   </div>
                 </div>
 
-                {privacies!.map((privacy: any) => {
+                {privacies?.map((privacy: any) => {
                   return (
                     <PrivacyCard
                       currentUser={currentUser}

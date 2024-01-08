@@ -28,7 +28,7 @@ const ResumePage = async () => {
         <Container>
           {/* intro-screen */}
           <div className="pt-16">
-            {resumes!.length === 0 ? (
+            {resumes?.length === 0 ? (
               <div className="pt-1">
                 <EmptyState showReset />
               </div>
@@ -68,7 +68,7 @@ const ResumePage = async () => {
                   </div>
                 </div>
 
-                {resumes!.map((resume: any) => {
+                {resumes?.map((resume: any) => {
                   return (
                     <ResumeCard
                       currentUser={currentUser}
