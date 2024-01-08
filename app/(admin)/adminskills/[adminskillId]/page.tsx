@@ -4,7 +4,6 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 import { SkillForm } from './components/skill-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import InvalidState from '@/components/invalid-state';
 import RoleState from '@/components/role-state';
 
 const AdminSkillPage = async ({
@@ -25,16 +24,6 @@ const AdminSkillPage = async ({
       <ClientOnly>
         <div className="pt-24">
           <RoleState />
-        </div>
-      </ClientOnly>
-    );
-  }
-
-  if (!skill) {
-    return (
-      <ClientOnly>
-        <div className="pt-24">
-          <InvalidState showReset name="Admin Skill" link="/adminskills" />
         </div>
       </ClientOnly>
     );

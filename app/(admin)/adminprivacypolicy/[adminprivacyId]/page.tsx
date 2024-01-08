@@ -4,7 +4,6 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 import { PrivacyForm } from './components/privacy-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import InvalidState from '@/components/invalid-state';
 import RoleState from '@/components/role-state';
 
 const AdminPrivacyPage = async ({
@@ -25,20 +24,6 @@ const AdminPrivacyPage = async ({
       <ClientOnly>
         <div className="pt-24">
           <RoleState />
-        </div>
-      </ClientOnly>
-    );
-  }
-
-  if (!privacy) {
-    return (
-      <ClientOnly>
-        <div className="pt-24">
-          <InvalidState
-            showReset
-            name="Privacy Policy"
-            link="/adminprivacypolicy"
-          />
         </div>
       </ClientOnly>
     );

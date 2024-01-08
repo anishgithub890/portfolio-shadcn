@@ -4,7 +4,6 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 import { TermForm } from './components/term-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import InvalidState from '@/components/invalid-state';
 import RoleState from '@/components/role-state';
 
 const AdminTermPage = async ({
@@ -25,16 +24,6 @@ const AdminTermPage = async ({
       <ClientOnly>
         <div className="pt-24">
           <RoleState />
-        </div>
-      </ClientOnly>
-    );
-  }
-
-  if (!term) {
-    return (
-      <ClientOnly>
-        <div className="pt-24">
-          <InvalidState showReset name="Admin Contact" link="/admincontacts" />
         </div>
       </ClientOnly>
     );

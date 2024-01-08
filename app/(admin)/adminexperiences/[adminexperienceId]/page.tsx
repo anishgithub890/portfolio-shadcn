@@ -4,7 +4,6 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 import { ExperienceForm } from './components/experience-form';
 import Container from '@/components/container';
 import ClientOnly from '@/components/client-only';
-import InvalidState from '@/components/invalid-state';
 import RoleState from '@/components/role-state';
 
 const AdminExperiencePage = async ({
@@ -25,20 +24,6 @@ const AdminExperiencePage = async ({
       <ClientOnly>
         <div className="pt-24">
           <RoleState />
-        </div>
-      </ClientOnly>
-    );
-  }
-
-  if (!experience) {
-    return (
-      <ClientOnly>
-        <div className="pt-24">
-          <InvalidState
-            showReset
-            name="Admin Experience"
-            link="/adminexperiences"
-          />
         </div>
       </ClientOnly>
     );
