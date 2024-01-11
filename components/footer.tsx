@@ -24,13 +24,13 @@ const SOCIAL_MEDIA = [
   {
     icon: Linkedin,
     color: 'text-blue-500',
-    link: 'https://www.linkedin.com/in/anish-mahato-08b43a219/',
+    link: 'https://www.linkedin.com/in/anishpabe',
     tooltip: 'get my linkedin',
   },
   {
     icon: RiTwitterXFill,
     color: 'text-black-500',
-    link: 'https://twitter.com/AnishMa40489848',
+    link: 'https://twitter.com/anishpabe',
     tooltip: 'get my twitter',
   },
 ];
