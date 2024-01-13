@@ -13,7 +13,7 @@ import {
 import { GiSkills } from 'react-icons/gi';
 import { MdReviews } from 'react-icons/md';
 import { GoProjectSymlink } from 'react-icons/go';
-import { AiOutlineProfile } from 'react-icons/ai';
+import { ImProfile } from 'react-icons/im';
 import { MdEditNote } from 'react-icons/md';
 import { CgMoreVerticalR } from 'react-icons/cg';
 import { VscFeedback } from 'react-icons/vsc';
@@ -82,9 +82,9 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => router.push('')}
+              onClick={() => router.push(`/editprofile`)}
             >
-              <AiOutlineProfile className="mr-2 h-4 w-4" />
+              <ImProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -102,6 +102,13 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               Admin Account
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push(`/editprofile`)}
+            >
+              <ImProfile className="mr-2 h-4 w-4 text-sky-500" />
+              <span>Profile</span>
+            </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
               onClick={() => router.push('/admindashboard')}
