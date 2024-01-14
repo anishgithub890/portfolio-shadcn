@@ -105,7 +105,7 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-4/12">
-            <p className="mb-2 text-2xl font-semibold !text-primary text-zinc-500 dark:text-white/75">
+            <p className="mb-2 text-2xl sm:font-bold font-semibold !text-primary text-zinc-500 dark:text-white/75">
               Shadcn for Front/Back-End UI
             </p>
             <p className="text-md mt-0 mb-2 font-normal text-zinc-500 dark:text-white/75">

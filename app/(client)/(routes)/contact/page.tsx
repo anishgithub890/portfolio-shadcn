@@ -148,7 +148,7 @@ const ContactPage = () => {
             >
               {CONTACTINFO.map((data, key) => (
                 <div key={key}>
-                  <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md p-8 md:p-0">
+                  <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md shadow-md p-8 md:p-0">
                     <div className="md:p-8 text-center md:text-left space-y-4">
                       <div className="flex gap-4 dark:text-zinc-900">
                         <TooltipProvider>
@@ -213,7 +213,7 @@ const ContactPage = () => {
                           <Input
                             disabled={isLoading}
                             {...field}
-                            className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                            className="bg-zinc-300/50 shadow-md dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                             placeholder="Enter your name"
                           />
                         </FormControl>
@@ -233,7 +233,7 @@ const ContactPage = () => {
                           <Input
                             disabled={isLoading}
                             {...field}
-                            className="bg-zinc-300/50 dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                            className="bg-zinc-300/50 dark:bg-zinc-600/50 shadow-md border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                             placeholder="Enter your email"
                           />
                         </FormControl>
