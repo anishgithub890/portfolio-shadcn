@@ -4,9 +4,16 @@ import { SafeUser } from '@/app/types';
 import Link from 'next/link';
 import { BsGithub } from 'react-icons/bs';
 import { BiLinkExternal } from 'react-icons/bi';
+
 import { Preview } from '@/components/preview';
 import { UserAvatar } from '@/components/user-avatar';
 import { Separator } from '@/components/ui/separator';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface ProjectInfoProps {
   user: SafeUser;
@@ -51,16 +58,36 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
           </div>
           <Separator orientation="horizontal" />
           <div className="flex gap-6">
-            <Link href={`${githubUrl}`} target="_blank">
-              <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-                <BsGithub className="text-2xl" />
-              </button>
-            </Link>
-            <Link href={`${viewUrl}`} target="_blank">
-              <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-                Live <BiLinkExternal className="text-2xl" />
-              </button>
-            </Link>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link href={`${githubUrl}`} target="_blank">
+                    <button className="py-2 rounded-sm px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+                      <BsGithub className="text-2xl" />
+                    </button>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="font-semibold text-md p-1">
+                    Github source code
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link href={`${viewUrl}`} target="_blank">
+                    <button className="py-2 rounded-sm flex gap-2 px-4 text-slate-700 border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+                      Live <BiLinkExternal className="text-2xl" />
+                    </button>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="font-semibold text-md p-1">Live demo</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </div>
