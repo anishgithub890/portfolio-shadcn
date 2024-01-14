@@ -35,27 +35,28 @@ const SkillCard: React.FC<SkillCardProps> = ({ data }) => {
             <div className="flex flex-col gap-2 w-[6rem] ml-5 mr-5 pt-6 text-center">
               <div
                 className="
-             aspect-square 
-             w-[6rem] 
-             relative 
-             overflow-hidden 
-             gap-2
-             rounded-xl
-             "
+                aspect-square 
+                w-[6rem] 
+                relative 
+                overflow-hidden 
+                gap-2
+                rounded-xl
+                shadow-xl
+                "
               >
                 <Image
                   height="900"
                   width="900"
                   className="
-                object-cover 
-                h-[6rem] 
-                w-[6rem] 
-                group-hover:scale-110
-                bg-neutral-100
-                hover:bg-neutral-200
-                rounded-md
-                transition           
-            "
+                  object-cover 
+                  h-[6rem] 
+                  w-[6rem] 
+                  group-hover:scale-110
+                  bg-neutral-100
+                  hover:bg-neutral-200
+                  rounded-md
+                  transition           
+                 "
                   src={data.imageUrl}
                   alt="Listing"
                 />
