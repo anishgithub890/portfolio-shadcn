@@ -17,7 +17,7 @@ const AdminFeedbackClient: React.FC<FeedbackClientProps> = ({ feedback }) => {
         className="
           max-w-screen-lg 
           mx-auto
-          pt-24
+          pt-10
         "
       >
         <div className="flex flex-col gap-6">
@@ -27,7 +27,7 @@ const AdminFeedbackClient: React.FC<FeedbackClientProps> = ({ feedback }) => {
               grid-cols-1 
               md:grid-cols-7 
               md:gap-10 
-              mt-6
+              mt-2
               pb-6
             "
           >
