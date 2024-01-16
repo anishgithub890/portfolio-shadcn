@@ -26,13 +26,13 @@ const HomePage = async () => {
     <>
       <ClientOnly>
         <Container>
-          <div className="pt-14">
+          <div className="pt-[2px]">
             {/* intro-screen */}
             <div>
               <IntroCard />
             </div>
 
-            <h2 className="font-bold text-3xl text-center pt-5 underline underline-offset-8">
+            <h2 className="font-bold text-3xl text-center pt-4 underline underline-offset-8">
               Skills
             </h2>
 
@@ -41,7 +41,7 @@ const HomePage = async () => {
             ) : (
               <div
                 className="
-                pt-8
+                pt-6
                 grid 
                 grid-cols-3 
                 sm:grid-cols-4 

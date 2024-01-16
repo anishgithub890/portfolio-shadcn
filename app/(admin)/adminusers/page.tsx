@@ -31,7 +31,7 @@ const AdminUsersPage = async () => {
   }));
 
   return (
-    <div className="flex-col pt-14">
+    <div className="flex-col pt-1">
       <Head>
         <title>ANISH | ADMIN-USER</title>
         <meta charSet="utf-8" />

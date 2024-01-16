@@ -19,7 +19,7 @@ const PrivacyPage = async () => {
       <ClientOnly>
         <Container>
           {/* intro-screen */}
-          <div className="pt-16">
+          <div className="pt-1">
             {privacies?.length === 0 ? (
               <div className="pt-1">
                 <EmptyState showReset />

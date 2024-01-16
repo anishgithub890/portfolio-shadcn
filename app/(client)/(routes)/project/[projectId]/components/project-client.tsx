@@ -23,7 +23,7 @@ const ProjectClient: React.FC<ProjectClientProps> = ({
         className="
           max-w-screen-lg 
           mx-auto
-          pt-24
+          pt-6
         "
       >
         <div className="flex flex-col gap-6">
@@ -39,7 +39,7 @@ const ProjectClient: React.FC<ProjectClientProps> = ({
               grid-cols-1 
               md:grid-cols-7 
               md:gap-10 
-              mt-6
+              pt-2
               pb-6
             "
           >

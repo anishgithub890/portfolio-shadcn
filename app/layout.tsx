@@ -12,6 +12,7 @@ import { ModalProvider } from '@/components/providers/modal-provider';
 import { Toaster } from '@/components/ui/sonner';
 import Navbar from '@/components/navbar/navbar';
 import './globals.css';
+import BreadCrumb from '@/components/bread-crumb';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
@@ -44,6 +45,14 @@ export default async function RootLayout({
               <ToasterProvider />
               <Toaster />
               <Navbar currentUser={currentUser} />
+              <BreadCrumb
+                homeElement={'Home'}
+                separator={<span> | </span>}
+                activeClasses="text-amber-500"
+                containerClasses="flex"
+                listClasses="hover:underline mx-2 font-bold"
+                capitalizeLinks
+              />
               {children}
             </ClientOnly>
           </ThemeProvider>

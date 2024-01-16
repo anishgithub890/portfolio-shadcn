@@ -32,7 +32,7 @@ const AdminContactsPage = async () => {
   }));
 
   return (
-    <div className="flex-col pt-14">
+    <div className="flex-col pt-1">
       <Container>
         {currentUser?.role == 'user' ? (
           <div>

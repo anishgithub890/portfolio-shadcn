@@ -15,21 +15,20 @@ const ProjectPage = async () => {
     <>
       <ClientOnly>
         <Container>
-          <div className="pt-14">
-            <div className="pt-1">
-              <div className="underline underline-offset-[0.5rem] decoration-dashed">
-                <p className="font-bold uppercase text-3xl text-center block bg-gradient-to-r text-slate-700 from-pink-500 to-violet-500 bg-clip-text text-transparent pt-4">
-                  My Creative Section
-                </p>
+          <div>
+            <div className="underline underline-offset-[0.5rem] decoration-dashed">
+              <p className="font-bold uppercase text-3xl text-center block bg-gradient-to-r text-slate-700 from-pink-500 to-violet-500 bg-clip-text text-transparent pt-2">
+                My Creative Section
+              </p>
+            </div>
+            {projects?.length === 0 ? (
+              <div className="pt-1">
+                <EmptyState />
               </div>
-              {projects?.length === 0 ? (
-                <div className="pt-1">
-                  <EmptyState />
-                </div>
-              ) : (
-                <div
-                  className="
-                pt-8
+            ) : (
+              <div
+                className="
+                pt-5
                 grid
                 grid-cols-1
                 sm:grid-cols-1
@@ -39,21 +38,20 @@ const ProjectPage = async () => {
                 2xl:grid-cols-3
                 gap-4
               "
-                >
-                  {projects?.map((project: any) => {
-                    return (
-                      <ProjectCard
-                        currentUser={currentUser}
-                        key={project.id}
-                        data={project}
-                      />
-                    );
-                  })}
-                </div>
-              )}
-              <div className="pt-2">
-                <Footer />
+              >
+                {projects?.map((project: any) => {
+                  return (
+                    <ProjectCard
+                      currentUser={currentUser}
+                      key={project.id}
+                      data={project}
+                    />
+                  );
+                })}
               </div>
+            )}
+            <div className="pt-2">
+              <Footer />
             </div>
           </div>
         </Container>

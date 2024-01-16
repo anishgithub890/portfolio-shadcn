@@ -30,7 +30,7 @@ const AdminTestimonialPage = async ({
   }
 
   return (
-    <div className="flex-col pt-14">
+    <div className="flex-col pt-1">
       <Container>
         <div className="flex-1 space-y-4 p-8 pt-6">
           <TestimonialForm initialData={testimonial} />

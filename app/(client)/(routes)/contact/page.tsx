@@ -114,7 +114,7 @@ const ContactPage = () => {
 
   return (
     <ClientOnly>
-      <div className="pt-14">
+      <div className="pt-2">
         {loading ? (
           <Container>
             <div className="flex h-[60vh] w-full items-center justify-center pt-24 duration-500">
@@ -123,7 +123,7 @@ const ContactPage = () => {
           </Container>
         ) : (
           <Container>
-            <div className="pt-8 text-center flex-row">
+            <div className="pt-2 text-center flex-row">
               <p className="text-xl font-light text-muted-foreground text-zinc-500 dark:text-white">
                 get in touch
               </p>

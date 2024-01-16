@@ -68,7 +68,7 @@ const AdminDashboardPage = async () => {
   return (
     <>
       <Container>
-        <div className="flex-col pt-14">
+        <div className="flex-col pt-1">
           {currentUser?.role == 'user' ? (
             <div>
               <RoleState
