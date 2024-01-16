@@ -39,6 +39,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { UserAvatar } from '@/components/user-avatar';
+import { Button } from '../ui/button';
 
 interface ServerHeaderProps {
   currentUser?: SafeUser | null;
@@ -52,28 +53,33 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
-        <button className="w-full text-md font-semibold px-3 flex items-center h-12 transition">
+        <div className="w-full text-md font-semibold px-3 flex items-center h-12 transition">
           <div
             className="
               p-[0.35rem]
-              border-[1px]
-              border-zinc-[1px]
-              dark:border-zinc-700
-              dark:bg-zinc-900
               flex
               flex-row
               items-center
               gap-3
-              rounded-md
               cursor-pointer
-              dark:hover:bg-zinc-800
-              hover:bg-zinc-100  
               transition
             "
           >
-            <UserAvatar src={currentUser?.imageUrl} />
+            <div>
+              {currentUser ? (
+                <>
+                  <UserAvatar src={currentUser?.imageUrl} />
+                </>
+              ) : (
+                <>
+                  <Button variant="outline" size="default">
+                    Sign In
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
-        </button>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
         {currentUser?.role == 'user' ? (
