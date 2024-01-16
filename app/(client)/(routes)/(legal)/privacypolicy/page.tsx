@@ -25,7 +25,7 @@ const PrivacyPage = async () => {
                 <EmptyState showReset />
               </div>
             ) : (
-              <div className="pt-5">
+              <div className="pt-1">
                 <div className="flex-1 pb-4">
                   <h2 className="text-zinc-900 text-3xl font-bold dark:text-white underline underline-offset-8 pb-1">
                     Privacy Policy for Code with Anish

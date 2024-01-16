@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/tooltip';
 
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const YEAR = new Date().getFullYear();
 
@@ -100,6 +101,7 @@ const TECHS = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
   return (
     <footer className="z-50 bg-white dark:bg-slate-900/0 px-8 pt-12 pb-6">
       <div className="container mx-auto">
@@ -112,31 +114,33 @@ export function Footer() {
               Beautifully designed components that you can copy and paste into
               your apps. Accessible. Customizable. Open Source.
             </p>
-            <div className="mt-6">
-              {SOCIAL_MEDIA.map((route) => (
+            <div className="mt-6 flex">
+              {SOCIAL_MEDIA.map((route, key) => (
                 <>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Link
-                          key={route.link}
-                          href={route.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          as=""
-                        >
-                          <div className="font-xl align-center mr-2 inline-block items-center hover:bg-zinc-200 justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
-                            <route.icon
-                              className={cn('h-5 w-5', route.color)}
-                            />
-                          </div>
-                        </Link>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="text-sm">{route.tooltip}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <div key={key}>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link
+                            key={route.link}
+                            href={route.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            as=""
+                          >
+                            <div className="font-xl align-center mr-2 inline-block items-center hover:bg-zinc-200 justify-center rounded-full border-[1.5px] border-blue-gray-50 p-3 text-center text-primary dark:bg-zinc-800 hover:dark:bg-zinc-900 outline-none focus:outline-none transition">
+                              <route.icon
+                                className={cn('h-5 w-5', route.color)}
+                              />
+                            </div>
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="text-sm">{route.tooltip}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
                 </>
               ))}
             </div>
@@ -152,10 +156,17 @@ export function Footer() {
                     <li key={key}>
                       <Link
                         href={link}
-                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                         as=""
+                        className={cn(
+                          'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors',
+                          pathname === link
+                            ? 'block pb-2 text-sm font-semibold leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                            : 'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                        )}
                       >
-                        {name}
+                        <div className="flex flex-col cursor-pointer">
+                          {name}
+                        </div>
                       </Link>
                     </li>
                   ))}
@@ -170,10 +181,17 @@ export function Footer() {
                     <li key={key}>
                       <Link
                         href={link}
-                        className="block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors"
                         as=""
+                        className={cn(
+                          'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors',
+                          pathname === link
+                            ? 'block pb-2 text-sm font-semibold leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                            : 'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                        )}
                       >
-                        {name}
+                        <div className="flex flex-col cursor-pointer">
+                          {name}
+                        </div>
                       </Link>
                     </li>
                   ))}
