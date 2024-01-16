@@ -28,7 +28,7 @@ const RoleState: React.FC<RoleStateProps> = ({
         gap-2
         justify-center 
         items-center
-        pt-[12rem]
+        pt-1
       "
     >
       <Image

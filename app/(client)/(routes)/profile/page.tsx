@@ -1,14 +1,26 @@
 import getCurrentUser from '@/app/actions/getCurrentUser';
-import EditProfileClient from './components/editprofile-client';
+import ProfileClient from './components/profile-client';
+import ClientOnly from '@/components/client-only';
+import RoleState from '@/components/role-state';
 
 const EditProfile = async () => {
   const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <ClientOnly>
+        <div className="pt-[1px]">
+          <RoleState showReset />
+        </div>
+      </ClientOnly>
+    );
+  }
+
   return (
     <>
-      <div>Edit Profile -----</div>
-      <div>
-        <EditProfileClient currentUser={currentUser} />
-      </div>
+      <ClientOnly>
+        <ProfileClient currentUser={currentUser} />
+      </ClientOnly>
     </>
   );
 };

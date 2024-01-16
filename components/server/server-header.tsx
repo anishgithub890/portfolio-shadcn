@@ -88,7 +88,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
-              onClick={() => router.push('')}
+              onClick={() => router.push('/profile')}
             >
               <AiOutlineProfile className="mr-2 h-4 w-4" />
               <span>Profile</span>
@@ -114,6 +114,13 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
             >
               <LayoutDashboard className="mr-2 h-4 w-4" />
               <span>Dashboard</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="px-3 py-2 text-sm cursor-pointer"
+              onClick={() => router.push('/profile')}
+            >
+              <AiOutlineProfile className="mr-2 h-4 w-4" />
+              <span>Profile</span>
             </DropdownMenuItem>
             <DropdownMenuItem
               className="px-3 py-2 text-sm cursor-pointer"
