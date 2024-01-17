@@ -1,17 +1,30 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { SafeUser } from '@/app/types';
 import Container from '@/components/container';
+import { Button } from '@/components/ui/button';
 
 interface ProfileClientProps {
   currentUser?: SafeUser | null;
 }
 
 const EditProfileClient = ({ currentUser }: ProfileClientProps) => {
+  const router = useRouter();
   return (
     <Container>
       <div className="max-w-screen-sm mx-auto pt-6">
         <div className="flex flex-col gap-6">
+          <div className="flex justify-end">
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => router.push(`/profile/${currentUser?.id}`)}
+            >
+              Edit Profile
+            </Button>
+          </div>
           <div className="w-full h-[60vh] overflow-hidden items-center justify-center text-center relative">
             <div className="text-xl space-y-4 pt-2 pb-2 gap-4 border-4 rounded-md">
               <div className="text-start pl-2 break-all">
