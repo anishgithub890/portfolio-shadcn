@@ -106,10 +106,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                 </a>
               </div>
               <ModeToggle />
-              <div className="h-10 pl-3 md:hidden">
+              <div className="h-10 pl-3 md:block hidden">
                 <Separator orientation="vertical" />
               </div>
-              <div className="flex flex-col pl-2">
+              <div className="flex-col pl-2 md:block hidden">
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>

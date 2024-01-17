@@ -73,7 +73,7 @@ export const ServerHeader: React.FC<ServerHeaderProps> = ({ currentUser }) => {
               ) : (
                 <>
                   <Button variant="outline" size="default">
-                    Sign In
+                    Log In
                   </Button>
                 </>
               )}
