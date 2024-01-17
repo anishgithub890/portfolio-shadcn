@@ -36,7 +36,7 @@ const SOCIAL_MEDIA = [
   },
 ];
 
-const COMPANY = [
+const ROUTESLINK = [
   {
     name: 'Home',
     link: '/',
@@ -151,8 +151,8 @@ export function Footer() {
                 <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Important links
                 </span>
-                <ul className="list-unstyled">
-                  {COMPANY.map(({ name, link }, key) => (
+                <ul>
+                  {ROUTESLINK.map(({ name, link }, key) => (
                     <li key={key}>
                       <Link
                         href={link}
@@ -160,7 +160,7 @@ export function Footer() {
                         className={cn(
                           'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors',
                           pathname === link
-                            ? 'block pb-2 text-sm font-semibold leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                            ? 'block pb-2 text-sm font-semibold underline underline-offset-2 leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
                             : 'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
                         )}
                       >
@@ -176,7 +176,7 @@ export function Footer() {
                 <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Help and Support
                 </span>
-                <ul className="list-unstyled">
+                <ul>
                   {HELP.map(({ name, link }, key) => (
                     <li key={key}>
                       <Link
@@ -185,7 +185,7 @@ export function Footer() {
                         className={cn(
                           'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors',
                           pathname === link
-                            ? 'block pb-2 text-sm font-semibold leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
+                            ? 'block pb-2 text-sm font-semibold underline underline-offset-2 leading-relaxed text-zinc-900 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
                             : 'block pb-2 text-sm font-normal leading-relaxed text-zinc-500 hover:text-zinc-700 dark:text-white/75 hover:dark:text-white/95 transition-colors'
                         )}
                       >
@@ -201,7 +201,7 @@ export function Footer() {
                 <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Resources
                 </span>
-                <ul className="list-unstyled">
+                <ul>
                   {RESOURCES.map(({ name, link }, key) => (
                     <li key={key}>
                       <Link
@@ -221,7 +221,7 @@ export function Footer() {
                 <span className="text-md mb-4 block font-medium text-zinc-900 dark:text-white">
                   Tehnologies
                 </span>
-                <ul className="list-unstyled">
+                <ul>
                   {TECHS.map(({ name, link }, key) => (
                     <li key={key}>
                       <Link
@@ -269,7 +269,7 @@ export function Footer() {
               </span>
             </div>
           </div>
-          <div className="ml-auto w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
+          <div className="ml-auto break-all w-full px-4 text-center md:w-4/12 md:px-0 md:text-right">
             <Link
               href="privacypolicy"
               as=""

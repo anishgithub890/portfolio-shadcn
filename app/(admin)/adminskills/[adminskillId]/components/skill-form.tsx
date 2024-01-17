@@ -152,6 +152,7 @@ export const SkillForm: React.FC<SkillFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="name"
                       placeholder="skill name"
                       {...field}
                     />

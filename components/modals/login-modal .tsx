@@ -86,7 +86,6 @@ export const LoginModal = () => {
             onClick: () => console.log('Undo'),
           },
         });
-        // toast.error(callback.error);
       }
     });
   };
@@ -121,9 +120,10 @@ export const LoginModal = () => {
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter your email"
                         {...field}
+                        type="email"
+                        className="bg-zinc-300/50 shadow-sm dark:bg-zinc-200/50 border-0 focus-visible:ring-0 text-black dark:text-zinc-900 focus-visible:ring-offset-0 p-6 text-sm"
+                        placeholder="Enter your email"
                       />
                     </FormControl>
                     <FormMessage />
@@ -142,7 +142,7 @@ export const LoginModal = () => {
                       <Input
                         disabled={isLoading}
                         type="password"
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        className="bg-zinc-300/50 shadow-sm dark:bg-zinc-200/50 border-0 focus-visible:ring-0 text-black dark:text-zinc-900 focus-visible:ring-offset-0 p-6 text-sm"
                         placeholder="Enter your password"
                         {...field}
                       />

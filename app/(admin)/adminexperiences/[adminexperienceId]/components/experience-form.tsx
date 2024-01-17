@@ -147,6 +147,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="year"
                       placeholder="Experience year"
                       {...field}
                     />
@@ -164,6 +165,7 @@ export const ExperienceForm: React.FC<ExperienceFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="language"
                       placeholder="Framework or language"
                       {...field}
                     />

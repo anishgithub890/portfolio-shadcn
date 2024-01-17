@@ -179,6 +179,7 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="name"
                       placeholder="testimonial name"
                       {...field}
                     />
@@ -196,6 +197,7 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="role"
                       placeholder="testimonial role"
                       {...field}
                     />
@@ -213,6 +215,7 @@ export const TestimonialForm: React.FC<TestimonialFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="company"
                       placeholder="testimonial company"
                       {...field}
                     />

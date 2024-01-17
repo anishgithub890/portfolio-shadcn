@@ -53,7 +53,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
           <div className="text-lg dark:text-zinc-900 font-medium text-zinc-900">
             {name}
           </div>
-          <div className="text-md font-medium dark:text-white text-zinc-900">
+          <div className="text-md font-medium dark:text-zinc-900 text-zinc-900">
             <Preview value={explanation} />
           </div>
           <Separator orientation="horizontal" />

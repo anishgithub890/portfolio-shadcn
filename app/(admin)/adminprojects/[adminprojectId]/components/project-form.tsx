@@ -165,6 +165,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="name"
                       placeholder="Project name"
                       {...field}
                     />
@@ -182,6 +183,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="viewUrl"
                       placeholder="live project url"
                       {...field}
                     />
@@ -199,6 +201,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="githubUrl"
                       placeholder="github project url"
                       {...field}
                     />

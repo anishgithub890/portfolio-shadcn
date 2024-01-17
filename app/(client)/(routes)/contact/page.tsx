@@ -213,6 +213,7 @@ const ContactPage = () => {
                           <Input
                             disabled={isLoading}
                             {...field}
+                            type="name"
                             className="bg-zinc-300/50 shadow-md dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                             placeholder="Enter your name"
                           />
@@ -233,6 +234,7 @@ const ContactPage = () => {
                           <Input
                             disabled={isLoading}
                             {...field}
+                            type="email"
                             className="bg-zinc-300/50 dark:bg-zinc-600/50 shadow-md border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
                             placeholder="Enter your email"
                           />

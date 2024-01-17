@@ -150,6 +150,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="name"
                       placeholder="user name"
                       {...field}
                     />
@@ -167,6 +168,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="email"
                       placeholder="user email"
                       {...field}
                     />
@@ -211,6 +213,7 @@ export const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={loading}
+                      type="password"
                       placeholder="user password"
                       {...field}
                     />
