@@ -154,7 +154,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
-                    Password Is Bcrypt
+                    Bcrypt Password
                   </FormLabel>
                   <FormControl>
                     <Input
