@@ -6,8 +6,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
-import { Trash } from 'lucide-react';
+import { toast } from 'sonner';
 import { User } from '@prisma/client';
 import { useParams, useRouter } from 'next/navigation';
 
@@ -21,18 +20,8 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { HeadingTheme } from '@/components/ui/heading-theme';
-import { AlertModal } from '@/components/modals/alert-modal';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -62,10 +51,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
   const params = useParams();
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit profile' : 'Create profile';
+  const title = initialData ? 'Edit Profile' : 'Create Profile';
   const description = initialData ? 'Edit a profile' : 'Add a new profile';
   const toastMessage = initialData ? 'Profile updated' : 'Profile created';
   const action = initialData ? 'Save changes' : 'Create';
@@ -90,9 +78,19 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
       }
       router.refresh();
       router.push(`/profile`);
-      toast.success(toastMessage);
+      toast.success(toastMessage, {
+        action: {
+          label: 'Close',
+          onClick: () => console.log('Undo'),
+        },
+      });
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Something went wrong.', {
+        action: {
+          label: 'Close',
+          onClick: () => console.log('Undo'),
+        },
+      });
     } finally {
       setLoading(false);
     }
@@ -109,21 +107,24 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <div className="md:grid md:grid-cols-3 space-y-6 sm:space-y-0 gap-8">
+          <div className="md:grid md:grid-cols-1 space-y-6 sm:space-y-0 gap-8">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Name</FormLabel>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                    Name
+                  </FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user name"
                       {...field}
+                      className="bg-zinc-300/50 shadow-sm dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                      placeholder="Enter your name"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-rose-600" />
                 </FormItem>
               )}
             />
@@ -132,15 +133,18 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Email</FormLabel>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                    Email
+                  </FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user email"
                       {...field}
+                      className="bg-zinc-300/50 shadow-sm dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                      placeholder="Enter your email"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-rose-600" />
                 </FormItem>
               )}
             />
@@ -149,15 +153,18 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>User Password Is Bcrypt</FormLabel>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                    Password Is Bcrypt
+                  </FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="user password"
                       {...field}
+                      className="bg-zinc-300/50 shadow-sm dark:bg-zinc-600/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 p-8 text-sm"
+                      placeholder="change password"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-rose-600" />
                 </FormItem>
               )}
             />

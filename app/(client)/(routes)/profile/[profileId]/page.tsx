@@ -32,7 +32,7 @@ const EditProfilePage = async ({
   return (
     <div className="flex-col pt-1">
       <Container>
-        <div className="flex-1 space-y-4 p-8 pt-6">
+        <div className="flex-1 max-w-screen-sm mx-auto space-y-4 p-8 pt-6">
           <ProfileForm initialData={user} />
         </div>
       </Container>
