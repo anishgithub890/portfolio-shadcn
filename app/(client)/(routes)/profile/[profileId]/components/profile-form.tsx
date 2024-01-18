@@ -76,8 +76,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ initialData }) => {
       } else {
         await axios.post(`/api/register`, data);
       }
+      router.push('/profile');
       router.refresh();
-      router.push(`/profile`);
       toast.success(toastMessage, {
         action: {
           label: 'Close',
