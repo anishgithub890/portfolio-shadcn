@@ -25,7 +25,7 @@ const Profile = ({ id }: { id: number }) => {
 
   return (
     <Container>
-      <section className="justify-center">
+      <section className="justify-center hover:shadow-2xl">
         <motion.div
           initial={false}
           animate={

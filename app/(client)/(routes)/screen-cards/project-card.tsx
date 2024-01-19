@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   return (
     <>
       <ClientOnly>
-        <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md shadow-md p-8 md:p-0 hover:-translate-y-1 duration-300">
+        <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md hover:shadow-2xl shadow-md p-8 md:p-0 hover:-translate-y-1 duration-300">
           <div className="pt-4 md:p-8 text-left space-y-[1px]">
             <div onClick={handleClick} className="items-center">
               <Image

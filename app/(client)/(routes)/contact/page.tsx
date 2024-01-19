@@ -148,7 +148,7 @@ const ContactPage = () => {
             >
               {CONTACTINFO.map((data, key) => (
                 <div key={key}>
-                  <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md shadow-md p-8 md:p-0">
+                  <div className="md:flex bg-slate-100 hover:bg-slate-200 transition rounded-md hover:shadow-2xl shadow-md p-8 md:p-0">
                     <div className="md:p-8 text-center md:text-left space-y-4">
                       <div className="flex gap-4 dark:text-zinc-900">
                         <TooltipProvider>
